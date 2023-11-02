@@ -4,34 +4,10 @@
 	<subtitle>I am writing about beliefs, bro.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2023-11-01T00:00:00Z</updated>
+	<updated>2023-11-02T04:02:49Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
 		<email>tristinbeckman@gmail.com.com</email>
 	</author>
-	
-	<entry>
-		<title>How Wrong are Polls?</title>
-		<link href="https://tristinb.github.io/blog/polls/"/>
-		<updated>2023-11-01T00:00:00Z</updated>
-		<id>https://tristinb.github.io/blog/polls/</id>
-		<content type="html">&lt;p&gt;With tiny response rates and a recent history of &amp;quot;missing&amp;quot; critical election results, the conventional wisdom is that polls can no longer be trusted. But can they? How do random polls compare to new innovations, such as longitudinal panels employed by companies such as YouGov?&lt;/p&gt;
-&lt;h3 id=&quot;what-do-we-mean-by-good-polls&quot; tabindex=&quot;-1&quot;&gt;What do we mean by &amp;quot;good polls&amp;quot;? &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/polls/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Historically, polls represented their results as being plus or minus three percent from the true value. Somewhat like the magical two percent inflation target, this was seen as sufficiently close to the true value to be seen as reasonably.&lt;/p&gt;
-&lt;p&gt;The error rate comes from statistics, with the assumption that you are taking a perfectly random sample of the population. With 1000 people sampled at random, you have about a 95 percent chance of the true value coming within +/- 3 percent of the estimated value.&lt;/p&gt;
-&lt;p&gt;Election polling is systematically biased; averages don&#39;t work to cancel out errors&lt;/p&gt;
-&lt;p&gt;Things you cannot control for for a survey sample to be unbiased: did you just hear about x? People who watch the news more may be more likely to respond a certain way. Or a particular YouTube channel.
-- Do we want to capture this bias?&lt;/p&gt;
-&lt;h3 id=&quot;where-is-opinion-likely-to-move&quot; tabindex=&quot;-1&quot;&gt;Where is opinion likely to move? &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/polls/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;We have messengers, and receivers. Receivers have opinion on a range of things, from individuals, to policies. Here demand effects may matter.&lt;/p&gt;
-&lt;p&gt;What are we likely to track?&lt;/p&gt;
-&lt;p&gt;How much bias can we expect in other areas? Can think of the costs/benefits of actually voting&lt;/p&gt;
-&lt;p&gt;Here we can run a simple simulation&lt;/p&gt;
-&lt;pre class=&quot;language-python&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; matplotlib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pyplot &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; plt
-&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; scipy &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; stats
-
-x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stats&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;binom&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;.52&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rvs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-</content>
-	</entry>
 </feed>

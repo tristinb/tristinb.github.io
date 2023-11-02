@@ -2,6 +2,7 @@
 title: How Wrong are Polls?
 description: This post asks to what extent we can actually trust polls.
 date: 2023-11-01
+draft: true
 tags:
     - polls
     - woohoo

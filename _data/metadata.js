@@ -1,5 +1,5 @@
 module.exports = {
-	title: "The Process of Belief",
+	title: "Processing Beliefs",
 	url: "https://tristinb.github.io/",
 	language: "en",
 	description: "I am writing about beliefs, bro.",

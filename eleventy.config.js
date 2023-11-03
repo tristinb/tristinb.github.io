@@ -10,7 +10,26 @@ const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginImages = require("./eleventy.config.images.js");
 
+const markdownIt = require("markdown-it");
+const markdownItFootnote = require("markdown-it-footnote");
+const mathjaxPlugin = require("eleventy-plugin-mathjax");
+
 module.exports = function(eleventyConfig) {
+	
+	eleventyConfig.addPlugin(mathjaxPlugin);
+
+	  // set markdown footnote processor
+	  let options = {
+		html: true, // Enable HTML tags in source
+		breaks: true,  // Convert '\n' in paragraphs into <br>
+		linkify: true // Autoconvert URL-like text to links
+	  };
+	  
+	  // configure the library with options
+	  let markdownLib =  markdownIt(options).use(markdownItFootnote);
+	  // set the library to process markdown files
+	  eleventyConfig.setLibrary("md", markdownLib);
+
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig.addPassthroughCopy({

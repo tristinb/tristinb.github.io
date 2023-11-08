@@ -16,6 +16,15 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
+<script src="https://utteranc.es/client.js"
+		repo="tristinb/tristinb.github.io"
+		issue-term="title"
+		label="💬"
+		theme="preferred-color-scheme"
+		crossorigin="anonymous"
+		async>
+</script>
+
 {%- if collections.posts %}
 {%- set previousPost = collections.posts | getPreviousCollectionItem %}
 {%- set nextPost = collections.posts | getNextCollectionItem %}

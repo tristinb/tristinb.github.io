@@ -44,6 +44,7 @@
 	"dependencies": {
 		"eleventy-plugin-mathjax": "^2.0.4",
 		"markdown-it": "^13.0.2",
+		"markdown-it-attrs": "^4.1.6",
 		"markdown-it-footnote": "^3.0.3"
 	}
 }

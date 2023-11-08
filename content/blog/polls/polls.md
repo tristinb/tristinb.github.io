@@ -1,5 +1,5 @@
 ---
-title: How Much Error is in a Poll?
+title: Sources of Polling Error
 description: This post provides an overview of polling and explores the margin of error in a poll.
 date: 2023-11-08
 draft: false

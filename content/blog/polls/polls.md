@@ -6,9 +6,9 @@ draft: false
 tags: [polls]
 ---
 
-Pollsters and journalists often present polling results as being correct to within a plus or minus three percentage points, with 95 percent confidence. However, we often see election results fall outside this three percentage point error. In the 2020 election, for example, polls missed by an average of [4.5 percentage points at the national level](https://aapor.org/wp-content/uploads/2022/11/Task-Force-on-2020-Pre-Election-Polling_Executive-Summary.pdf). This post explores where this additional polling error comes from and how we should interpret polls in light of this additional error. Since polls are surveys of respondents' vote preferences, I use the words polls and surveys synonymously.
+Pollsters and journalists often present polling results as being correct to within a plus or minus three percentage points, with 95 percent confidence. However, we often see election results fall outside this three percentage point error. In the 2020 election, for example, polls missed by an average of [4.5 percentage points at the national level](https://aapor.org/wp-content/uploads/2022/11/Task-Force-on-2020-Pre-Election-Polling_Executive-Summary.pdf). This post explores where this additional polling error comes from and how we should interpret polls in light of this additional error. As a quick note, since polls are surveys of respondents' vote preferences, I use the words polls and surveys synonymously.
 
-## The 3 percent margin of error comes from sampling error
+## Sampling Error: The Plus or Minus 3 Percent
 
 If we assume a three percent margin of error and we see a poll that says 54 percent of the respondents prefer Hans to Franz then we can be 95 percent confident that the true proportion of the population as a whole that prefers Hans lies somewhere between 51 and 57 percent. The "95 percent confident" means that if we ran our poll a million times, we would only see a result less than 51 percent or greater than 57 in only 5 percent of these polls.
 
@@ -60,7 +60,7 @@ The output shows that close to five percent of the estimates fell outside of plu
 
 The three percentage point error above occurs because we only take a sample of 1,000 from the population rather than measuring the whole thing. Randomness in who is sampled leads to deviations from the population's true value. However, sources other than sampling error generally cause polls and surveys to be off.
 
-## Bias: Who Answers Polls?
+## Bias: Who Answers Pollsters?
 
 In addition to sampling error, any error in a poll can be decomposed to two factors: bias and variance. Bias is how systematically wrong polls tend to be in a certain direction. For example, when polls all tend to overestimate their support for Franz, they are biased. Variance is the error in excess of the sampling error described above, but is not associated with any particular direction -- it can be either to favorable or too unfavorable to Franz. Typically, tools to reduce bias increase variance and vice-versa, this is the well-known [bias-variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff).
 
@@ -127,7 +127,7 @@ In other words, only 24 out of the 10 thousand polls were within 3 percentage po
 
 From this example, we can see that substantial bias can result when one segment of the population does not respond to the poll and this segment also has different views than those more likely to respond. Fortunately, we can adjust for this bias, at least when we know who is under-responding.
 
-### Correcting Bias, Adding Variance
+## Correcting Bias, Adding Variance
 
 The code above also included weights. Let's assume that the pollster knew the true distribution of groups A and B in the population, which we defined as 50/50. Let's also assume that the only factor that impacts how likely someone is to respond to the poll is what group they are in. 
 
@@ -147,28 +147,23 @@ After this bias correction, we now have nearly 20 percent of each pall falling o
 
 Unfortunately, pollster's efforts to adjust for bias often results in more variance. Because you may add substantial weight to a small number of respondents, the makeup of these particular respondents can cause poll results to fluctuate wildly. A notable example occured in 2016, when [one person was weighted around 30 times as much as the average respondent](https://www.nytimes.com/2016/10/13/upshot/how-one-19-year-old-illinois-man-is-distorting-national-polling-averages.html). When this person was out of the sample Clinton led; when he was included Clinton trailed. This poll wasn't necessarily systematically pro or anti Clinton, but the inclusion of this one additional respondent made the poll's expected level of Clinton support to vary far beyond what sampling error alone would have us believe.
 
-### How Does This Compare to Real Life?
+## How Does This Impact Professional Polls?
 
-A 2018 paper by Shirani-Mehr et al [^2] analyzed US gubernatorial, senatorial, and presidential election polls in the final three weeks of the campaign between 1998 and 2014 with the goal of disentangling the amount of bias, and variance, in the polls. They find that, on average, bias is about 2 percentage points. These biases aren't systematically pro or against either party but fluctuate at random -- if there was a correlation with political party, it could be adjusted for. 
+A 2018 paper by Shirani-Mehr and coauthors [^2] analyzed US gubernatorial, senatorial, and presidential election polls in the final three weeks of the campaign between 1998 and 2014 with the goal of disentangling the amount of bias and variance in the polls. They find that, on average, bias is about 2 percentage points. This bias isn't systematically for or against either party but fluctuates at random -- if there was a correlation with political party, it could be adjusted for. 
 
-Additionally, the paper finds that variance is about 1.5 percentage points more than we would expect from sampling error alone. The authors speculate this is due to the methods pollsters use to account for bias. Taken together, the additional bias and variance suggests that rather than assuming polls are accurate to within +/- 3 percentage points, we should really assume they are accurate to within +/- 6 to 7 percentage points.
+Additionally, the paper finds that variance is about 1.5 percentage points more than we would expect from sampling error alone. The authors speculate this is due to the methods pollsters use to account for bias. Taken together, the additional bias and variance suggests that rather than assuming polls are accurate to within +/- 3 percentage points, we should really assume they are accurate to within +/- 6 to 7 percentage points. This spread would have covered many of the polls in 2020, the biggest polling miss since 1980, where the average poll was off by [5.1 percent at the state level](https://aapor.org/wp-content/uploads/2022/11/Task-Force-on-2020-Pre-Election-Polling_Executive-Summary.pdf).
 
-<!-- Going back to the 2020 election, which was according to the American Association for Public Opinion Research, [the biggest polling miss since 1980](https://aapor.org/wp-content/uploads/2022/11/Task-Force-on-2020-Pre-Election-Polling_Executive-Summary.pdf). Pollster's missed despite incorporating what they assumed biased their polls in 2016. The report finds that average error was about 4.5 percent at the national level, and 5.1 percent at the state level, both within the 6-7 point margin discussed above. -->
+In addition to assuming the margin of error is much larger than 3 percent -- which doesn't even make sense in theory since we know there is more than sampling error leaking into polls -- we should think hard about who decides to respond to a poll when interpreting its results, since polls can fail drastically if biasness isn't accounted for.
 
-### Where do We Go?
-
-The 3 percent margin of error often reported with a poll refers to sampling error alone. But many other factors combine to make this error substantially larger. 
-
-If non-response is correlated to a specific outcome, the poll will be biased away from the preferences of the group that fails to respond. If pollsters can measure the characteristic behind who doesn't respond -- if a certain demographic is less likely to respond -- they can adjust the results, even if it risks adding more variance. However, more generally pollsters cannot measure the characteristic behind non-response, leaving the poll biased. In elections, Shirani-Mehr et al.'s paper shows that bias lurks across all polls in roughly every election.
-
-Given the declining response to surveys, many firms have resorted to using panels. Many of them, such as YouGov use a mix of panels and probabilistic sampling through methods such as random digit dialing to get their sample. However, one notable issue with panels is that they have a notorious high rate of attrition -- people take one or two surveys and then never respond again. The, hopefully by now obvious, problem arises when those who choose to stay on panels are systematically different from the population with respect to the questions they are asked. For instance, people who like answering survey questions may also like Biden, but we have no measure of "affinity for answering surveys", so we cannot easily make an adjustment for this bias.
-
-Overall, we should 1) assume the margin of error is much larger than the 3 percent. Three percent doesn't even make sense in theory, since it only relies on sampling error, when we know other types of error occur. 2) Think deeply about who decides to respond to a poll. 
-
-A recent poll following Israel's invasion of Gaza showed a surprisingly large number of Gen-Z respondents believed Hamas' murder of civilians was justified. This poll was taken as protests broke out across the country against Israel's invasion. During the 2020 protests, protestors were systematically [younger than Americans as a whole](https://www.pewresearch.org/short-reads/2020/06/24/recent-protest-attendees-are-more-racially-and-ethnically-diverse-younger-than-americans-overall/). If these trends continued, the protests against Israel likely skewed Gen-Z. Protesting may also fires these activists up for their cause, making them more likely to respond to a pollster. If these protestors are also more likely to agree with more extreme statements -- perhaps just being caught in the moment -- then the amount of support for Hamas' use of violence would be drastically inflated. We can try to look toward other indicators to determine how plausible this explanation is. Or perhaps this poll is solid and more than 50 percent of young people support Hamas' act.
+A recent poll following Israel's invasion of Gaza showed a surprisingly large number of Gen-Z respondents believed Hamas' murder of civilians was justified. This poll was taken as protests broke out across the country against Israel's invasion. During the 2020 George Floyd protests, protestors were systematically [younger than Americans as a whole](https://www.pewresearch.org/short-reads/2020/06/24/recent-protest-attendees-are-more-racially-and-ethnically-diverse-younger-than-americans-overall/). If these age trends continued, the protests against Israel likely skewed Gen-Z. Protesting may also fires these activists up for their cause, making them more likely to respond to a pollster. If these protestors are also more likely to agree with more extreme statements -- perhaps just being caught in the moment -- then the amount of support for Hamas' use of violence would be drastically inflated. We can try to look toward other indicators to determine how plausible this explanation is. Or perhaps this poll is solid and more than 50 percent of young people support Hamas' act.
 
 
-### Footnotes
+<!-- ## How Should we Interpret Polls? -->
+
+<!-- Given the declining response to surveys, many firms have resorted to using panels. Many of them, such as YouGov use a mix of panels and probabilistic sampling through methods such as random digit dialing to get their sample. However, one notable issue with panels is that they have a notoriously high rate of attrition -- people take one or two surveys and then never respond again. But the problem arises when those who choose to stay on panels are systematically different from the population with respect to the questions they are asked. For instance, people who like answering survey questions may also like Biden, but we have no measure of "affinity for answering surveys" to adjust for this bias. -->
+
+
+## Footnotes
 
 [^1]: We could calculate the value of N we would need for +/- 3 percent to cover 95 percent when the true value of the population is 0.54 as $$.03=1.96\sqrt{\frac{.54(1-.54)}{n}}$$ $$\sqrt{n} = \frac{1.96}{.03}\sqrt{0.2484}$$ $$ n = 1060.28 $$ If we set our sample size in the example above to 1061 we will see the number get closer to 0.05.
 

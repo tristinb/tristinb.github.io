@@ -1,0 +1,659 @@
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Strength of Beliefs and Polls</title>
+		<meta name="description" content="What happens when people respond to surveys randomly?">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
+
+		<!-- Google tag (gtag.js) -->
+		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSZ8X5QRT0"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-YSZ8X5QRT0');
+		</script>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+#code {
+    display: none; /* Hide content by default */
+  }
+
+.active {
+display: block !important; /* Override default display property */
+}
+
+#toggle-button {
+    display: inline-block;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #a9a8a850;
+    color: #0a0a0a;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  #toggle-button:hover {
+    background-color: #555;
+    color: #fff;
+  }
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Processing Beliefs</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+<h1>Strength of Beliefs and Polls</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2023-11-19">19 November 2023</time></li>
+	<li><a href="/tags/polls/" class="post-tag">polls</a>, </li>
+	<li><a href="/tags/beliefs/" class="post-tag">beliefs</a></li>
+</ul>
+
+<p><a href="/blog/polls/">The previous post</a> explored how selection bias leads to problems in surveys and opinion polls. It assumed respondents had stable, or fixed, beliefs over whatever issue the pollster asked them. But what would happen to a survey's results if respondents had weaker beliefs, leading them to answer with whatever felt right in the moment? For example, consider a poll that resulted in 50 percent of the population favoring A to B. Does this represent half the population holding firm preferences for A and the other half with strong preferences for B? Or does this represent the full population being indifferent between A or B and basically choosing an option randomly? Would different compositions of the population add further bias or variance to a poll? Or does the composition not matter? The simulations below show that the strength of a belief, weak or strong, does not cause any additional problems to a poll.</p>
+<p>Before delving into the consequences of weak or firm beliefs on polling results, it may help to clarify the definition of belief. David McRaney's <em>How Minds Change</em> looks at how conversations can change people's minds on prominent issues such as gay marriage and abortion. At the beginning of these discussions, interviewers often ask something along the lines of "on a scale of 1 to 100, how supportive are you of X"? Respondents rarely responded with a 1 or 100, instead even those with strong opinions tended to reply with something like "5" or "95" rather than 0 or 100. McRaney finds that although small, the area between 1 and 5 or between 95 and 100 creates some space for persuasion. What this means is that beliefs aren't all or nothing propositions; we don't often 100 percent believe or disbelieve something.</p>
+<p>Because beliefs aren't typically fixed dichotomies, researchers define a belief as a probability distribution over all possible outcomes.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> For example, if someone asks about the shape of the earth, we could exhaust all possible outcomes with {"flat", "spherical", "turtles", "something else"}. Each of us may then put a probability on each response. We could do the same with purely factual questions by asking, for example, what is capital of Brazil: {"Rio de Janeiro", "Sao Paulo", "Brasilia", "Another City"}. Some of us may have strong beliefs and put a probability of 1 on one of those outcomes, but someone with weaker beliefs may put 20 percent chance Rio and 80 percent chance Brasilia. If you asked this person 100 times what the capital of Brazil is, you would expect them to say Brasilia 80 times out of those 100 and Rio the other 20. Although this seems erratic, it is what we would expect by defining beliefs as a probability distribution.</p>
+<p>This way of defining beliefs resolves a puzzle that public opinion researchers have noticed since at least the 1960s: people often change their opinion on issues sporadically. If you ask someone the same question at two different periods, especially on abstract questions such as the role of government in the economy, many give different responses in each period. This occurs despite little aggregate changes, as people shifting their opinion in one direction may be cancelled out by people shifting the other way.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> From this finding, much public opinion research, stemming prominently from Zaller's <em>Nature and Origin of Mass Opinion</em>, argues people's responses can be described as samples from a distribution over answers that they deem plausible.</p>
+<p>But what would happen to a public opinion poll, or survey, if at least some people responded as if they were drawing their answer out of a hat? Would this randomness add any additional bias or noise compared to the case when respondents had much stronger beliefs?</p>
+<p>The simulations below answers this question with three scenarios: 1) the population is split into two groups with fixed beliefs. That is, if you poll somebody they will always respond with the same answer 2) The population is split into two groups with strong beliefs. If you poll somebody they will usually respond with the same answer 3) The population is divided into three, two with strong beliefs and the other with weak beliefs, where the group with weak belief is responding as if they are flipping a marginally biased coin and answering accordingly.</p>
+<p>To make this a bit more concrete, let's imagine in each scenario we are interested in preferences of TikTok vs YouTube. Given a probability over either TikTok and YouTube, we can adjust the composition of each group in each scenario to result in the survey showing 55 percent of the "population" favoring TikTok. In each scenario we will have 1,002 respondents per poll.</p>
+<p>A summary of these scenarios, along with the respondents in each group's probability of choosing either TikTok or YouTube are in the tables below.</p>
+<h3 id="scenario-1-always-tiktok-always-youtube" tabindex="-1">Scenario 1: Always TikTok, Always YouTube <a class="header-anchor" href="#scenario-1-always-tiktok-always-youtube">#</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center"><strong>Prob. TikTok</strong></th>
+<th style="text-align:center"><strong>Prob. YouTube</strong></th>
+<th style="text-align:center"><strong>Number Respondents</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Always TikTok</strong></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">551</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Always YouTube</strong></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">451</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scenario-2-strong-tiktok-strong-youtube" tabindex="-1">Scenario 2: Strong TikTok, Strong YouTube <a class="header-anchor" href="#scenario-2-strong-tiktok-strong-youtube">#</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center"><strong>Prob. TikTok</strong></th>
+<th style="text-align:center"><strong>Prob. YouTube</strong></th>
+<th style="text-align:center"><strong>Number Respondents</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Strong TikTok</strong></td>
+<td style="text-align:center">0.95</td>
+<td style="text-align:center">0.05</td>
+<td style="text-align:center">556</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Strong YouTube</strong></td>
+<td style="text-align:center">0.05</td>
+<td style="text-align:center">0.95</td>
+<td style="text-align:center">446</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scenario-3-strong-tiktok-strong-youtube-weak-tiktok" tabindex="-1">Scenario 3: Strong TikTok, Strong YouTube, Weak TikTok <a class="header-anchor" href="#scenario-3-strong-tiktok-strong-youtube-weak-tiktok">#</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center"><strong>Prob. TikTok</strong></th>
+<th style="text-align:center"><strong>Prob. YouTube</strong></th>
+<th style="text-align:center"><strong>Number Respondents</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Strong TikTok</strong></td>
+<td style="text-align:center">0.95</td>
+<td style="text-align:center">0.05</td>
+<td style="text-align:center">334</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Strong YouTube</strong></td>
+<td style="text-align:center">0.05</td>
+<td style="text-align:center">0.95</td>
+<td style="text-align:center">334</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Weak TikTok</strong></td>
+<td style="text-align:center">0.65</td>
+<td style="text-align:center">0.35</td>
+<td style="text-align:center">334</td>
+</tr>
+</tbody>
+</table>
+<p>The following code simulates surveys of the populations in each of the three scenarios. The figure below provides the results of the simulations from this code.</p>
+<div id="code">
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+<span class="token keyword">from</span> scipy <span class="token keyword">import</span> stats
+
+strong_tt_prob <span class="token operator">=</span> <span class="token number">.95</span>
+strong_yt_prob <span class="token operator">=</span> <span class="token number">.95</span>
+weak_prob <span class="token operator">=</span> <span class="token number">.65</span>
+num_trials <span class="token operator">=</span> <span class="token number">10_000</span>
+n <span class="token operator">=</span> <span class="token number">1002</span>
+
+<span class="token comment"># Scenario 1</span>
+scen_1_dist <span class="token operator">=</span> stats<span class="token punctuation">.</span>binom<span class="token punctuation">(</span>p<span class="token operator">=</span><span class="token number">.55</span><span class="token punctuation">,</span>n<span class="token operator">=</span>n<span class="token punctuation">)</span><span class="token punctuation">.</span>rvs<span class="token punctuation">(</span>num_trials<span class="token punctuation">)</span><span class="token operator">/</span>n
+
+<span class="token comment"># Scenario 2</span>
+<span class="token comment">## Sample from each group based on its population</span>
+scen_2_group_samps <span class="token operator">=</span> stats<span class="token punctuation">.</span>multinomial<span class="token punctuation">(</span>n<span class="token operator">=</span>n<span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">.556</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">-</span><span class="token number">.556</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>rvs<span class="token punctuation">(</span>num_trials<span class="token punctuation">)</span>
+scen_2_p <span class="token operator">=</span> <span class="token punctuation">[</span>strong_tt_prob<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">-</span>strong_yt_prob<span class="token punctuation">]</span>
+<span class="token comment">## Now "poll" thse who you sampled above based on their probabilities</span>
+scen_2_dist <span class="token operator">=</span> stats<span class="token punctuation">.</span>binom<span class="token punctuation">(</span>p<span class="token operator">=</span>scen_2_p<span class="token punctuation">,</span>n<span class="token operator">=</span>scen_2_group_samps<span class="token punctuation">)</span><span class="token punctuation">.</span>rvs<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>n
+
+<span class="token comment"># Scenario 3</span>
+<span class="token comment">## Sample from each group based on its population</span>
+scen_3_group_samps <span class="token operator">=</span> stats<span class="token punctuation">.</span>multinomial<span class="token punctuation">(</span>n<span class="token operator">=</span>n<span class="token punctuation">,</span> p<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">.33</span><span class="token punctuation">,</span><span class="token number">.33</span><span class="token punctuation">,</span><span class="token number">.33</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>rvs<span class="token punctuation">(</span>num_trials<span class="token punctuation">)</span>
+scen_3_p <span class="token operator">=</span> <span class="token punctuation">[</span>strong_tt_prob<span class="token punctuation">,</span> <span class="token number">1</span><span class="token operator">-</span>strong_yt_prob<span class="token punctuation">,</span> weak_prob<span class="token punctuation">]</span>
+scen_3_dist <span class="token operator">=</span> stats<span class="token punctuation">.</span>binom<span class="token punctuation">(</span>p<span class="token operator">=</span>scen_3_p<span class="token punctuation">,</span>n<span class="token operator">=</span>group_samps<span class="token punctuation">)</span><span class="token punctuation">.</span>rvs<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>n</code></pre>
+</div>
+<p><button id="toggle-button" onclick="toggleContent()">Show Code</button></p>
+<p><picture><source type="image/avif" srcset="/img/Vaie-78ugm-640.avif 640w"><source type="image/webp" srcset="/img/Vaie-78ugm-640.webp 640w"><img alt="Samples drawn from the above distribution" loading="lazy" decoding="async" src="/img/Vaie-78ugm-640.png" width="640" height="480"></picture></p>
+<p>The figure above shows the simulations are basically identical for every scenario. The mean in each is 55 percent preferring TikTok, as expected. In other words, the composition added no bias to the average response. Furthermore, in all three scenarios we see nearly the exact same spread around the mean. Therefore, the composition had no impact on the poll's variance.</p>
+<p>Taken together, the strength of respondents' beliefs have no noticeable impact on the bias or variance of a poll. Since the composition of the population had no impact on the outcomes, we are unlikely to be able to determine the strength of beliefs from a handful of polls. As the three scenarios above show, there are many different ways for a poll to result in 55 percent of the population claiming that they prefer TikTok to YouTube.</p>
+<p>However, a poll is just a snapshot; the public's underlying beliefs change over time. We may suspect that those with weaker beliefs are more apt to shift their support for one outcome or another than those with stronger beliefs. In scenario 3 above, imagine that YouTube launched a dreamy new feature that diminished the uncertain group's preference for TikTok from 65 percent to 45 percent. This shifts our poll above to show around 48 percent preferring TikTok and 52 percent favoring YouTube. This marks a substantial change driven by the one segment with weak beliefs. In other words, breaking news or other events may appear to impact aggregate survey results simply by shifting the underlying probability distribution of an already uncertain group of respondents.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> Given this group has weaker beliefs, it is not unreasonable to expect further news to lead to shifts back in the other direction.</p>
+<h2 id="footnotes" tabindex="-1">Footnotes <a class="header-anchor" href="#footnotes">#</a></h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Bullock, John G., and Gabriel Lenz. "Partisan bias in surveys." Annual Review of Political Science 22 (2019): 325-342. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Kinder, Donald R., and Nathan P. Kalmoe. Neither liberal nor conservative: Ideological innocence in the American public. University of Chicago Press, 2017. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Poll aggregates may also change because news events cause partisans -- or those with stronger beliefs -- to become more eager to answer public opinion polls, see: Gelman, Andrew, Sharad Goel, Douglas Rivers, and David Rothschild. "The mythical swing voter." Quarterly Journal of Political Science 11, no. 1 (2016): 103-130. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+
+<script src="https://utteranc.es/client.js" repo="tristinb/tristinb.github.io" issue-term="title" label="💬" theme="preferred-color-scheme" crossorigin="anonymous" async="">
+</script>
+
+<script src="/bundle.js"></script>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/polls/">Sources of Polling Error</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- Current page: /blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/ -->
+	</body>
+</html>

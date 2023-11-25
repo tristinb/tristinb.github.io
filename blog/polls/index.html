@@ -186,6 +186,30 @@ pre[class*="language-diff-"] {
 	text-decoration: none; /* override del, ins, mark defaults */
 	color: inherit; /* override del, ins, mark defaults */
 }
+#code {
+    display: none; /* Hide content by default */
+  }
+
+.active {
+display: block !important; /* Override default display property */
+}
+
+#toggle-button {
+    display: inline-block;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #a9a8a850;
+    color: #0a0a0a;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  #toggle-button:hover {
+    background-color: #555;
+    color: #fff;
+  }
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -613,6 +637,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
 
 		<main id="skip">
 			
+
 <h1>Sources of Polling Error</h1>
 
 <ul class="post-metadata">
@@ -733,6 +758,10 @@ ipw_weighted_total <span class="token operator">=</span> <span class="token punc
 
 <script src="https://utteranc.es/client.js" repo="tristinb/tristinb.github.io" issue-term="title" label="💬" theme="preferred-color-scheme" crossorigin="anonymous" async="">
 </script>
+
+<script src="/bundle.js"></script>
+<ul class="links-nextprev"><li>Next: <a href="/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/">Strength of Beliefs and Polls</a></li>
+</ul>
 
 		</main>
 

@@ -4,12 +4,153 @@
 	<subtitle>I am writing about beliefs, bro.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2023-11-08T00:00:00Z</updated>
+	<updated>2023-11-19T00:00:00Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
 		<email>tristinbeckman@gmail.com.com</email>
 	</author>
+	
+	<entry>
+		<title>Strength of Beliefs and Polls</title>
+		<link href="https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/"/>
+		<updated>2023-11-19T00:00:00Z</updated>
+		<id>https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/</id>
+		<content type="html">&lt;p&gt;&lt;a href=&quot;https://tristinb.github.io/blog/polls/&quot;&gt;The previous post&lt;/a&gt; explored how selection bias leads to problems in surveys and opinion polls. It assumed respondents had stable, or fixed, beliefs over whatever issue the pollster asked them. But what would happen to a survey&#39;s results if respondents had weaker beliefs, leading them to answer with whatever felt right in the moment? For example, consider a poll that resulted in 50 percent of the population favoring A to B. Does this represent half the population holding firm preferences for A and the other half with strong preferences for B? Or does this represent the full population being indifferent between A or B and basically choosing an option randomly? Would different compositions of the population add further bias or variance to a poll? Or does the composition not matter? The simulations below show that the strength of a belief, weak or strong, does not cause any additional problems to a poll.&lt;/p&gt;
+&lt;p&gt;Before delving into the consequences of weak or firm beliefs on polling results, it may help to clarify the definition of belief. David McRaney&#39;s &lt;em&gt;How Minds Change&lt;/em&gt; looks at how conversations can change people&#39;s minds on prominent issues such as gay marriage and abortion. At the beginning of these discussions, interviewers often ask something along the lines of &amp;quot;on a scale of 1 to 100, how supportive are you of X&amp;quot;? Respondents rarely responded with a 1 or 100, instead even those with strong opinions tended to reply with something like &amp;quot;5&amp;quot; or &amp;quot;95&amp;quot; rather than 0 or 100. McRaney finds that although small, the area between 1 and 5 or between 95 and 100 creates some space for persuasion. What this means is that beliefs aren&#39;t all or nothing propositions; we don&#39;t often 100 percent believe or disbelieve something.&lt;/p&gt;
+&lt;p&gt;Because beliefs aren&#39;t typically fixed dichotomies, researchers define a belief as a probability distribution over all possible outcomes.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; For example, if someone asks about the shape of the earth, we could exhaust all possible outcomes with {&amp;quot;flat&amp;quot;, &amp;quot;spherical&amp;quot;, &amp;quot;turtles&amp;quot;, &amp;quot;something else&amp;quot;}. Each of us may then put a probability on each response. We could do the same with purely factual questions by asking, for example, what is capital of Brazil: {&amp;quot;Rio de Janeiro&amp;quot;, &amp;quot;Sao Paulo&amp;quot;, &amp;quot;Brasilia&amp;quot;, &amp;quot;Another City&amp;quot;}. Some of us may have strong beliefs and put a probability of 1 on one of those outcomes, but someone with weaker beliefs may put 20 percent chance Rio and 80 percent chance Brasilia. If you asked this person 100 times what the capital of Brazil is, you would expect them to say Brasilia 80 times out of those 100 and Rio the other 20. Although this seems erratic, it is what we would expect by defining beliefs as a probability distribution.&lt;/p&gt;
+&lt;p&gt;This way of defining beliefs resolves a puzzle that public opinion researchers have noticed since at least the 1960s: people often change their opinion on issues sporadically. If you ask someone the same question at two different periods, especially on abstract questions such as the role of government in the economy, many give different responses in each period. This occurs despite little aggregate changes, as people shifting their opinion in one direction may be cancelled out by people shifting the other way.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt; From this finding, much public opinion research, stemming prominently from Zaller&#39;s &lt;em&gt;Nature and Origin of Mass Opinion&lt;/em&gt;, argues people&#39;s responses can be described as samples from a distribution over answers that they deem plausible.&lt;/p&gt;
+&lt;p&gt;But what would happen to a public opinion poll, or survey, if at least some people responded as if they were drawing their answer out of a hat? Would this randomness add any additional bias or noise compared to the case when respondents had much stronger beliefs?&lt;/p&gt;
+&lt;p&gt;The simulations below answers this question with three scenarios: 1) the population is split into two groups with fixed beliefs. That is, if you poll somebody they will always respond with the same answer 2) The population is split into two groups with strong beliefs. If you poll somebody they will usually respond with the same answer 3) The population is divided into three, two with strong beliefs and the other with weak beliefs, where the group with weak belief is responding as if they are flipping a marginally biased coin and answering accordingly.&lt;/p&gt;
+&lt;p&gt;To make this a bit more concrete, let&#39;s imagine in each scenario we are interested in preferences of TikTok vs YouTube. Given a probability over either TikTok and YouTube, we can adjust the composition of each group in each scenario to result in the survey showing 55 percent of the &amp;quot;population&amp;quot; favoring TikTok. In each scenario we will have 1,002 respondents per poll.&lt;/p&gt;
+&lt;p&gt;A summary of these scenarios, along with the respondents in each group&#39;s probability of choosing either TikTok or YouTube are in the tables below.&lt;/p&gt;
+&lt;h3 id=&quot;scenario-1-always-tiktok-always-youtube&quot; tabindex=&quot;-1&quot;&gt;Scenario 1: Always TikTok, Always YouTube &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Prob. TikTok&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Prob. YouTube&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Number Respondents&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;strong&gt;Always TikTok&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;551&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;strong&gt;Always YouTube&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;1&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;451&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;scenario-2-strong-tiktok-strong-youtube&quot; tabindex=&quot;-1&quot;&gt;Scenario 2: Strong TikTok, Strong YouTube &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Prob. TikTok&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Prob. YouTube&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Number Respondents&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;strong&gt;Strong TikTok&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.95&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.05&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;556&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;strong&gt;Strong YouTube&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.05&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.95&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;446&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;scenario-3-strong-tiktok-strong-youtube-weak-tiktok&quot; tabindex=&quot;-1&quot;&gt;Scenario 3: Strong TikTok, Strong YouTube, Weak TikTok &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Prob. TikTok&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Prob. YouTube&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Number Respondents&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;strong&gt;Strong TikTok&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.95&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.05&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;334&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;strong&gt;Strong YouTube&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.05&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.95&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;334&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;strong&gt;Weak TikTok&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.65&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;0.35&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;334&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The following code simulates surveys of the populations in each of the three scenarios. The figure below provides the results of the simulations from this code.&lt;/p&gt;
+&lt;div id=&quot;code&quot;&gt;
+&lt;pre class=&quot;language-python&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; numpy &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; np
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; scipy &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; stats
+
+strong_tt_prob &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;.95&lt;/span&gt;
+strong_yt_prob &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;.95&lt;/span&gt;
+weak_prob &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;.65&lt;/span&gt;
+num_trials &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10_000&lt;/span&gt;
+n &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1002&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Scenario 1&lt;/span&gt;
+scen_1_dist &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stats&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;binom&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.55&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rvs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num_trials&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;n
+
+&lt;span class=&quot;token comment&quot;&gt;# Scenario 2&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## Sample from each group based on its population&lt;/span&gt;
+scen_2_group_samps &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stats&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;multinomial&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; p&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.556&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.556&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rvs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num_trials&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+scen_2_p &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;strong_tt_prob&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;strong_yt_prob&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## Now &quot;poll&quot; thse who you sampled above based on their probabilities&lt;/span&gt;
+scen_2_dist &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stats&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;binom&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;scen_2_p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;scen_2_group_samps&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rvs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;axis&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;n
+
+&lt;span class=&quot;token comment&quot;&gt;# Scenario 3&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;## Sample from each group based on its population&lt;/span&gt;
+scen_3_group_samps &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stats&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;multinomial&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; p&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.33&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.33&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.33&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rvs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num_trials&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+scen_3_p &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;strong_tt_prob&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;strong_yt_prob&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; weak_prob&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+scen_3_dist &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stats&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;binom&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;scen_3_p&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;n&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;group_samps&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rvs&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;axis&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;n&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;button id=&quot;toggle-button&quot; onclick=&quot;toggleContent()&quot;&gt;Show Code&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tristinb.github.io/img/Vaie-78ugm-640.avif 640w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tristinb.github.io/img/Vaie-78ugm-640.webp 640w&quot;&gt;&lt;img alt=&quot;Samples drawn from the above distribution&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tristinb.github.io/img/Vaie-78ugm-640.png&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;The figure above shows the simulations are basically identical for every scenario. The mean in each is 55 percent preferring TikTok, as expected. In other words, the composition added no bias to the average response. Furthermore, in all three scenarios we see nearly the exact same spread around the mean. Therefore, the composition had no impact on the poll&#39;s variance.&lt;/p&gt;
+&lt;p&gt;Taken together, the strength of respondents&#39; beliefs have no noticeable impact on the bias or variance of a poll. Since the composition of the population had no impact on the outcomes, we are unlikely to be able to determine the strength of beliefs from a handful of polls. As the three scenarios above show, there are many different ways for a poll to result in 55 percent of the population claiming that they prefer TikTok to YouTube.&lt;/p&gt;
+&lt;p&gt;However, a poll is just a snapshot; the public&#39;s underlying beliefs change over time. We may suspect that those with weaker beliefs are more apt to shift their support for one outcome or another than those with stronger beliefs. In scenario 3 above, imagine that YouTube launched a dreamy new feature that diminished the uncertain group&#39;s preference for TikTok from 65 percent to 45 percent. This shifts our poll above to show around 48 percent preferring TikTok and 52 percent favoring YouTube. This marks a substantial change driven by the one segment with weak beliefs. In other words, breaking news or other events may appear to impact aggregate survey results simply by shifting the underlying probability distribution of an already uncertain group of respondents.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot; id=&quot;fnref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt; Given this group has weaker beliefs, it is not unreasonable to expect further news to lead to shifts back in the other direction.&lt;/p&gt;
+&lt;h2 id=&quot;footnotes&quot; tabindex=&quot;-1&quot;&gt;Footnotes &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;hr class=&quot;footnotes-sep&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;Bullock, John G., and Gabriel Lenz. &amp;quot;Partisan bias in surveys.&amp;quot; Annual Review of Political Science 22 (2019): 325-342. &lt;a href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn2&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;Kinder, Donald R., and Nathan P. Kalmoe. Neither liberal nor conservative: Ideological innocence in the American public. University of Chicago Press, 2017. &lt;a href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn3&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;Poll aggregates may also change because news events cause partisans -- or those with stronger beliefs -- to become more eager to answer public opinion polls, see: Gelman, Andrew, Sharad Goel, Douglas Rivers, and David Rothschild. &amp;quot;The mythical swing voter.&amp;quot; Quarterly Journal of Political Science 11, no. 1 (2016): 103-130. &lt;a href=&quot;https://tristinb.github.io/blog/weak_beliefs_polls/do_weak_beliefs_bias_polls/&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Sources of Polling Error</title>

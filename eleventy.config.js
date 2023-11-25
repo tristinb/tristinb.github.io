@@ -16,6 +16,9 @@ const markdownItFootnote = require("markdown-it-footnote");
 const mathjaxPlugin = require("eleventy-plugin-mathjax");
 
 module.exports = function(eleventyConfig) {
+
+	eleventyConfig.addPassthroughCopy("bundle.css");
+	eleventyConfig.addPassthroughCopy("bundle.js");
 	
 	eleventyConfig.addPlugin(mathjaxPlugin);
 

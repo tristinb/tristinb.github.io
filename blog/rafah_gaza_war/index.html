@@ -570,7 +570,7 @@ const calculateMinProb = () => {
     const k = parseFloat(document.getElementById("k").value);
     const rn = parseFloat(document.getElementById("rn").value);
     const theta =  k / (k + rn);
-    document.getElementById("theta").textContent = theta.toFixed(4)
+    document.getElementById("theta").textContent = parseFloat(theta.toFixed(4))
 }
 </script><hr class="footnotes-sep">
 <section class="footnotes">

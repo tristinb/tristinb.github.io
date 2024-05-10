@@ -78,7 +78,7 @@ const calculateMinProb = () =&gt; {
     const k = parseFloat(document.getElementById(&quot;k&quot;).value);
     const rn = parseFloat(document.getElementById(&quot;rn&quot;).value);
     const theta =  k / (k + rn);
-    document.getElementById(&quot;theta&quot;).textContent = theta.toFixed(4)
+    document.getElementById(&quot;theta&quot;).textContent = parseFloat(theta.toFixed(4))
 }
 &lt;/script&gt;&lt;hr class=&quot;footnotes-sep&quot;&gt;
 &lt;section class=&quot;footnotes&quot;&gt;

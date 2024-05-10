@@ -2,7 +2,7 @@
 title: Strength of Beliefs and Polls
 description: What happens when people respond to surveys randomly?
 date: 2023-11-19
-draft: False
+draft: True
 tags: [polls, beliefs]
 ---
 

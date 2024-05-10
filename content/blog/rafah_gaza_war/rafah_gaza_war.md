@@ -26,14 +26,14 @@ You can see that the game has many undefined variables, or parameters. If they t
 <thead>
 <th>Parameter</th><th>Description</th>
 </thead>
-<tr><td>$\theta$</td><td>Probability Biden's type is Strong</td></tr>
-<tr><td>$RB$</td><td>B's payoff for N refraining </td></tr>
-<tr><td>$RN$</td><td>N's payoff for refraining </td></tr>
-<tr><td>$K$</td><td>N's payoff for attacking</td></tr>
+<tr><td>θ</td><td>Probability Biden's type is Strong</td></tr>
+<tr><td>RB</td><td>B's payoff for N refraining </td></tr>
+<tr><td>RN</td><td>N's payoff for refraining </td></tr>
+<tr><td>K</td><td>N's payoff for attacking</td></tr>
 <tr><td>cost</td><td>Cost from B's retaliation</td></tr>
-<tr><td>$S_s$</td><td>Payoff to strong type for sanctioning</td></tr>
-<tr><td>$S_w$</td><td>Payoff to weak type for sanctioning</td></tr>
-<tr><td>$Bd$</td><td>Payoff for backing down</td></tr>
+<tr><td>S_s</td><td>Payoff to strong type for sanctioning</td></tr>
+<tr><td>S_w</td><td>Payoff to weak type for sanctioning</td></tr>
+<tr><td>Bd</td><td>Payoff for backing down</td></tr>
 </table>
 
 To find the subgame perfect Bayesian Nash equilibrium, we can start from the bottom of the tree and work our way up. First, let's start on the left, where Biden is the strong type. Since Strong Biden loves to fight, it is safe to assume his payoff for `Sanction` is larger than that for `Backdown`. Concretely, since ${S_s}$ is greater than $Bd$ strong Biden chooses `Sanction`. Furthermore, strong Biden seeks to impose a large cost on Israel for attacking, let's assume that $RN$ is greater than $K-{cost}$. In this case, Netanyahu gets a higher payoff, and therefore chooses, `Refrain`. Putting this together, under Strong Biden we get `Refrain` as an equilibrium as long as Biden's payoff for `Sanction` is greater than the payoff for `Backdown` and $K-{cost}$ is less than the payoff for `Refrain`. If either of these fail to hold, and we will revisit the second assumption later, we will get an equilibrium where Netanyahu attacks.
@@ -42,7 +42,7 @@ We can repeat this on the right hand side of the tree. Here, Weak Biden does not
 
 <table>
 <tr><th>Strong</th><th>Weak</th><th>Payoff Strong</th><th>Payoff Weak</th></tr>
-<tr><td>Refrain</td><td>Attack</td><td>$\theta \times {RN}$</td><td>$(1-\theta) \times K$</td></tr>
+<tr><td>Refrain</td><td>Attack</td><td>θ x RN</td><td>(1-θ) x K</td></tr>
 </table>
 
 For a subgame perfect Bayesian Nash equilibrium to hold, Netanyahu will choose to `Refrain` if the expected payoff for restraining is greater than the expected payoff for attacking. In the model this is expressed as $\theta \times {RN} \geq (1-\theta)K$. Much of this depends on $\theta$, or Netanyahu's beliefs over Biden's type. Focusing on $\theta$, we can simplify this expression to $\theta \leq \frac{K}{({RN}+K)}$. This equation shows that as $K$ -- or the payoff Netanyahu gets from invading increases -- he needs to be even more convinced Biden is the strong type in order to refrain from attacking. Conversely, as $RN$, or the payoff he gets for refraining, increases he needs to be even less convinced Biden is of the strong type in order to refrain.[^foe]
@@ -67,9 +67,9 @@ By changing the values of $K$, the payoff Netanyahu gets from attacking, and $RN
 
 <table>
 <tr><th>Parameter</th><th>Value</th></tr>
-<tr><td>$K$</td><td><input type="number" id="k" min="0" max="10" value="5" step="0.5" style="width: 100%;" onchange="calculateMinProb()"></td></tr>
-<tr><td>$RN$</td><td><input type="number" id="rn" min="0" max="10" value="5" step="0.5" style="width: 100%;" onchange="calculateMinProb()"></td></tr>
-<tr style="font-weight: bold;"><td>$\theta$</td><td id="theta">0.5</td>
+<tr><td>K</td><td><input type="number" id="k" min="0" max="10" value="5" step="0.5" style="width: 100%;" onchange="calculateMinProb()"></td></tr>
+<tr><td>RN</td><td><input type="number" id="rn" min="0" max="10" value="5" step="0.5" style="width: 100%;" onchange="calculateMinProb()"></td></tr>
+<tr style="font-weight: bold;"><td>θ</td><td id="theta">0.5</td>
 </table>
 
 By increasing $K$, or the value Netanyahu gets from attacking, $\theta$ will rise. This means that Netanyahu can be more certain that Biden is the strong type, yet still choose to attack since he gets such a high payoff for doing so. Conversely, increasing $RN$ will decrease $\theta$. This means that as the payoffs to refraining rise, Netanyahu can be more certain Biden is the weak type, yet still refrain.

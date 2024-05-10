@@ -13,15 +13,16 @@ const pluginImages = require("./eleventy.config.images.js");
 const markdownIt = require("markdown-it");
 // const markdownItAttrs = require("markdown-it-attrs");
 const markdownItFootnote = require("markdown-it-footnote");
-const mathjaxPlugin = require("eleventy-plugin-mathjax");
+// const mathjaxPlugin = require("eleventy-plugin-mathjax");
+const markdownitMathJax = require("markdown-it-mathjax3")
 
 module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("bundle.css");
 	eleventyConfig.addPassthroughCopy("bundle.js");
 
-	
-	eleventyConfig.addPlugin(mathjaxPlugin);
+	// eleventyConfig.addPlugin(markdownitMathJax)
+	// eleventyConfig.addPlugin(mathjaxPlugin);
 
 	  // set markdown footnote processor
 	  let options = {
@@ -33,6 +34,7 @@ module.exports = function(eleventyConfig) {
 	  
 	  // configure the library with options
 	  let markdownLib =  markdownIt(options).use(markdownItFootnote);
+	  markdownLib.use(markdownitMathJax)
 	  // set the library to process markdown files
 	  eleventyConfig.setLibrary("md", markdownLib);
 

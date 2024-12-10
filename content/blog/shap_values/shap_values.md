@@ -47,7 +47,7 @@ To clarify the above definitions, if the a model's average prediction is 0.55 an
 
 But now we have the problem of actually estimating this value from data. In our example above, when we calculated the Shapley value for party A, we had to consider all possible coalitions. In that example, the coalitions either offered all of their votes or zero votes, and we knew what would happen without them. 
 
-We generally don't know how to set the other values, and zero often makes little sense. To overcome this, algorithms create synthetic -- fake -- observations. Assume we are calculating the Shapley value for Party A from the example above. But assume we have only data for each coalition over time, where the number of votes changes by year. A dataset could  look like the following:
+We generally don't know how to set the other values, and zero often makes little sense.[^mean] To overcome this, algorithms create synthetic -- fake -- observations. Assume we are calculating the Shapley value for Party A from the example above. But assume we have only data for each coalition over time, where the number of votes changes by year. A dataset could  look like the following:
 
 **Party Votes by Year**
 | Year | A | B | C | D | majority |
@@ -80,3 +80,4 @@ Going back to the very first example, we know that if we removed A from the coal
 ## Footnotes
 [^approximation]: This assumes you can calculate the Shapley value exactly. Since this calculation is NP-Hard, these are typically approximated.
 [^citations]: There is a huge amount of literature on this. The most accessible starting point is probably ([Pearl and Mackenzie 2018](https://www.amazon.com/Book-Why-Science-Cause-Effect/dp/046509760X))
+[^mean]: Values are sometimes "turned off" by setting them to their mean. But this results in the same issues as the examples used to compute Shapley values.

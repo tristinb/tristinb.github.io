@@ -1,9 +1,25 @@
-{%- css %}.postlist { counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }} }{% endcss %}
+{%- css %}
+.postlist { counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }} }
+.tags-list { display: inline-flex; gap: 0.5rem; list-style: none; padding: 0; margin: 0 0 0 1rem; }
+.tag-item { font-size: 0.875rem; background: #e5e5e5; padding: 0.25rem 0.5rem; border-radius: 0.25rem; }
+.tag-item a { text-decoration: none; color: inherit; }
+.tag-item:hover { background: #d5d5d5; }
+{% endcss %}
+
 <ol reversed class="postlist">
 {% for post in postslist | reverse %}
 	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
 		<a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
 		<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
+		{% if post.data.tags %}
+			<ul class="tags-list">
+			{% for tag in post.data.tags %}
+				{%- if tag !== "posts" -%}
+					<li class="tag-item"><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a></li>
+				{%- endif -%}
+			{% endfor %}
+			</ul>
+		{% endif %}
 	</li>
 {% endfor %}
 </ol>

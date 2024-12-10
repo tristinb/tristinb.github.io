@@ -22,3 +22,44 @@ display: block !important; /* Override default display property */
     background-color: #555;
     color: #fff;
   }
+
+  .post-metadata {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.post-metadata li {
+    margin: 0;
+}
+
+.post-metadata time {
+    color: #666;
+}
+
+.post-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    background: #e5e5e5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.post-tag:hover {
+    background: #d5d5d5;
+    text-decoration: none;
+}
+
+/* Style for the comma separator */
+.post-metadata li:not(:last-child):after {
+    content: ",";
+    color: #666;
+    margin-left: -0.25rem;
+}

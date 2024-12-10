@@ -7,7 +7,7 @@ tags: [machine learning, game theory]
 
 With machine learning (ML) impacting more and more of our daily lives interpretable ML is becoming more critical. Shapley values offer a method to explain why models make their predictions. But although Shapley values may shed some light onto an ML model's behavior, these values themselves lack an intuitive interpretation. This post goes over the game theory foundation of Shapley values, then shows how ML approaches are built on this foundation. It then shows why Shapley values tell us much less about our data and models than we may have hoped.
 
-## Shapley Values
+## Shapley values
 
 Shapley values applied have their origin in cooperative game theory. Two driving questions of cooperative game theory are 1) what coalitions will form and 2) how will the coalitions divide their winnings. 
 
@@ -33,7 +33,7 @@ These values don't directly line up to the number of votes each party provides. 
 
 Similarly, If we remove A from the grand coalition, the payoff isn't 100 minus player A's Shapley value of 50. Instead, since the number of votes without A is 60, the coalition will still get 100. All the Shapley values really tell us here is that Party A is the most important member, while the other three are equally important.
 
-## Shapley Values in Machine Learning
+## Shapley values in machine learning
 
 Machine learning models take in a set of inputs (features), calculate a bunch of interactions between them and then output a prediction. Because of these interactions' complexity, these models are often called black-boxes. To understand why these black-boxes made their predictions, practitioners commonly use Shapley values.
 
@@ -71,7 +71,7 @@ But these synthetic values are often quite different than the data used to train
 
 Therefore, since it isn't clear how to turn "off" a feature -- as we could do in our game theory example above -- most methods sample from the other rows of data. But these synthetic rows are often very different from the underlying data, making it difficult to accurately calculating the marginal impact of a feature.
 
-## What about their Interpretations
+## What about their interpretations
 
 Ultimately, Shapley values are typically used for predictive models, which seek to exploit correlations. Because of the model assumptions and the way the data is typically collected, they don't tell us anything about what would happen if we actually intervened and changed a variable. This isn't really the goal of the method. However, explaining a model typically asks what would happen if we changed a feature to a particular value.[^citations] But Shapley values don't tell us anything about this.
 

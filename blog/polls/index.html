@@ -186,30 +186,35 @@ pre[class*="language-diff-"] {
 	text-decoration: none; /* override del, ins, mark defaults */
 	color: inherit; /* override del, ins, mark defaults */
 }
-#code {
-    display: none; /* Hide content by default */
-  }
-
-.active {
-display: block !important; /* Override default display property */
+.post-metadata {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
 }
 
-#toggle-button {
+.post-metadata li {
+    margin: 0;
+}
+
+.post-tag {
     display: inline-block;
-    align-items: center;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #a9a8a850;
-    color: #0a0a0a;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  
-  #toggle-button:hover {
-    background-color: #555;
-    color: #fff;
-  }
+    font-size: 0.875rem;
+    background: #e5e5e5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.post-tag:hover {
+    background: #d5d5d5;
+    text-decoration: none;
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -630,7 +635,6 @@ ipw_weighted_total <span class="token operator">=</span> <span class="token punc
 <script src="/bundle.js"></script>
 <ul class="links-nextprev"><li>Next: <a href="/blog/rafah_gaza_war/">Can Biden Make Bibi Balk?</a></li>
 </ul>
-
 		</main>
 
 		<footer></footer>

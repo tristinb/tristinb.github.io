@@ -71,7 +71,7 @@ But these synthetic values are often quite different than the data used to train
 
 Therefore, since it isn't clear how to turn "off" a feature -- as we could do in our game theory example above -- most methods sample from the other rows of data. But these synthetic rows are often very different from the underlying data, making it difficult to accurately calculating the marginal impact of a feature.
 
-## What about their interpretations
+## Can we take action based on Shapley Values?
 
 Ultimately, Shapley values are typically used for predictive models, which seek to exploit correlations. Because of the model assumptions and the way the data is typically collected, they don't tell us anything about what would happen if we actually intervened and changed a variable. This isn't really the goal of the method. However, explaining a model typically asks what would happen if we changed a feature to a particular value.[^citations] But Shapley values don't tell us anything about this.
 

@@ -57,11 +57,11 @@ Third, Biden could further escalate his threats. This would decrease the payoff 
 
 Finally, we can revisit the assumption that strong Biden can impose sufficiently strong sanctions to make Netanyahu's payoff for refraining greater than attacking. If strong Biden cannot credibly impose high enough costs to Netanyahu in the event that he attacks, for instance because he faces too many domestic constraints, then there is no equilibrium where Netanyahu chooses to refrain.
 
-If you are interested in further exploring the three scenarios by manipulating $K$ and $RN$, you can click the button below.
+<!-- If you are interested in further exploring the three scenarios by manipulating $K$ and $RN$, you can click the button below. -->
 
-<button id="toggle-button" onclick="toggleInteraction()">Explore Scenarios</button>
+<!-- <button id="toggle-button" onclick="toggleInteraction()">Explore Scenarios</button>
 
-<div id="code">
+<div id="code"> -->
 
 By changing the values of $K$, the payoff Netanyahu gets from attacking, and $RN$, the value he gets from refraining, you can see what minimum belief Netanyahu must have over Biden being the strong type in order to refrain according to the model. 
 

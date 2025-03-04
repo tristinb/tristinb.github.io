@@ -28,6 +28,8 @@ module.exports = eleventyConfig => {
 			sizes,
 			loading: "lazy",
 			decoding: "async",
+			class: "responsive-image", // Add a class for additional styling if needed
+			style: "max-width: 100%; height: auto;"
 		};
 		return eleventyImage.generateHTML(metadata, imageAttributes);
 	});

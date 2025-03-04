@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>How Text Data Can Improve (or Worsen) Business Decisions</title>
+		<meta name="description" content="Teams often want to answer questions like &quot;Does price impact our satisfaction scores?&quot; But hidden variables can confound these relationships. This post explains how text data from reviews and feedback offers both promising solutions and potential pitfalls for uncovering true business insights">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YSZ8X5QRT0"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-YSZ8X5QRT0');
+		</script>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+.post-metadata {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.post-metadata li {
+    margin: 0;
+}
+
+.post-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    background: #e5e5e5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.post-tag:hover {
+    background: #d5d5d5;
+    text-decoration: none;
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Processing Beliefs</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/about/">About</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+<h1>How Text Data Can Improve (or Worsen) Business Decisions</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2025-03-04">04 March 2025</time></li>
+	<li><a href="/tags/machine-learning/" class="post-tag">machine learning</a></li>
+	<li><a href="/tags/nlp/" class="post-tag">NLP</a></li>
+	<li><a href="/tags/causal-inference/" class="post-tag">causal inference</a></li>
+</ul>
+
+<p>Marketing, sales, and product teams often need to answer questions such as &quot;does price impact customer satisfaction scores?&quot; However, these types of questions are difficult to answer directly because other factors, such as item quality, may cause an item to be both more expensive and more highly rated. In other words, variables like quality may confound the relationship between price and satisfaction.</p>
+<p>Fortunately, these teams often have reams of text data from sources such as outreach campaigns, social media posts, and open-ended reviews from which they can extract confounding variables, like quality. This post shows how we can use text data to improve our inferences about the relationship between important variables. But it also shows that if we aren't careful with our analysis, we may end up making our estimates even worse.</p>
+<h2 id="the-basic-problem" tabindex="-1">The basic problem <a class="header-anchor" href="#the-basic-problem">#</a></h2>
+<p>To motivate the post, assume we want to infer the impact of price on a customer rating. In addition to the price and the rating, we also have the customer's open-ended review. The table below provides an example piece of data:</p>
+<h3 id="example-review" tabindex="-1">Example Review <a class="header-anchor" href="#example-review">#</a></h3>
+<p><strong>Rating</strong>: ★★★★☆ (4/5)</p>
+<p><strong>Price</strong>: $$$$$ (5/5)</p>
+<p><strong>Review</strong></p>
+<p><em>The grass-fed Wagyu ribeye, with perfect marbling, was fantastic. Although it was expensive, like everything else these days, the experience was amazing.</em></p>
+<p>Phrases like &quot;Perfect marbling&quot; and &quot;grass-fed ribeye&quot; provide information regarding quality that we can extract and use to adjust for confounding. But the review also contains information about many other concepts. The table below provides an incomplete set of the concepts we could extract, along with the relationship these concepts have to price and the rating.</p>
+<h2 id="concepts-from-review" tabindex="-1">Concepts from review <a class="header-anchor" href="#concepts-from-review">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Text Element</th>
+<th>Extractable Concept</th>
+<th style="text-align:center">Impacts Price</th>
+<th style="text-align:center">Impacted by Price</th>
+<th style="text-align:center">Impacts Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grass-fed Wagyu ribeye, with perfect marbling</td>
+<td>Quality</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✗</td>
+<td style="text-align:center">✓</td>
+</tr>
+<tr>
+<td>fantastic.. the experience was amazing... expensive</td>
+<td>Overall Sentiment</td>
+<td style="text-align:center">✗</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✓</td>
+</tr>
+<tr>
+<td>expensive, like everything else these days</td>
+<td>Economic inflation</td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center">✗</td>
+<td style="text-align:center">✗</td>
+</tr>
+</tbody>
+</table>
+<p><em>Legend: ✓ = Yes, ✗ = No</em></p>
+<p>The table shows that in addition to quality we can also extract information on the review's overall sentiment as well as a macroeconomic concept, economic inflation. We can also see that overall sentiment is, in part, caused by price and sentiment also impacts the rating. Economic inflation impacts the price, but it is only through price that it impacts the rating.</p>
+<p>If we include features that capture sentiment and inflation, without making other adjustments, we can end up with even more biased estimates of the relationship between price and the rating than if we just ignored the text data completely.</p>
+<h2 id="how-we-can-use-text-to-improve-not-worsen-our-inferences" tabindex="-1">How we can use text to improve, not worsen, our inferences <a class="header-anchor" href="#how-we-can-use-text-to-improve-not-worsen-our-inferences">#</a></h2>
+<p>We have two standard approaches to extract information from text to include in our model. The first approach is to predefine a concept, such as quality, and then instruct an LLM (or human labelers) to annotate whether the concept exists in the text and, if it exists, to provide some score regarding the strength of the concept. These scores are typically coarse and somewhat arbitrary. For instance, quality would be defined as something like as &quot;high, medium, low&quot;.</p>
+<p>The second approach is a bit more involved and is described in the figure below.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> This approach has the benefit of automatically extracting concepts from the text as well as providing more precise scores -- real numbers instead of a label like &quot;high&quot;.</p>
+<p><picture><source type="image/avif" srcset="/img/yDvbIM_ViJ-1306.avif 1306w"><source type="image/webp" srcset="/img/yDvbIM_ViJ-1306.webp 1306w"><img alt="Transforming Text to Features" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/yDvbIM_ViJ-1306.png" width="1306" height="1010"></picture></p>
+<p>To walk through the approach above, we start with an embedding model to transform the text-review to a vector of numbers. Then, since this vector will be large -- OpenAI's <code>text-embedding-3-small</code> is 1,536 dimensions -- we typically apply some algorithm to reduce the vector space down to something smaller. For our purposes, lets suppose we were able to reduce the embedding space down to 3 dimensions. Unlike in the first approach, where the text would be classified as something like <code>high</code> here we would get different numbers for each observation. One observation may get [0.2, -.5, 1.2], while another gets [.1, .5, -2]. This is much more fine grained than a label like <code>high</code> and we don't have to explicitly instruct the model to search for something like &quot;quality&quot;. For these reasons, the second approach is much more attractive than the first.</p>
+<p>But the drawback of this approach is that we don't actually know what concepts we extract from the text -- dimensionality reduction doesn't come with a label -- nor how these concepts are related to the variables we care about. But for clarity, let's assume we do know what these concepts are. The figure below assumes that we extract &quot;sentiment&quot;, &quot;inflation&quot; and &quot;quality&quot; from the text. It then shows how these concepts relate to price and quality.</p>
+<p><picture><source type="image/avif" srcset="/img/M9kNHEC5Fi-1398.avif 1398w"><source type="image/webp" srcset="/img/M9kNHEC5Fi-1398.webp 1398w"><img alt="Estimating Price and Rating" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/M9kNHEC5Fi-1398.png" width="1398" height="684"></picture></p>
+<p>If we simply include these values in our model, there are at least <a href="https://web.mit.edu/~rnielsen/www/textmatching.pdf">two cases</a> where we would end up with worse estimates than if we ignored the text altogether. These areas are post-treatment bias, which would arise from using sentiment, and bias amplification, which would arise from using economic inflation.</p>
+<h3 id="post-treatment-bias" tabindex="-1">Post-treatment bias <a class="header-anchor" href="#post-treatment-bias">#</a></h3>
+<p>Suppose we included overall sentiment in our model. From Figure 2 above, we can see that price only impacts the rating through its impact on the customer's overall sentiment. Since price's impact on the rating is fully absorbed into overall sentiment, including this concept in our model would lead us to infer -- incorrectly -- that price is unrelated to the rating.</p>
+<p>Therefore, if our process of transforming raw text leads to concepts that enter the model in a way that cuts between the variable we care about and the outcome, we need to be careful to <em>not</em> include it.</p>
+<h3 id="bias-amplification" tabindex="-1">Bias amplification <a class="header-anchor" href="#bias-amplification">#</a></h3>
+<p>The second issue is more nuanced, and arises when we include a variable that is strongly related to our predictor variable and only weakly, or not at all, related to the outcome variable. There also needs to be some unobserved confounding variable. Imagine a version of Figure 2 that only included &quot;inflation&quot; and &quot;quality&quot; along with &quot;price&quot; and &quot;rating&quot;.</p>
+<p>Since inflation and quality both impact price, including both in the model makes them statistically dependent. This leads inflation to have a non-causal, confounded, path to the rating. Since inflation is now confounded, our estimates for price will be even more confounded than if we had just left inflation out all together. This concept is known as bias amplification and although it receives much less attention than issues such as post-treatment bias and confounding, it can similarly bias results. As (<a href="https://arxiv.org/abs/1203.3503">Pearl (2010)</a>) notes, bias amplification is especially likely when estimating propensity scores, which is common in analyses using text.</p>
+<h3 id="what-to-do" tabindex="-1">What to do <a class="header-anchor" href="#what-to-do">#</a></h3>
+<p>To use text to improve, and not worsen, our inferences we need to reduce the dimensions of the embeddings jointly with the model that we want to estimate. Using figure 2 as an example, we can to extract concepts that align with the confounder, instrumental variable and post-treatment variables. By extracting only these concepts from the review we could then estimate the correct model for our purposes.</p>
+<p>But if we aren't careful of how the concepts we extract from text fit into the overall model we are trying to estimate, we may end up with something even worse than if we had ignored the text data in the first place.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h2>
+<p>Companies are sitting on mountains of text data. By appropriately incorporating it into our models, we can answer important questions for teams across the organization. But failing to account for how the concepts we extract from the text data relate to the question may lead to even worse inferences and worse decisions.</p>
+<h2 id="footnotes" tabindex="-1">Footnotes <a class="header-anchor" href="#footnotes">#</a></h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Another version of this approach is to use the text embedding to estimate a propensity score (<a href="https://arxiv.org/abs/2009.09961">Weld et al. 2020</a>). But notice that concepts such as inflation and sentiment will be highly predictive of the price and may look like attractive predictors. Including these variables in our propensity score model will cause the same issues as that outlined here. Using these embeddings directly give us no sense of where the features fit into our causal model. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+
+<script src="https://utteranc.es/client.js"
+		repo="tristinb/tristinb.github.io"
+		issue-term="title"
+		label="💬"
+		theme="preferred-color-scheme"
+		crossorigin="anonymous"
+		async>
+</script>
+
+<script src="/bundle.js"></script>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/shap_values/">Shapley Values for Interpretable ML</a></li>
+</ul>
+		</main>
+
+		<footer></footer>
+
+		<!-- Current page: /blog/text_as_confounder/ -->
+	</body>
+</html>

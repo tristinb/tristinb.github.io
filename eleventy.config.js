@@ -16,7 +16,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 // const mathjaxPlugin = require("eleventy-plugin-mathjax");
 const markdownitMathJax = require("markdown-it-mathjax3")
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("bundle.css");
 	eleventyConfig.addPassthroughCopy("bundle.js");
@@ -24,19 +24,19 @@ module.exports = function(eleventyConfig) {
 	// eleventyConfig.addPlugin(markdownitMathJax)
 	// eleventyConfig.addPlugin(mathjaxPlugin);
 
-	  // set markdown footnote processor
-	  let options = {
+	// set markdown footnote processor
+	let options = {
 		html: true, // Enable HTML tags in source
 		breaks: true,  // Convert '\n' in paragraphs into <br>
 		linkify: true // Autoconvert URL-like text to links
-	  };
-	  
-	  
-	  // configure the library with options
-	  let markdownLib =  markdownIt(options).use(markdownItFootnote);
-	  markdownLib.use(markdownitMathJax)
-	  // set the library to process markdown files
-	  eleventyConfig.setLibrary("md", markdownLib);
+	};
+
+
+	// configure the library with options
+	let markdownLib = markdownIt(options).use(markdownItFootnote);
+	markdownLib.use(markdownitMathJax)
+	// set the library to process markdown files
+	eleventyConfig.setLibrary("md", markdownLib);
 
 
 	// Copy the contents of the `public` folder to the output folder
@@ -73,15 +73,15 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
 		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+		return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
 	});
 
 	// Get the first `n` elements of a collection.
 	eleventyConfig.addFilter("head", (array, n) => {
-		if(!Array.isArray(array) || array.length === 0) {
+		if (!Array.isArray(array) || array.length === 0) {
 			return [];
 		}
-		if( n < 0 ) {
+		if (n < 0) {
 			return array.slice(n);
 		}
 
@@ -96,7 +96,7 @@ module.exports = function(eleventyConfig) {
 	// Return all the tags used in a collection
 	eleventyConfig.addFilter("getAllTags", collection => {
 		let tagSet = new Set();
-		for(let item of collection) {
+		for (let item of collection) {
 			(item.data.tags || []).forEach(tag => tagSet.add(tag));
 		}
 		return Array.from(tagSet);
@@ -115,7 +115,7 @@ module.exports = function(eleventyConfig) {
 				symbol: "#",
 				ariaHidden: false,
 			}),
-			level: [1,2,3,4],
+			level: [1, 2, 3, 4],
 			slugify: eleventyConfig.getFilter("slugify")
 		});
 	});

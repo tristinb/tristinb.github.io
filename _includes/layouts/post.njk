@@ -34,6 +34,18 @@ layout: layouts/base.njk
     background: #d5d5d5;
     text-decoration: none;
 }
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
 {% endcss %}
 
 <h1>{{ title }}</h1>
@@ -45,6 +57,7 @@ layout: layouts/base.njk
 	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
 	{%- endfor %}
 </ul>
+
 
 {{ content | safe }}
 

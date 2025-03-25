@@ -1,5 +1,6 @@
 ---
-title: Bayes tells us absence of evidence is evidence of absence
+title: When absence of evidence is evidence of absence
+description: Bayes' rule shows us when a lack of evidence is evidence of absence
 date: 2025-03-24
 tags: [bayes, probability, decision science] 
 draft: false

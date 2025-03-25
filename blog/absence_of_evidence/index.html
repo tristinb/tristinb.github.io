@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Bayes tells us absence of evidence is evidence of absence</title>
-		<meta name="description" content="Just writing about stuff.">
+		<title>When absence of evidence is evidence of absence</title>
+		<meta name="description" content="Bayes&#39; rule shows us when a lack of evidence is evidence of absence">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
 
@@ -214,6 +214,17 @@ pre[class*="language-diff-"] {
 .post-tag:hover {
     background: #d5d5d5;
     text-decoration: none;
+}
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
 }
 * { box-sizing: border-box; }
 /* Defaults */
@@ -485,6 +496,77 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75em 1em;
+    border-bottom: 2px solid #ddd;
+}
+
+table td {
+    padding: 0.75em 1em;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Highlighted row styling */
+table tr[style*="font-weight: bold"] {
+    background-color: #f0f7ff;
+}
+
+/* Dark mode adjustments for tables */
+@media (prefers-color-scheme: dark) {
+    table th {
+        background-color: #2a2a2a;
+        border-bottom: 2px solid #444;
+    }
+    
+    table td {
+        border-bottom: 1px solid #333;
+    }
+    
+    table tr:nth-child(even) {
+        background-color: #1a2632;
+    }
+    
+    table tr[style*="font-weight: bold"] {
+        background-color: #1c2d3f;
+    }
+    
+    table input[type="number"] {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: var(--color-gray-90);
+    }
 }</style>
 	</head>
 	<body>
@@ -505,7 +587,7 @@ h2 + .header-anchor {
 		<main id="skip">
 			
 
-<h1>Bayes tells us absence of evidence is evidence of absence</h1>
+<h1>When absence of evidence is evidence of absence</h1>
 
 <ul class="post-metadata">
 	<li><time datetime="2025-03-24">24 March 2025</time></li>
@@ -513,6 +595,7 @@ h2 + .header-anchor {
 	<li><a href="/tags/probability/" class="post-tag">probability</a></li>
 	<li><a href="/tags/decision-science/" class="post-tag">decision science</a></li>
 </ul>
+
 
 <p>Journalists from various outlets have spent the last few weeks pouring over more than two thousand newly declassified documents on John F. Kennedy's assassination. So far, no new evidence shows that anybody other than Lee Harvey Oswald was involved. We shouldn't be surprised -- more than 60 years of &quot;no evidence&quot; provides strong evidence for no government conspiracy. Often times, absence of evidence IS evidence of absence.</p>
 <p>We can show this with simple math, particularly with Bayes' rule. Our goal is to estimate probability that the government killed JFK. To be concrete, let's define our evidence as 60 years with no conviction. As background information, we can include everything else regarding our belief of the government's guilt, from how nefarious the government is, to motivations etc.</p>

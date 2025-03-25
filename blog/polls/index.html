@@ -215,6 +215,17 @@ pre[class*="language-diff-"] {
     background: #d5d5d5;
     text-decoration: none;
 }
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -485,6 +496,77 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75em 1em;
+    border-bottom: 2px solid #ddd;
+}
+
+table td {
+    padding: 0.75em 1em;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Highlighted row styling */
+table tr[style*="font-weight: bold"] {
+    background-color: #f0f7ff;
+}
+
+/* Dark mode adjustments for tables */
+@media (prefers-color-scheme: dark) {
+    table th {
+        background-color: #2a2a2a;
+        border-bottom: 2px solid #444;
+    }
+    
+    table td {
+        border-bottom: 1px solid #333;
+    }
+    
+    table tr:nth-child(even) {
+        background-color: #1a2632;
+    }
+    
+    table tr[style*="font-weight: bold"] {
+        background-color: #1c2d3f;
+    }
+    
+    table input[type="number"] {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: var(--color-gray-90);
+    }
 }</style>
 	</head>
 	<body>
@@ -511,6 +593,7 @@ h2 + .header-anchor {
 	<li><time datetime="2023-11-08">08 November 2023</time></li>
 	<li><a href="/tags/polls/" class="post-tag">polls</a></li>
 </ul>
+
 
 <p>Pollsters and journalists often present polling results as being correct to within a plus or minus three percentage points, with 95 percent confidence. However, we often see election results fall outside this three percentage point error. In the 2020 election, for example, polls missed by an average of <a href="https://aapor.org/wp-content/uploads/2022/11/Task-Force-on-2020-Pre-Election-Polling_Executive-Summary.pdf">4.5 percentage points at the national level</a>. This post explores where this additional polling error comes from and how we should interpret polls in light of this additional error. As a quick note, since polls are surveys of respondents' vote preferences, I use the words polls and surveys synonymously.</p>
 <h2 id="sampling-error-the-plus-or-minus-3-percent" tabindex="-1">Sampling Error: The Plus or Minus 3 Percent <a class="header-anchor" href="#sampling-error-the-plus-or-minus-3-percent">#</a></h2>

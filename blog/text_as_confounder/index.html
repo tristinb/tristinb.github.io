@@ -215,6 +215,17 @@ pre[class*="language-diff-"] {
     background: #d5d5d5;
     text-decoration: none;
 }
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -485,6 +496,77 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75em 1em;
+    border-bottom: 2px solid #ddd;
+}
+
+table td {
+    padding: 0.75em 1em;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Highlighted row styling */
+table tr[style*="font-weight: bold"] {
+    background-color: #f0f7ff;
+}
+
+/* Dark mode adjustments for tables */
+@media (prefers-color-scheme: dark) {
+    table th {
+        background-color: #2a2a2a;
+        border-bottom: 2px solid #444;
+    }
+    
+    table td {
+        border-bottom: 1px solid #333;
+    }
+    
+    table tr:nth-child(even) {
+        background-color: #1a2632;
+    }
+    
+    table tr[style*="font-weight: bold"] {
+        background-color: #1c2d3f;
+    }
+    
+    table input[type="number"] {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: var(--color-gray-90);
+    }
 }</style>
 	</head>
 	<body>
@@ -513,6 +595,7 @@ h2 + .header-anchor {
 	<li><a href="/tags/nlp/" class="post-tag">NLP</a></li>
 	<li><a href="/tags/causal-inference/" class="post-tag">causal inference</a></li>
 </ul>
+
 
 <p>Marketing, sales, and product teams often need to answer questions such as &quot;does price impact customer satisfaction scores?&quot; However, these types of questions are difficult to answer directly because other factors, such as item quality, may cause an item to be both more expensive and more highly rated. In other words, variables like quality may confound the relationship between price and satisfaction.</p>
 <p>Fortunately, these teams often have reams of text data from sources such as outreach campaigns, social media posts, and open-ended reviews from which they can extract confounding variables, like quality. This post shows how we can use text data to improve our inferences about the relationship between important variables. But it also shows that if we aren't careful with our analysis, we may end up making our estimates even worse.</p>
@@ -601,7 +684,7 @@ h2 + .header-anchor {
 </script>
 
 <script src="/bundle.js"></script>
-<ul class="links-nextprev"><li>Previous: <a href="/blog/shap_values/">Shapley Values for Interpretable ML</a></li><li>Next: <a href="/blog/absence_of_evidence/">Bayes tells us absence of evidence is evidence of absence</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/shap_values/">Shapley Values for Interpretable ML</a></li><li>Next: <a href="/blog/absence_of_evidence/">When absence of evidence is evidence of absence</a></li>
 </ul>
 		</main>
 

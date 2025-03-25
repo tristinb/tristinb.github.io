@@ -215,6 +215,17 @@ pre[class*="language-diff-"] {
     background: #d5d5d5;
     text-decoration: none;
 }
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -485,6 +496,77 @@ a[href].header-anchor:focus,
 
 h2 + .header-anchor {
 	font-size: 1.5em;
+}
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75em 1em;
+    border-bottom: 2px solid #ddd;
+}
+
+table td {
+    padding: 0.75em 1em;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Highlighted row styling */
+table tr[style*="font-weight: bold"] {
+    background-color: #f0f7ff;
+}
+
+/* Dark mode adjustments for tables */
+@media (prefers-color-scheme: dark) {
+    table th {
+        background-color: #2a2a2a;
+        border-bottom: 2px solid #444;
+    }
+    
+    table td {
+        border-bottom: 1px solid #333;
+    }
+    
+    table tr:nth-child(even) {
+        background-color: #1a2632;
+    }
+    
+    table tr[style*="font-weight: bold"] {
+        background-color: #1c2d3f;
+    }
+    
+    table input[type="number"] {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: var(--color-gray-90);
+    }
 }</style>
 	</head>
 	<body>
@@ -512,6 +594,7 @@ h2 + .header-anchor {
 	<li><a href="/tags/machine-learning/" class="post-tag">machine learning</a></li>
 	<li><a href="/tags/game-theory/" class="post-tag">game theory</a></li>
 </ul>
+
 
 <p>With machine learning (ML) impacting more and more of our daily lives interpretable ML is becoming more critical. Shapley values offer a method to explain why models make their predictions. But although Shapley values may shed some light onto an ML model's behavior, these values themselves lack an intuitive interpretation. This post goes over the game theory foundation of Shapley values, then shows how ML approaches are built on this foundation. It then shows why Shapley values tell us much less about our data and models than we may have hoped.</p>
 <h2 id="shapley-values" tabindex="-1">Shapley values <a class="header-anchor" href="#shapley-values">#</a></h2>

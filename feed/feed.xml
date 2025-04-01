@@ -4,12 +4,24 @@
 	<subtitle>Just writing about stuff.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2025-03-24T00:00:00Z</updated>
+	<updated>2025-04-01T00:00:00Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
 		<email>tristinbeckman@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>What political science teaches us about AI SEO</title>
+		<link href="https://tristinb.github.io/blog/ai_seo_political_science/"/>
+		<updated>2025-04-01T00:00:00Z</updated>
+		<id>https://tristinb.github.io/blog/ai_seo_political_science/</id>
+		<content type="html">&lt;p&gt;Imagine you ask somebody at a CrossFit gym what they eat after a workout. They recommend boiled ground beef. Now imagine, you ask ChatGPT for the best diapers. According to &lt;a href=&quot;https://www.theinformation.com/articles/ai-search-new-arms-race-retailers&quot;&gt;the Information&lt;/a&gt;, you will be recommended Coterie. As SEO evolves to cater to AI search, companies are working to understand how to get these bots to recommend their particular products. The above article mentions several methods companies now employ to better understand AI search. These methods closely resemble those that political scientists have long-used to understand belief formation.&lt;/p&gt;
+&lt;p&gt;Media diets impact both people and chatbots. On the people side, research going back to at least Zaller&#39;s &lt;em&gt;Nature and Origins of Mass Opinion&lt;/em&gt; notes that political attitudes are largely a function of what someone consumes from the media. Supporting this idea, researchers recently ran an experiment where they paid &lt;a href=&quot;https://www.journals.uchicago.edu/doi/10.1086/730725&quot;&gt;Fox News viewers to watch CNN for a month&lt;/a&gt;. After a month of watching CNN, these users had more moderate political beliefs compared to a control group. Just as the source matters for political beliefs, companies are applying similar thinking to AI systems. The Information article above notes that companies closely monitor what sources LLMs cite in their answers. For example, startups like &lt;a href=&quot;https://www.tryprofound.com/&quot;&gt;Profound&lt;/a&gt; use several variants of a search and count what sources are cited. Similarly, the article notes that marketers are posting more content on Reddit, which they believe is a hotbed for raw content that will eventually be featured in AI search results.&lt;/p&gt;
+&lt;p&gt;But people don&#39;t uncritically parrot &lt;em&gt;all&lt;/em&gt; of the news they come across. People. and LLMs, still need to be persuaded. Both &lt;a href=&quot;https://www.anthropic.com/research/mapping-mind-language-model&quot;&gt;LLM creators&lt;/a&gt; and new companies are working to understand why these bots are &amp;quot;persuaded&amp;quot; to respond as they do. This can also benefit from political science research. A recent paper studying the impact of &lt;a href=&quot;https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12649&quot;&gt;a personal attack in a campaign advertisement&lt;/a&gt;, researchers noted that you can&#39;t simply A/B test one version of an ad that contained an attack and another that does not. For instance, imagine a policy that induced anger among many respondents. Because this policy makes people angry, it is more amenable to an attack ad. Comparing the attack ad to another version of the same ad, but without the attack won&#39;t accurately measure the causal impact of the attack on a viewer&#39;s attitude because both the attack and the response to the ad is confounded by the anger-inducing policy. This type of political science research shows us that A/B testing with AI search has subtle differences from other types of marketing campaigns.&lt;/p&gt;
+&lt;p&gt;As AI search engines become more prevalent, marketers could greatly benefit from adopting social science tools. As the article suggests, content may need to be hosted on platforms like Reddit. When A/B testing, make sure to try to remove confounders in the text. Just like political scientists have spent decades studying persuasion and opinion formation, companies will need to understand what content &amp;quot;persuades&amp;quot; AI systems to recommend their products. These decades of study have built a large toolbox that can help navigate AI search.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>When absence of evidence is evidence of absence</title>

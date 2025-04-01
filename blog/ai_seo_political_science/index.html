@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>When absence of evidence is evidence of absence</title>
-		<meta name="description" content="Bayes&#39; rule shows us when a lack of evidence is evidence of absence">
+		<title>What political science teaches us about AI SEO</title>
+		<meta name="description" content="Just writing about stuff.">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
 
@@ -587,72 +587,21 @@ table tr[style*="font-weight: bold"] {
 		<main id="skip">
 			
 
-<h1>When absence of evidence is evidence of absence</h1>
+<h1>What political science teaches us about AI SEO</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-03-24">24 March 2025</time></li>
-	<li><a href="/tags/bayes/" class="post-tag">bayes</a></li>
-	<li><a href="/tags/probability/" class="post-tag">probability</a></li>
-	<li><a href="/tags/decision-science/" class="post-tag">decision science</a></li>
+	<li><time datetime="2025-04-01">01 April 2025</time></li>
+	<li><a href="/tags/llms/" class="post-tag">LLMs</a></li>
+	<li><a href="/tags/nlp/" class="post-tag">NLP</a></li>
+	<li><a href="/tags/seo/" class="post-tag">SEO</a></li>
+	<li><a href="/tags/marketing/" class="post-tag">Marketing</a></li>
 </ul>
 
 
-<p>Journalists from various outlets have spent the last few weeks pouring over more than two thousand newly declassified documents on John F. Kennedy's assassination. So far, no new evidence shows that anybody other than Lee Harvey Oswald was involved. We shouldn't be surprised -- more than 60 years of &quot;no evidence&quot; provides strong evidence for no government conspiracy. Often times, absence of evidence IS evidence of absence.</p>
-<p>We can show this with simple math, particularly with Bayes' rule. Our goal is to estimate probability that the government killed JFK. To be concrete, let's define our evidence as 60 years with no conviction. As background information, we can include everything else regarding our belief of the government's guilt, from how nefarious the government is, to motivations etc.</p>
-<p>From this information, all we need for our calculation is the following:</p>
-<ol>
-<li>
-<p>Our prior, or our belief that the government killed Kennedy. This is all of our background information <em>other</em> than 60+ years of no convictions.</p>
-</li>
-<li>
-<p>The likelihood of observing the evidence given the hypothesis is true. That is assuming the government did kill Kennedy, what is the probability we would see 60+ years without a conviction?</p>
-</li>
-<li>
-<p>The likelihood of observing the evidence given the hypothesis is false. That is, assuming the government had nothing to do with the assassination, what is the probability we wouldn't see a government official convicted?<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-</li>
-</ol>
-<p>Now let's put these numbers into the table below. For (1) let's assume ignorance regarding the government killing Kennedy -- all our background information washes out -- and put our prior at 50-50.</p>
-<p>For (2) we start by assuming the government killed Kennedy. Given this assumption, what's the probability we would see no conviction after 60 years? Let's suppose the CIA is good at covering things up, but not perfect -- plenty of evidence exists on things like Bay of Pigs, Iran, Guatemala, etc. Furthermore, there have been several government investigations and independent reports. Some politician surely would have benefited from a smoking gun showing the government's involvement and more. In other words, many people have been looking for evidence, if it existed it's likely someone would have found it. Yet it is absent. But let's be conservative and put the probability of a JFK-murdering government <em>not</em> having a anyone convicted after 60+ years at 10 percent.</p>
-<p>Finally, (3) asks us to consider the probability of no conviction given the government was <em>not</em> involved. This answer is straightforward -- if the government wasn't involved, we wouldn't expect to see much. We should provide an outside chance of someone planting evidence for fame and political points, but that is about it if we assume the government's innocent. So let's call this 99 percent.</p>
-<p>The table below uses these probabilities to calculate our posterior belief that the government killed JFK.</p>
-<table>
-<tr><th>Data</td><th>Description</th><th>Value</th></tr>
-<tr><td>Prior</td><td>How probable is the hypothesis</td><td><input type="number" id="prior" min="0" max="1" value=".5" step=".05" onchange="calcProb()"></td></tr>
-<tr><td>Prob(data | h=True)</td><td>How probable is the data if the hypothesis is true?</td><td><input type="number" id="lk_true" min="0" max="1" value=".1" step=".05" onchange="calcProb()"></td></tr>
-<tr><td>Prob(data | h=false)</td><td>How probable is the data if the hypothesis is false?</td><td><input type="number" id="lk_false" min="0" max="1" value=".99" step=".05" onchange="calcProb()"></td></tr>
-<tr style="font-weight: bold;"><td>Prob(h | h=true)</td><td>How probable is our hypothesis given the data?</td><td id="posterior"> 0.0917</td></tr>
-</table>
-<p>The absence of a conviction over 60 years brings our prior belief of the government's guilt down from 50 percent to about 9 percent. You can see most of this shift in the ratio of (2) to (3), or the absence of evidence given the government being guilty compared with the absence of evidence given the government being innocent. The large number of people searching for evidence, yet finding none after 60+ years, leads us to put a low probability p(data | h=true). Conversely, an innocent government is consistent with us not finding much evidence, leading to a high probability on p(data | h=false). Therefore, the absence of evidence provides strong evidence that the government had nothing to do with the assassination, enough to bring our 50 percent belief down to 9 percent.</p>
-<p>But absence of evidence may also mean nothing. For example, suppose I am searching for buried treasure in the mountains of Idaho with little more than a Reddit thread to guide me. Here the probability of me not finding the treasure, given my search material is high. By toggling the second row of the table above, you will see that the lack of treasure found on my search doesn't say much about whether the treasure exists.</p>
-<h2 id="footnotes" tabindex="-1">Footnotes <a class="header-anchor" href="#footnotes">#</a></h2>
-<script>
-
-const calcProb = () => {
-    const prior = parseFloat(document.getElementById('prior').value);
-    const lk_true = parseFloat(document.getElementById('lk_true').value);
-    const lk_false = parseFloat(document.getElementById('lk_false').value);
-    
-    const num = prior*lk_true
-    const denom = prior*lk_true + (1-prior)*lk_false
-    if(denom==0){
-        document.getElementById('posterior').textContent = 0
-    }
-    else {
-    const prob = num/denom
-    document.getElementById('posterior').textContent = parseFloat(prob.toFixed(2))
-    
-    }
-    
-
-}
-
-</script><hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>Typically with Bayes rule the third factor is the probability of the evidence. But in this case that would just be the prior (1) times the likelihood (2) plus one minus the prior times (3). <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
+<p>Imagine you ask somebody at a CrossFit gym what they eat after a workout. They recommend boiled ground beef. Now imagine, you ask ChatGPT for the best diapers. According to <a href="https://www.theinformation.com/articles/ai-search-new-arms-race-retailers">the Information</a>, you will be recommended Coterie. As SEO evolves to cater to AI search, companies are working to understand how to get these bots to recommend their particular products. The above article mentions several methods companies now employ to better understand AI search. These methods closely resemble those that political scientists have long-used to understand belief formation.</p>
+<p>Media diets impact both people and chatbots. On the people side, research going back to at least Zaller's <em>Nature and Origins of Mass Opinion</em> notes that political attitudes are largely a function of what someone consumes from the media. Supporting this idea, researchers recently ran an experiment where they paid <a href="https://www.journals.uchicago.edu/doi/10.1086/730725">Fox News viewers to watch CNN for a month</a>. After a month of watching CNN, these users had more moderate political beliefs compared to a control group. Just as the source matters for political beliefs, companies are applying similar thinking to AI systems. The Information article above notes that companies closely monitor what sources LLMs cite in their answers. For example, startups like <a href="https://www.tryprofound.com/">Profound</a> use several variants of a search and count what sources are cited. Similarly, the article notes that marketers are posting more content on Reddit, which they believe is a hotbed for raw content that will eventually be featured in AI search results.</p>
+<p>But people don't uncritically parrot <em>all</em> of the news they come across. People. and LLMs, still need to be persuaded. Both <a href="https://www.anthropic.com/research/mapping-mind-language-model">LLM creators</a> and new companies are working to understand why these bots are &quot;persuaded&quot; to respond as they do. This can also benefit from political science research. A recent paper studying the impact of <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/ajps.12649">a personal attack in a campaign advertisement</a>, researchers noted that you can't simply A/B test one version of an ad that contained an attack and another that does not. For instance, imagine a policy that induced anger among many respondents. Because this policy makes people angry, it is more amenable to an attack ad. Comparing the attack ad to another version of the same ad, but without the attack won't accurately measure the causal impact of the attack on a viewer's attitude because both the attack and the response to the ad is confounded by the anger-inducing policy. This type of political science research shows us that A/B testing with AI search has subtle differences from other types of marketing campaigns.</p>
+<p>As AI search engines become more prevalent, marketers could greatly benefit from adopting social science tools. As the article suggests, content may need to be hosted on platforms like Reddit. When A/B testing, make sure to try to remove confounders in the text. Just like political scientists have spent decades studying persuasion and opinion formation, companies will need to understand what content &quot;persuades&quot; AI systems to recommend their products. These decades of study have built a large toolbox that can help navigate AI search.</p>
 
 
 <script src="https://utteranc.es/client.js"
@@ -665,12 +614,12 @@ const calcProb = () => {
 </script>
 
 <script src="/bundle.js"></script>
-<ul class="links-nextprev"><li>Previous: <a href="/blog/text_as_confounder/">How Text Data Can Improve (or Worsen) Business Decisions</a></li><li>Next: <a href="/blog/ai_seo_political_science/">What political science teaches us about AI SEO</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/absence_of_evidence/">When absence of evidence is evidence of absence</a></li>
 </ul>
 		</main>
 
 		<footer></footer>
 
-		<!-- Current page: /blog/absence_of_evidence/ -->
+		<!-- Current page: /blog/ai_seo_political_science/ -->
 	</body>
 </html>

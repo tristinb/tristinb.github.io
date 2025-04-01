@@ -2,6 +2,7 @@
 title: What political science teaches us about AI SEO
 date: 2025-04-01
 tags: [LLMs, NLP, SEO, Marketing]
+draft: False
 ---
 
 Imagine you ask somebody at a CrossFit gym what they eat after a workout. They recommend boiled ground beef. Now imagine, you ask ChatGPT for the best diapers. According to [the Information](https://www.theinformation.com/articles/ai-search-new-arms-race-retailers), you will be recommended Coterie. As SEO evolves to cater to AI search, companies are working to understand how to get these bots to recommend their particular products. The above article mentions several methods companies now employ to better understand AI search. These methods closely resemble those that political scientists have long-used to understand belief formation. 

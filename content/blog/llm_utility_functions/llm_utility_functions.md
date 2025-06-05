@@ -1,8 +1,9 @@
 ---
 title: LLMs represent a win for utility theory
 description: AI's success shows we don't need to encode heuristics and biases into agent based models
-date: 2025-06-5
+date: 2025-06-05
 tags: [complexity, LLMs]
+draft: False
 ---
 
 Our political-economic system emerges from complex interactions among humans and firms. Since the 1970s, economists have mostly agreed that we cannot understand the system as a whole without some model of the individuals within that system. Both neoclassical and behavioral economists model these individuals as if they maximize a utility function. [Complexity economists](https://yalebooks.yale.edu/book/9780300283327/making-sense-of-chaos/) and [psychologists](https://global.oup.com/academic/product/simple-heuristics-that-make-us-smart-9780195143812) argue that instead we should model humans as following simple rules, or heuristics. They note that any realistic utility function would be extremely complex, context dependent and different across individuals, making the whole concept impractical. But the success of LLMs, like ChatGPT, shows that systems can, in fact, learn complicated, context-dependent utility functions that are tailorable to individual preferences, thereby supporting the utility function view. The rest of this post shows how utility maximization drives the LLMs we use today.

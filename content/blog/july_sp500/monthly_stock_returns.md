@@ -2,8 +2,8 @@
 title: Is July really a bad month for stocks?
 date: 2025-07-24
 description: "A quick, robust analysis using Claude and Daggy"
-tags: [Daggy, Bayesian analysis, statistics, finance]
-draft: True
+tags: [Daggy, Bayes, Statistics, Finance]
+draft: False
 ---
 
 While having lunch with my mom in Idaho, I overheard someone at the table next to us say that July tends to be a down month for stocks. This seemed strange. If a month is predictably slow, there should be an opportunity to profit until that opportunity, and predictability, disappears. I decided to test this claim with Daggy.

@@ -4,7 +4,7 @@
 	<subtitle>Just writing about stuff.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2025-07-24T00:00:00Z</updated>
+	<updated>2025-07-25T00:00:00Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
@@ -14,7 +14,7 @@
 	<entry>
 		<title>Is July really a bad month for stocks?</title>
 		<link href="https://tristinb.github.io/blog/july_sp500/july_stock_returns/"/>
-		<updated>2025-07-24T00:00:00Z</updated>
+		<updated>2025-07-25T00:00:00Z</updated>
 		<id>https://tristinb.github.io/blog/july_sp500/july_stock_returns/</id>
 		<content type="html">&lt;p&gt;While having lunch with my mom in Idaho, I overheard someone at the table next to us say that July tends to be a down month for stocks. This seemed strange. If a month is predictably slow, there should be an opportunity to profit until that opportunity, and predictability, disappears. I decided to test this claim with Daggy.&lt;/p&gt;
 &lt;p&gt;Although our table neighbor never mentioned any particular stock, I pulled SPY data (which tracks the S&amp;amp;P 500) from January 2010 to December 2024. I defined monthly return as the percentage change from the stock&#39;s opening value on the first day of the month to the close on the last day.&lt;/p&gt;
@@ -98,7 +98,7 @@
 &lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tristinb.github.io/img/aMmWaRTk9H-1536.avif 1536w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tristinb.github.io/img/aMmWaRTk9H-1536.webp 1536w&quot;&gt;&lt;img alt=&quot;Claude building statistical models via Daggy&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;responsive-image&quot; style=&quot;max-width: 100%; height: auto;&quot; src=&quot;https://tristinb.github.io/img/aMmWaRTk9H-1536.png&quot; width=&quot;1536&quot; height=&quot;868&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
 &lt;p&gt;Daggy built two models: one estimating the month effect and the other adjusting for the year when estimating the month effect. Although July&#39;s estimate was slightly positive, it was not statistically significant in either model. But maybe we have some &amp;quot;reversion to the mean&amp;quot;, where strong months tend to be followed by weak months and vice-versa? Perhaps this washes out the month effect? Claude knew how to frame this question to Daggy as a &amp;quot;lagged dependent variable&amp;quot; then included it in its analysis. Although the analysis showed apparent mean reversion, with strong months followed by weaker months, July&#39;s impact remained small and statistically insignificant. We asked claude to account for linear and cubic time trends. This eliminated mean reversion, but July remained weak.&lt;/p&gt;
 &lt;p&gt;Overall, Daggy trained 8 models. I then asked Claude which model was the &amp;quot;best&amp;quot; and how well they performed, it then returned the table below:&lt;/p&gt;
-&lt;h2 id=&quot;complete-model-performance-summary&quot; tabindex=&quot;-1&quot;&gt;Complete Model Performance Summary &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/july_sp500/july_stock_returns/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;model-performance-summary&quot; tabindex=&quot;-1&quot;&gt;Model Performance Summary &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/july_sp500/july_stock_returns/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;

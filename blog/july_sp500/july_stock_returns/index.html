@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Is July really a bad month for stocks?</title>
-		<meta name="description" content="A quick, robust analysis using Claude and Daggy">
+		<meta name="description" content="Someone at lunch claimed July is bad for stocks. With Daggy, we built 8 statistical models to show this isn&#39;t the case and revealed why raw data deceives.">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
 
@@ -590,7 +590,7 @@ table tr[style*="font-weight: bold"] {
 <h1>Is July really a bad month for stocks?</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-07-24">24 July 2025</time></li>
+	<li><time datetime="2025-07-25">25 July 2025</time></li>
 	<li><a href="/tags/daggy/" class="post-tag">daggy</a></li>
 	<li><a href="/tags/bayes/" class="post-tag">bayes</a></li>
 	<li><a href="/tags/statistics/" class="post-tag">statistics</a></li>
@@ -680,7 +680,7 @@ table tr[style*="font-weight: bold"] {
 <p><picture><source type="image/avif" srcset="/img/aMmWaRTk9H-1536.avif 1536w"><source type="image/webp" srcset="/img/aMmWaRTk9H-1536.webp 1536w"><img alt="Claude building statistical models via Daggy" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/aMmWaRTk9H-1536.png" width="1536" height="868"></picture></p>
 <p>Daggy built two models: one estimating the month effect and the other adjusting for the year when estimating the month effect. Although July's estimate was slightly positive, it was not statistically significant in either model. But maybe we have some &quot;reversion to the mean&quot;, where strong months tend to be followed by weak months and vice-versa? Perhaps this washes out the month effect? Claude knew how to frame this question to Daggy as a &quot;lagged dependent variable&quot; then included it in its analysis. Although the analysis showed apparent mean reversion, with strong months followed by weaker months, July's impact remained small and statistically insignificant. We asked claude to account for linear and cubic time trends. This eliminated mean reversion, but July remained weak.</p>
 <p>Overall, Daggy trained 8 models. I then asked Claude which model was the &quot;best&quot; and how well they performed, it then returned the table below:</p>
-<h2 id="complete-model-performance-summary" tabindex="-1">Complete Model Performance Summary <a class="header-anchor" href="#complete-model-performance-summary">#</a></h2>
+<h2 id="model-performance-summary" tabindex="-1">Model Performance Summary <a class="header-anchor" href="#model-performance-summary">#</a></h2>
 <table>
 <thead>
 <tr>

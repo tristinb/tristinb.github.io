@@ -1,7 +1,7 @@
 ---
 title: Is July really a bad month for stocks?
-date: 2025-07-24
-description: A quick, robust analysis using Claude and Daggy
+date: 2025-07-25
+description: Someone at lunch claimed July is bad for stocks. With Daggy, we built 8 statistical models to show this isn't the case and revealed why raw data deceives.
 tags: [daggy, bayes, statistics, finance]
 draft: False
 ---
@@ -43,7 +43,7 @@ Daggy built two models: one estimating the month effect and the other adjusting 
 
 Overall, Daggy trained 8 models. I then asked Claude which model was the "best" and how well they performed, it then returned the table below:
 
-## Complete Model Performance Summary
+## Model Performance Summary
 
 | Rank | Model | WAIC | R² | Key Features | Winner? |
 |------|-------|------|----|--------------|---------| 

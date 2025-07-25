@@ -42,6 +42,11 @@
 	</url>
 	
 	<url>
+		<loc>https://tristinb.github.io/blog/july_sp500/july_stock_returns/</loc>
+		<lastmod>2025-07-24</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://tristinb.github.io/about/</loc>
 		<lastmod>2025-07-25</lastmod>
 	</url>
@@ -58,6 +63,21 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/</loc>
+		<lastmod>2025-07-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/bayes/</loc>
+		<lastmod>2025-07-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/probability/</loc>
+		<lastmod>2025-07-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/decision-science/</loc>
 		<lastmod>2025-07-25</lastmod>
 	</url>
 	
@@ -82,21 +102,6 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/bayes/</loc>
-		<lastmod>2025-07-25</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/probability/</loc>
-		<lastmod>2025-07-25</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/decision-science/</loc>
-		<lastmod>2025-07-25</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://tristinb.github.io/tags/innovation/</loc>
 		<lastmod>2025-07-25</lastmod>
 	</url>
@@ -107,17 +112,37 @@
 	</url>
 	
 	<url>
+		<loc>https://tristinb.github.io/tags/daggy/</loc>
+		<lastmod>2025-07-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/statistics/</loc>
+		<lastmod>2025-07-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/finance/</loc>
+		<lastmod>2025-07-25</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://tristinb.github.io/tags/polls/</loc>
 		<lastmod>2025-07-25</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
+		<loc>https://tristinb.github.io/tags/international-relations/</loc>
 		<lastmod>2025-07-25</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/game-theory/</loc>
+		<lastmod>2025-07-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
 		<lastmod>2025-07-25</lastmod>
 	</url>
 	
@@ -128,11 +153,6 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/beliefs/</loc>
-		<lastmod>2025-07-25</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/international-relations/</loc>
 		<lastmod>2025-07-25</lastmod>
 	</url>
 </urlset>

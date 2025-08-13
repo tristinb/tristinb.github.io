@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Is July really a bad month for stocks?</title>
-		<meta name="description" content="Someone at lunch claimed July is bad for stocks. With Daggy, we built 8 statistical models to show this isn&#39;t the case and revealed why raw data deceives.">
+		<title>Pricing Geopolitics</title>
+		<meta name="description" content="Why geopolitical shocks impact the stock market much less than we think">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
 
@@ -587,223 +587,82 @@ table tr[style*="font-weight: bold"] {
 		<main id="skip">
 			
 
-<h1>Is July really a bad month for stocks?</h1>
+<h1>Pricing Geopolitics</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-07-25">25 July 2025</time></li>
-	<li><a href="/tags/daggy/" class="post-tag">daggy</a></li>
-	<li><a href="/tags/statistics/" class="post-tag">statistics</a></li>
+	<li><time datetime="2025-08-13">13 August 2025</time></li>
 	<li><a href="/tags/finance/" class="post-tag">finance</a></li>
 </ul>
 
 
-<p>While having lunch with my mom in Idaho, I overheard someone at the table next to us say that July tends to be a down month for stocks. This seemed strange. If a month is predictably slow, there should be an opportunity to profit until that opportunity, and predictability, disappears. I decided to test this claim with <a href="https://www.daggydata.com/">Daggy</a>.</p>
-<p>Although our table neighbor never mentioned any particular stock, I pulled SPY data (which tracks the S&amp;P 500) from January 2010 to December 2024. I defined monthly return as the percentage change from the stock's opening value on the first day of the month to the close on the last day.</p>
-<p>I then opened Claude and asked for average returns and standard deviations. It returned the following table:</p>
-<p><picture><source type="image/avif" srcset="/img/FuG5gRfaSy-1604.avif 1604w"><source type="image/webp" srcset="/img/FuG5gRfaSy-1604.webp 1604w"><img alt="Claude question" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/FuG5gRfaSy-1604.png" width="1604" height="972"></picture></p>
-<p>It returned the following table:</p>
+<p>Geopolitical shocks typically have little lasting impact on US stocks. Research by <a href="https://privatebank.jpmorgan.com/nam/en/insights/markets-and-investing/how-do-geopolitical-shocks-impact-markets">JP Morgan</a> studied 36 events, beginning with Germany's invasion of France and ending with Russia's invasion of Ukraine, and found that the six month return starting from the day of a shock was indistinguishable from the return over any random six-month period that didn't cover a shock. Intuitively, geopolitics should play a substantial role in stock prices, but research consistently shows that they rarely do. Basic financial modeling provides insight into both why this is the case and what to look for the next time a global event causes the financial press to fret.</p>
+<p>Economists and investors from Irving Fisher to Benjamin Graham and his protégé Warren Buffett have long argued that a company's cash flows over the long-run determine a stock's intrinsic value. Cash flows are fundamental because they can be reinvested into the company to fuel growth or paid back to an investor via dividends or stock buybacks.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> The goal in this valuation approach is to buy companies priced below their intrinsic valuation and sell those that are overpriced. Although stocks may fluctuate for various reasons in the short-term, value investors argue that cash flows over the long run are what truly drives returns.</p>
+<p>Since cash flows in the long run shape returns, stock prices should reflect the market's best guess about these future cash flows. An event that leads investors to revise this guess should then impact the stock's price. Academic/investor Michael Mauboussin and Alfred Rappaport emphasize three fundamental drivers of a company's valuation where shifts can impact a stock's price by changing the market's expectation of future cash flows: 1) sales/revenue growth 2) operating margins and 3) incremental investment.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> These three channels can offer guidance into a geopolitical shock's impact on equities.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<p>According to <a href="https://www.goldmansachs.com/insights/articles/how-tariffs-are-forecast-to-affect-us-stocks">Goldman Sachs</a> about 28 percent of the revenues for S&amp;P 500 companies come from abroad. But large US companies in the S&amp;P 500 are globally diversified, meaning they typically have few, if any, sales in countries where crises generally occur. For investors to update their expectations of sales growth sufficiently to sell their shares, the shock would likely need to be regional or global and hit several export markets. Therefore, because most revenues coming from within the US and those who export have diversified markets, a shock would have to hit a company's vital export markets quite hard to cause long-term stock price declines.</p>
+<p>Although large companies have diversified sales, they may have concentrated supply chains where shocks can negatively impact both operating margins and incremental investment. Operating margins relate to the costs of doing business in the short term, meaning it excludes things like financing and long-term investments. If input prices increase, operating margins will fall. The 1970s oil shock was the one event in the above JP Morgan report that had lasting impacts on equity prices as high oil prices increased costs across the economy.</p>
+<p>But not all shocks drive up prices, in part because of the dollar's role in the international financial system. Typically, crises lead investors to invest in safe assets, and US government bonds are considered the safest. This &quot;flight to safety&quot; can strengthen the dollar, thereby making imports cheaper. Since most imports to the US are used in <a href="https://www.bis.org/publ/arpdf/ar2025e1.pdf">intermediate goods</a>, a decrease in import prices can improve operating margins, all else equal. Although many commodities, such as oil, are priced in dollars, and a stronger dollar can make a company's exports relatively less competitive, for many large firms, a stronger dollar can reduce operating costs.</p>
+<p>Some firms may own, or be significant investors in, factories abroad. If a shock hits these factories, these firms may need to diversify. Although being forced to make new investments in property, plants, and equipment may be an inefficient use of their capital, a diversified supply chain provides resilience to future shocks, thereby reducing the uncertainty of future cash flows, which increases their present value. For long-term focused investors, this diversification may be a net positive, cancelling out the negative short-term impacts on the stock price.</p>
+<p>We can see some of these drivers at play after Russia's invasion of Ukraine. McDonald's was one of the most exposed companies to the war with nearly <a href="https://corporate.mcdonalds.com/content/dam/sites/corp/nfl/pdf/Russia%20and%20Ukraine%20Supplemental%20Schedule.pdf">9 percent of its revenues</a> coming from the two countries. But as the following table shows, its stock outperformed the S&amp;P 500 (measured by the SPY index) throughout the year following Russia's invasion.</p>
 <table>
 <thead>
 <tr>
-<th>Month</th>
-<th>Mean Monthly Return (%)</th>
-<th>Std Dev of Monthly Return (%)</th>
+<th>Date</th>
+<th>SPY Close</th>
+<th>MCD Close</th>
+<th>SPY Pct. Change</th>
+<th>MCD Pct. Change</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Jan</td>
-<td>0.65</td>
-<td>4.17</td>
+<td>2022-02-24</td>
+<td>407.46</td>
+<td>226.22</td>
+<td>-</td>
+<td>-</td>
 </tr>
 <tr>
-<td>Feb</td>
-<td>1.11</td>
-<td>3.71</td>
+<td>2022-05-25</td>
+<td>379.21</td>
+<td>226.53</td>
+<td>-6.93</td>
+<td>0.14</td>
 </tr>
 <tr>
-<td>Mar</td>
-<td>1.17</td>
-<td>4.54</td>
+<td>2022-08-23</td>
+<td>395.21</td>
+<td>243.21</td>
+<td>-3.01</td>
+<td>7.51</td>
 </tr>
 <tr>
-<td>Apr</td>
-<td>1.48</td>
-<td>5.24</td>
+<td>2022-11-21</td>
+<td>379.74</td>
+<td>257.67</td>
+<td>-6.80</td>
+<td>13.90</td>
 </tr>
 <tr>
-<td>May</td>
-<td>0.09</td>
-<td>4.06</td>
-</tr>
-<tr>
-<td>Jun</td>
-<td>0.71</td>
-<td>4.01</td>
-</tr>
-<tr>
-<td>Jul</td>
-<td>2.76</td>
-<td>3.00</td>
-</tr>
-<tr>
-<td>Aug</td>
-<td>-0.58</td>
-<td>3.86</td>
-</tr>
-<tr>
-<td>Sep</td>
-<td>-0.76</td>
-<td>4.26</td>
-</tr>
-<tr>
-<td>Oct</td>
-<td>2.03</td>
-<td>4.85</td>
-</tr>
-<tr>
-<td>Nov</td>
-<td>3.08</td>
-<td>2.98</td>
-</tr>
-<tr>
-<td>Dec</td>
-<td>0.35</td>
-<td>3.99</td>
+<td>2023-02-24</td>
+<td>383.21</td>
+<td>248.89</td>
+<td>-5.95</td>
+<td>10.02</td>
 </tr>
 </tbody>
 </table>
-<p>I then asked it to build me a chart of this data that I could download as a png. It, uh, complied.</p>
-<p><picture><source type="image/avif" srcset="/img/QPV6Wq_FrH-1530.avif 1530w"><source type="image/webp" srcset="/img/QPV6Wq_FrH-1530.webp 1530w"><img alt="SPY monthly returns" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/QPV6Wq_FrH-1530.png" width="1530" height="1536"></picture></p>
-<p>Rather than being down, July is the second strongest month. But the table above shows the standard deviations are often larger than the means themselves, suggesting there's substantial unexplained variation. This variation could be driven by systematic factors—year effects like COVID's 2020 fluctuations, 2022's doldrums, momentum from previous months, or other factors. With Daggy we can easily build statistical models that account for these other factors.</p>
-<p><picture><source type="image/avif" srcset="/img/aMmWaRTk9H-1536.avif 1536w"><source type="image/webp" srcset="/img/aMmWaRTk9H-1536.webp 1536w"><img alt="Claude building statistical models via Daggy" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/aMmWaRTk9H-1536.png" width="1536" height="868"></picture></p>
-<p>Daggy built two models: one estimating the month effect and the other adjusting for the year when estimating the month effect. Although July's estimate was slightly positive, it was not statistically significant in either model. But maybe we have some &quot;reversion to the mean&quot;, where strong months tend to be followed by weak months and vice-versa? Perhaps this washes out the month effect? Claude knew how to frame this question to Daggy as a &quot;lagged dependent variable&quot; then included it in its analysis. Although the analysis showed apparent mean reversion, with strong months followed by weaker months, July's impact remained small and statistically insignificant. We asked claude to account for linear and cubic time trends. This eliminated mean reversion, but July remained weak.</p>
-<p>Overall, Daggy trained 8 models. I then asked Claude which model was the &quot;best&quot; and how well they performed, it then returned the table below:</p>
-<h2 id="model-performance-summary" tabindex="-1">Model Performance Summary <a class="header-anchor" href="#model-performance-summary">#</a></h2>
-<table>
-<thead>
-<tr>
-<th>Rank</th>
-<th>Model</th>
-<th>WAIC</th>
-<th>R²</th>
-<th>Key Features</th>
-<th>Winner?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>🏆 <strong>1</strong></td>
-<td><strong>Month Only</strong></td>
-<td><strong>-262.86</strong></td>
-<td><strong>8.8%</strong></td>
-<td>Seasonal effects only</td>
-<td>✅ <strong>BEST</strong></td>
-</tr>
-<tr>
-<td>2</td>
-<td>Pure Mean Reversion</td>
-<td>-265.89</td>
-<td>0.8%</td>
-<td>Lagged return only</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Month + Mean Reversion</td>
-<td>-269.40</td>
-<td>11.7%</td>
-<td>Seasonal + lag effects</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Month + Year (Categorical)</td>
-<td>-273.77</td>
-<td>15.3%</td>
-<td>Seasonal + year dummies</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Month + Year (Continuous)</td>
-<td>-274.58</td>
-<td>8.6%</td>
-<td>Seasonal + linear year</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Time Trends Only</td>
-<td>-275.35</td>
-<td>17.6%</td>
-<td>Linear/quadratic/cubic time</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Month + Year + Mean Reversion</td>
-<td>-276.45</td>
-<td>18.1%</td>
-<td>Full model with years</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Time + Mean Reversion</td>
-<td>-341.20</td>
-<td>20.3%</td>
-<td>Time trends + lag</td>
-<td>❌</td>
-</tr>
-</tbody>
-</table>
-<p>The table shows that no model fit the data particularly well.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> The best model by WAIC, which estimates out of sample performance, included only month effects. But its R-squared was just 8.8%, meaning more than 90 percent of the variation in the training data remained unexplained.</p>
-<p>The table below shows the estimates for July across several models. The coefficients show July's estimated deviation from the average monthly returns.</p>
-<h2 id="july-effect-analysis" tabindex="-1">July Effect Analysis <a class="header-anchor" href="#july-effect-analysis">#</a></h2>
-<table>
-<thead>
-<tr>
-<th>Model</th>
-<th>July Coefficient</th>
-<th>95% Confidence Interval</th>
-<th>Statistically Significant?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Month Only</td>
-<td>-0.009</td>
-<td>[-0.343, +0.303]</td>
-<td>❌ <strong>NO</strong></td>
-</tr>
-<tr>
-<td>Month + Year Dummies</td>
-<td>-0.076</td>
-<td>[-0.309, +0.146]</td>
-<td>❌ <strong>NO</strong></td>
-</tr>
-<tr>
-<td>Month + Mean Reversion</td>
-<td>-0.052</td>
-<td>[-0.295, +0.224]</td>
-<td>❌ <strong>NO</strong></td>
-</tr>
-<tr>
-<td>Month + Time Trends + Mean Reversion</td>
-<td>-0.068</td>
-<td>[-0.253, +0.118]</td>
-<td>❌ <strong>NO</strong></td>
-</tr>
-</tbody>
-</table>
-<p>The table shows we are unlikely to have any investing opportunities in July.</p>
-<h2 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h2>
-<p>Although our lunch neighbor had the wrong take about July, he wouldn't have done much better had he looked at the raw data alone. Daggy's statistical analysis showed that July's strength over the past 15 years is typical given random variation of the S&amp;P 500's overall trend. We built and analyzed several models all showing that time-related factors failed to even predict the training data well. If they can only moderately predict the training data, they will struggle even more to predict the future.</p>
+<p>If we took the geopolitical shock and potential revenue loss at face value, we may have expected a significant drop in its stock price. Although 9 percent of revenue seems substantial, McDonald's owned and operated 100 percent of its restaurants in Ukraine and 84 percent of those in Russia, making this revenue come with high operating costs. Subtracting the cost of operating these restaurants caused this 9 percent of total revenue to equal less than 3 percent of its total operating income. These low-margin company-operated operations contrasted with McDonald's high-margin franchise model, likely making these stores less valuable to investors. Furthermore, this income exposure seems relatively small considering the broader 2022 macroeconomic environment.</p>
+<p>Post-pandemic inflation led to significant Fed tightening, with prominent economists <a href="https://www.bloomberg.com/news/articles/2022-07-01/summers-says-risk-of-2022-recession-climbing-may-damp-inflation">predicting a recession by the end of 2022</a>. As <a href="https://www.economist.com/business/2025/08/07/mcdonalds-secret-sauce-plus-a-pickle-or-two">the Economist</a> notes, McDonald's in the US is relatively insulated from inflation because it makes most of its revenue through franchise fees and taking a fixed percent of total sales (not profits). Simultaneously, it is also a good bet in the event of a recession, as its low prices attract more price-conscious consumers. Therefore, considering the broad macroeconomic context, investors may have liked McDonald's freeing up a substantial amount of capital by shutting their relatively low-return, low-franchise-fee, operations in Russia and Ukraine. As such, over the next year, McDonald's significantly outperformed the S&amp;P 500 even though on paper it seemed quite exposed to the war in Ukraine.</p>
+<p>Despite our intuition, and what we read about in the financial press, empirical studies consistently find minimal impact from geopolitical shocks. These findings are consistent with valuation approaches to equities, as shocks often leave a stock's core value drivers relatively unscathed. This is not to say geopolitics never matters, but when the next crisis occurs, analyzing fundamental value drivers can help us better assess how much that shock will impact stocks.</p>
+<h2 id="footnotes" tabindex="-1">Footnotes <a class="header-anchor" href="#footnotes">#</a></h2>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>WAIC (Widely Applicable, or Watanabe-Akaike, information criterion) estimates how well the model will predict on out of sample data, with values closer to zero being better. R-squared estimates how much of the training data's variation the model explains. High R-squared values won't typically travel to new data. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p>But since these cash flows are only available in the future, and $100 today is worth more than $100 in a year, simply because you can invest the $100 in a treasury bill and get a positive return at almost zero risk, we need to discount these future cash flows by at least the cost of capital. This &quot;discount rate&quot; serves to translate the future value of cash flows to the present value. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Michael Mauboussin and Alfred Rappaport. 2020. Expectations Investing. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>But keep in mind, the threshold to sell may be large, since investors may need a new opportunity to invest in, and many opportunities could be adversely impacted by the shock. Similarly, because selling a stock incurs tax liabilities any new opportunity must at least cover this loss. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -819,12 +678,12 @@ table tr[style*="font-weight: bold"] {
 </script>
 
 <script src="/bundle.js"></script>
-<ul class="links-nextprev"><li>Previous: <a href="/blog/llm_utility_functions/">LLMs represent a win for utility theory</a></li><li>Next: <a href="/blog/pricing_geopolitics/">Pricing Geopolitics</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/july_sp500/july_stock_returns/">Is July really a bad month for stocks?</a></li>
 </ul>
 		</main>
 
 		<footer></footer>
 
-		<!-- Current page: /blog/july_sp500/july_stock_returns/ -->
+		<!-- Current page: /blog/pricing_geopolitics/ -->
 	</body>
 </html>

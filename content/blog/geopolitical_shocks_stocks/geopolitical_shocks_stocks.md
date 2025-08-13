@@ -3,7 +3,7 @@ title: Geopolitical Shocks and Stocks
 description: Why geopolitical shocks impact the stock market much less than we think
 date: 2025-08-13
 draft: False
-tags: [finance]
+tags: [finance, international relations]
 ---
 
 Geopolitical shocks typically have little lasting impact on US stocks. Research by [JP Morgan](https://privatebank.jpmorgan.com/nam/en/insights/markets-and-investing/how-do-geopolitical-shocks-impact-markets) studied 36 events, beginning with Germany's invasion of France and ending with Russia's invasion of Ukraine, and found that the six month return starting from the day of a shock was indistinguishable from the return over any random six-month period that didn't cover a shock. Intuitively, geopolitics should play a substantial role in stock prices, but research consistently shows that they rarely do. Basic financial modeling provides insight into both why this is the case and what to look for the next time a global event causes the financial press to fret.

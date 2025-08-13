@@ -1,5 +1,5 @@
 ---
-title: Pricing Geopolitics
+title: Geopolitical Shocks and Stocks
 description: Why geopolitical shocks impact the stock market much less than we think
 date: 2025-08-13
 draft: False

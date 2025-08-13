@@ -112,6 +112,11 @@
 	</url>
 	
 	<url>
+		<loc>https://tristinb.github.io/tags/international-relations/</loc>
+		<lastmod>2025-08-13</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://tristinb.github.io/tags/innovation/</loc>
 		<lastmod>2025-08-13</lastmod>
 	</url>
@@ -137,11 +142,6 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/international-relations/</loc>
-		<lastmod>2025-08-13</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://tristinb.github.io/tags/game-theory/</loc>
 		<lastmod>2025-08-13</lastmod>
 	</url>
@@ -152,12 +152,12 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
+		<loc>https://tristinb.github.io/tags/beliefs/</loc>
 		<lastmod>2025-08-13</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/beliefs/</loc>
+		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
 		<lastmod>2025-08-13</lastmod>
 	</url>
 </urlset>

@@ -640,7 +640,9 @@ table tr[style*="font-weight: bold"] {
 </tbody>
 </table>
 <p>Notice the R-squared of 94.5 percent shows that with just two variables we can explain nearly 95 percent of the variation in 30-year mortgage rates. The WAIC is used to predict how well the model would perform out of sample. Although this is difficult to interpret, AI tools like Claude know that higher values (those closer to zero) are typically better, so it can intelligently choose which model to use.</p>
-<p>To further understand model performance, I then asked Daggy to provide me with the model's worst predictions. It provided the following table, showing that the worst results were well within 1 percentage point of the true value and occurred at the onset of the COVID pandemic.</p>
+<p>To further understand model performance, I then asked Daggy to provide me with the model's worst predictions, as follows:</p>
+<p><picture><source type="image/avif" srcset="/img/DC19noB67S-1698.avif 1698w"><source type="image/webp" srcset="/img/DC19noB67S-1698.webp 1698w"><img alt="Asking Claude: What were the worst predictions?" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/DC19noB67S-1698.png" width="1698" height="992"></picture></p>
+<p>It provided an artifact that included the table below, showing that the worst results were well within 1 percentage point of the true value and occurred at the onset of the COVID pandemic.</p>
 <hr>
 <h4 id="even-during-crisis-the-model-holds-strong" tabindex="-1">Even During Crisis, the Model Holds Strong <a class="header-anchor" href="#even-during-crisis-the-model-holds-strong">#</a></h4>
 <table>
@@ -684,7 +686,7 @@ table tr[style*="font-weight: bold"] {
 <p><strong>Soft Landing/Normalization</strong> Because of the premium for holding long-term bonds, yield curves typically slope upward. But if investors steady rates, the slope will be flatter than in the inflationary fears scenario.</p>
 <p><strong>Economic Boom</strong> Typically economic booms are associated with higher interest rates, both because booms feed inflation and a higher demand for investment consistent with rosy economic outlooks cause rates to rise. This scenario results in a steeply sloped yield curve with the 10 year rate higher than the 2 year rate.</p>
 <p>Now we can use our above trained model to determine a likely range of mortgage rates under these scenarios. I asked Claude the following:</p>
-<p><code>Use Daggy to run a few scenarios here. For context, the current 10 year yield is 4.29% and the two year is 3.74% Then put this into a table. Let's think about broad economic scenarios: if investors expect inflation, we will have a positive sloped yield curve. If they expect a recession we will have an inverted yield curve. During normal circumstances it will be positive sloped, but less extreme than when investors expect inflation. We can also think about a stagflation and a boom.</code></p>
+<p><em>Use Daggy to run a few scenarios here. For context, the current 10 year yield is 4.29% and the two year is 3.74% Then put this into a table. Let's think about broad economic scenarios: if investors expect inflation, we will have a positive sloped yield curve. If they expect a recession we will have an inverted yield curve. During normal circumstances it will be positive sloped, but less extreme than when investors expect inflation. We can also think about a stagflation and a boom.</em></p>
 <p>and it returned the table below.</p>
 <h4 id="economic-scenarios-and-mortgage-rate-projections" tabindex="-1">Economic Scenarios and Mortgage Rate Projections <a class="header-anchor" href="#economic-scenarios-and-mortgage-rate-projections">#</a></h4>
 <table>

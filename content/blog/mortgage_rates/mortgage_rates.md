@@ -24,7 +24,11 @@ It ran several models and returned the following table:
 
 Notice the R-squared of 94.5 percent shows that with just two variables we can explain nearly 95 percent of the variation in 30-year mortgage rates. The WAIC is used to predict how well the model would perform out of sample. Although this is difficult to interpret, AI tools like Claude know that higher values (those closer to zero) are typically better, so it can intelligently choose which model to use. 
 
-To further understand model performance, I then asked Daggy to provide me with the model's worst predictions. It provided the following table, showing that the worst results were well within 1 percentage point of the true value and occurred at the onset of the COVID pandemic.
+To further understand model performance, I then asked Daggy to provide me with the model's worst predictions, as follows:
+
+{% image "./worst_preds.png", "Asking Claude: What were the worst predictions?" %}
+
+It provided an artifact that included the table below, showing that the worst results were well within 1 percentage point of the true value and occurred at the onset of the COVID pandemic.
 
 ---
 
@@ -50,7 +54,7 @@ Outside of periods like quantitative easing (QE) the Fed sets overnight bank rat
 
 Now we can use our above trained model to determine a likely range of mortgage rates under these scenarios. I asked Claude the following:
 
-`Use Daggy to run a few scenarios here. For context, the current 10 year yield is 4.29% and the two year is 3.74% Then put this into a table. Let's think about broad economic scenarios: if investors expect inflation, we will have a positive sloped yield curve. If they expect a recession we will have an inverted yield curve. During normal circumstances it will be positive sloped, but less extreme than when investors expect inflation. We can also think about a stagflation and a boom.`
+*Use Daggy to run a few scenarios here. For context, the current 10 year yield is 4.29% and the two year is 3.74% Then put this into a table. Let's think about broad economic scenarios: if investors expect inflation, we will have a positive sloped yield curve. If they expect a recession we will have an inverted yield curve. During normal circumstances it will be positive sloped, but less extreme than when investors expect inflation. We can also think about a stagflation and a boom.*
 
 and it returned the table below.
 

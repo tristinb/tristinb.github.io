@@ -4,12 +4,192 @@
 	<subtitle>Just writing about stuff.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2025-08-13T00:00:00Z</updated>
+	<updated>2025-08-18T00:00:00Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
 		<email>tristinbeckman@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Mortgage rates under various economic scenarios</title>
+		<link href="https://tristinb.github.io/blog/mortgage_rates/"/>
+		<updated>2025-08-18T00:00:00Z</updated>
+		<id>https://tristinb.github.io/blog/mortgage_rates/</id>
+		<content type="html">&lt;p&gt;Mortgage rates just hit their &lt;a href=&quot;https://fred.stlouisfed.org/series/MORTGAGE30US&quot;&gt;lowest levels&lt;/a&gt; in nearly a year. With the market predicting the Fed to cut rates in September, how much further can they drop? Although much depends on both the Fed&#39;s decision and the overall economic outlook, we can use Daggy to build a model of how interest rates impact mortgage rates, then consider various economic scenarios to understand where mortgage rates are likely to fall under several economic scenarios.&lt;/p&gt;
+&lt;p&gt;I began by loading data from the Federal Reserve Economic Data (FRED) on the &lt;a href=&quot;https://fred.stlouisfed.org/series/DGS2&quot;&gt;2-year&lt;/a&gt; and &lt;a href=&quot;https://fred.stlouisfed.org/series/DGS10&quot;&gt;10-year&lt;/a&gt; treasury yields as well as the &lt;a href=&quot;https://fred.stlouisfed.org/series/MORTGAGE30US&quot;&gt;30-year-fixed rate mortgage average&lt;/a&gt; into Daggy. I then asked Daggy the following:&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tristinb.github.io/img/LYNF-fytM5-1578.avif 1578w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tristinb.github.io/img/LYNF-fytM5-1578.webp 1578w&quot;&gt;&lt;img alt=&quot;Asking Claude: Use Daggy to model the relationship between the 10 year yield and 30 year fixed mortgage rates. How about the 2 year yield? What if I used the 10 year 2 year spread? Build a few models to test the robustness of this relationship&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;responsive-image&quot; style=&quot;max-width: 100%; height: auto;&quot; src=&quot;https://tristinb.github.io/img/LYNF-fytM5-1578.png&quot; width=&quot;1578&quot; height=&quot;784&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;It ran several models and returned the following table:&lt;/p&gt;
+&lt;h4 id=&quot;model-performance-comparison&quot; tabindex=&quot;-1&quot;&gt;Model Performance Comparison &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/mortgage_rates/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Rank&lt;/th&gt;
+&lt;th&gt;Model&lt;/th&gt;
+&lt;th&gt;R²&lt;/th&gt;
+&lt;th&gt;RMSE&lt;/th&gt;
+&lt;th&gt;WAIC&lt;/th&gt;
+&lt;th&gt;Key Insight&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;🥇&lt;/td&gt;
+&lt;td&gt;10-Year + Yield Spread&lt;/td&gt;
+&lt;td&gt;94.5%&lt;/td&gt;
+&lt;td&gt;0.275pp&lt;/td&gt;
+&lt;td&gt;-34.4&lt;/td&gt;
+&lt;td&gt;Best overall performance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🥈&lt;/td&gt;
+&lt;td&gt;10-Year Only&lt;/td&gt;
+&lt;td&gt;89.0%&lt;/td&gt;
+&lt;td&gt;0.404pp&lt;/td&gt;
+&lt;td&gt;-276.4&lt;/td&gt;
+&lt;td&gt;Missing the spread information hurts accuracy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🥉&lt;/td&gt;
+&lt;td&gt;2-Year Only&lt;/td&gt;
+&lt;td&gt;79.8%&lt;/td&gt;
+&lt;td&gt;0.546pp&lt;/td&gt;
+&lt;td&gt;-512&lt;/td&gt;
+&lt;td&gt;Short-term rates alone aren&#39;t enough&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Notice the R-squared of 94.5 percent shows that with just two variables we can explain nearly 95 percent of the variation in 30-year mortgage rates. The WAIC is used to predict how well the model would perform out of sample. Although this is difficult to interpret, AI tools like Claude know that higher values (those closer to zero) are typically better, so it can intelligently choose which model to use.&lt;/p&gt;
+&lt;p&gt;To further understand model performance, I then asked Daggy to provide me with the model&#39;s worst predictions. It provided the following table, showing that the worst results were well within 1 percentage point of the true value and occurred at the onset of the COVID pandemic.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;even-during-crisis-the-model-holds-strong&quot; tabindex=&quot;-1&quot;&gt;Even During Crisis, the Model Holds Strong &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/mortgage_rates/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Date&lt;/th&gt;
+&lt;th&gt;Actual Rate&lt;/th&gt;
+&lt;th&gt;Predicted&lt;/th&gt;
+&lt;th&gt;Error&lt;/th&gt;
+&lt;th&gt;Context&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;April 23, 2020&lt;/td&gt;
+&lt;td&gt;3.33%&lt;/td&gt;
+&lt;td&gt;2.5%&lt;/td&gt;
+&lt;td&gt;+0.83pp&lt;/td&gt;
+&lt;td&gt;COVID peak volatility&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;April 16, 2020&lt;/td&gt;
+&lt;td&gt;3.65%&lt;/td&gt;
+&lt;td&gt;2.49%&lt;/td&gt;
+&lt;td&gt;+0.82pp&lt;/td&gt;
+&lt;td&gt;COVID peak volatility&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;April 2, 2020&lt;/td&gt;
+&lt;td&gt;3.33%&lt;/td&gt;
+&lt;td&gt;2.52%&lt;/td&gt;
+&lt;td&gt;+0.81pp&lt;/td&gt;
+&lt;td&gt;COVID peak volatility&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The table above shows that even during extreme market turbulence, our model stayed within 1 percentage point of the true values. Given this robust relationship, we can now consider forward-looking scenarios. To do this effectively, we need to understand how different economic conditions shape the yield curve, or the relationship between the bond&#39;s term and its yield.&lt;/p&gt;
+&lt;p&gt;Outside of periods like quantitative easing (QE) the Fed sets overnight bank rates. Overnight rates then influence, but don&#39;t solely determine, longer-term rates like the 2 year and 10 year. Mortgage rates are closely tied to longer-term rates, which the Fed doesn&#39;t directly control. The yield curve&#39;s slope -- basically the difference between long-term and short-term rates -- is notoriously difficult to predict. Economic theory argues the slope depends on the market&#39;s expectations of future yields as well as a premium for holding longer-term bonds. Both of these factors are difficult to observe and can fluctuate based on many factors, such as expected inflation and unemployment. However, yield curve&#39;s rough shape can provide insight into the market&#39;s view on future economic conditions. Specifically, consider how the following expectations would shape the yield curve:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Inflation Fears&lt;/strong&gt; Higher inflation means the Fed will likely need to raise rates in the future. Expectations of future rates result in a steep, positively sloped yield curve, where the ten year yield is much greater than the two year yield.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recession Fears&lt;/strong&gt; A slowing economy means the Fed may need to cut rates. Expectations of lower rates result in a negatively sloped yield curve, where the ten year&#39;s yield is less than the two year&#39;s. This is also known as an &amp;quot;inverted yield curve&amp;quot;. An example of this occurred in August 2019, which saw the ten year at 1.49% and the two year at 1.53%.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Soft Landing/Normalization&lt;/strong&gt; Because of the premium for holding long-term bonds, yield curves typically slope upward. But if investors steady rates, the slope will be flatter than in the inflationary fears scenario.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Economic Boom&lt;/strong&gt; Typically economic booms are associated with higher interest rates, both because booms feed inflation and a higher demand for investment consistent with rosy economic outlooks cause rates to rise. This scenario results in a steeply sloped yield curve with the 10 year rate higher than the 2 year rate.&lt;/p&gt;
+&lt;p&gt;Now we can use our above trained model to determine a likely range of mortgage rates under these scenarios. I asked Claude the following:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Use Daggy to run a few scenarios here. For context, the current 10 year yield is 4.29% and the two year is 3.74% Then put this into a table. Let&#39;s think about broad economic scenarios: if investors expect inflation, we will have a positive sloped yield curve. If they expect a recession we will have an inverted yield curve. During normal circumstances it will be positive sloped, but less extreme than when investors expect inflation. We can also think about a stagflation and a boom.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;and it returned the table below.&lt;/p&gt;
+&lt;h4 id=&quot;economic-scenarios-and-mortgage-rate-projections&quot; tabindex=&quot;-1&quot;&gt;Economic Scenarios and Mortgage Rate Projections &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/mortgage_rates/&quot;&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Scenario&lt;/th&gt;
+&lt;th&gt;Economic Expectation&lt;/th&gt;
+&lt;th&gt;10Y Yield&lt;/th&gt;
+&lt;th&gt;2Y Yield&lt;/th&gt;
+&lt;th&gt;Spread&lt;/th&gt;
+&lt;th&gt;Predicted Mortgage Rate&lt;/th&gt;
+&lt;th&gt;90% Confidence Interval&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;🔵 Current&lt;/td&gt;
+&lt;td&gt;Normal Growth&lt;/td&gt;
+&lt;td&gt;4.29%&lt;/td&gt;
+&lt;td&gt;3.74%&lt;/td&gt;
+&lt;td&gt;+0.55%&lt;/td&gt;
+&lt;td&gt;6.52%&lt;/td&gt;
+&lt;td&gt;6.33% - 6.71%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🟢 Normal Growth&lt;/td&gt;
+&lt;td&gt;Steady Economy&lt;/td&gt;
+&lt;td&gt;4.00%&lt;/td&gt;
+&lt;td&gt;3.25%&lt;/td&gt;
+&lt;td&gt;+0.75%&lt;/td&gt;
+&lt;td&gt;6.13%&lt;/td&gt;
+&lt;td&gt;5.97% - 6.30%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔴 Recession&lt;/td&gt;
+&lt;td&gt;Economic Downturn&lt;/td&gt;
+&lt;td&gt;3.00%&lt;/td&gt;
+&lt;td&gt;3.50%&lt;/td&gt;
+&lt;td&gt;-0.50%&lt;/td&gt;
+&lt;td&gt;5.43%&lt;/td&gt;
+&lt;td&gt;5.26% - 5.60%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🟠 Inflation&lt;/td&gt;
+&lt;td&gt;Rising Prices&lt;/td&gt;
+&lt;td&gt;5.50%&lt;/td&gt;
+&lt;td&gt;4.00%&lt;/td&gt;
+&lt;td&gt;+1.50%&lt;/td&gt;
+&lt;td&gt;7.55%&lt;/td&gt;
+&lt;td&gt;7.23% - 7.87%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🟡 Stagflation&lt;/td&gt;
+&lt;td&gt;Inflation + Slow Growth&lt;/td&gt;
+&lt;td&gt;5.00%&lt;/td&gt;
+&lt;td&gt;4.50%&lt;/td&gt;
+&lt;td&gt;+0.50%&lt;/td&gt;
+&lt;td&gt;7.32%&lt;/td&gt;
+&lt;td&gt;7.06% - 7.58%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🟣 Boom&lt;/td&gt;
+&lt;td&gt;Strong Growth + Inflation&lt;/td&gt;
+&lt;td&gt;6.00%&lt;/td&gt;
+&lt;td&gt;4.00%&lt;/td&gt;
+&lt;td&gt;+2.00%&lt;/td&gt;
+&lt;td&gt;7.94%&lt;/td&gt;
+&lt;td&gt;7.56% - 8.33%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Without further prompting, it also provided a detailed analysis of the table. Two surprises it pointed out were the following (which I am quoting):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Recession vs Boom Spread:&lt;/strong&gt; Despite recession having the lowest 10Y yield (3.00%), mortgage rates only drop to 5.43% due to the inverted yield curve penalty&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Curve Shape Power:&lt;/strong&gt; The boom scenario (6.00% 10Y) has higher mortgage rates (7.94%) than pure yield levels would suggest, but the steep +2.00% curve actually helps - without it, rates could be even higher!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It also provided more logic behind why we would see the relationships that we do. For example, it pointed out that during an economic boom high growth expectations typically drive up rates. But it also noted that the yield curve&#39;s slope also played an important role, noting that &amp;quot;Every +0.25% of additional curve steepness reduces mortgage rates by ~0.15%.&amp;quot;&lt;/p&gt;
+&lt;p&gt;The model shows that should the market forecast a huge economic boom, or if inflation takes off, &lt;em&gt;mortgage rates are unlikely to fall much further&lt;/em&gt;. But if it forecasts solid growth, or should we fall into a recession, then rates are likely to continue to fall.&lt;/p&gt;
+&lt;p&gt;Although predicting the future may be impossible, we can still prepare for it through scenario analysis. Here we were able to get a sense of how mortgage rates may evolve given different macroeconomic environments. With just a few questions, Daggy built and evaluated several models. It found a model that was extremely predictive with just two variables, then used that model to consider various economic scenarios to understand likely mortgage rates.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Geopolitical Shocks and Stocks</title>

@@ -8,7 +8,7 @@ draft: False
 
 Mortgage rates just hit their [lowest levels](https://fred.stlouisfed.org/series/MORTGAGE30US) in nearly a year. With the market predicting the Fed to cut rates in September, how much further can they drop? Although much depends on both the Fed's decision and the overall economic outlook, we can use Daggy to build a model of how interest rates impact mortgage rates, then consider various economic scenarios to understand where mortgage rates are likely to fall under several economic scenarios.
 
-I began by loading data from the Federal Reserve Economic Data (FRED) on the [2-year](https://fred.stlouisfed.org/series/DGS2) and [10-year](https://fred.stlouisfed.org/series/DGS10) treasury yields as well as the [30-year-fixed rate mortgage average](https://fred.stlouisfed.org/series/MORTGAGE30US) into Daggy. I then asked Daggy the following:
+I began by loading data from the Federal Reserve Economic Data (FRED) on the [2-year](https://fred.stlouisfed.org/series/DGS2) and [10-year](https://fred.stlouisfed.org/series/DGS10) treasury yields as well as the [30-year-fixed rate mortgage average](https://fred.stlouisfed.org/series/MORTGAGE30US) into Daggy. The dataset included 812 weekly observations spanning from 2010 to the present. I then asked Daggy the following:
 
 {% image "./daggy_10_yr_2_yr.png", "Asking Claude: Use Daggy to model the relationship between the 10 year yield and 30 year fixed mortgage rates. How about the 2 year yield? What if I used the 10 year 2 year spread? Build a few models to test the robustness of this relationship" %}
 

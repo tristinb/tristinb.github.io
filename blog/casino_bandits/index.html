@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Mortgage rates under various economic scenarios</title>
-		<meta name="description" content="Using Daggy to analyze how economic scenarios will impact mortgage rates">
+		<title>Losing money at video poker, with data science!</title>
+		<meta name="description" content="Comparing A/B testing and bandit algorithms to find the best slot machine.">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
 
@@ -587,189 +587,91 @@ table tr[style*="font-weight: bold"] {
 		<main id="skip">
 			
 
-<h1>Mortgage rates under various economic scenarios</h1>
+<h1>Losing money at video poker, with data science!</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2025-08-18">18 August 2025</time></li>
-	<li><a href="/tags/finance/" class="post-tag">finance</a></li>
-	<li><a href="/tags/daggy/" class="post-tag">daggy</a></li>
+	<li><time datetime="2025-11-04">04 November 2025</time></li>
+	<li><a href="/tags/probability/" class="post-tag">probability</a></li>
+	<li><a href="/tags/decision-science/" class="post-tag">decision science</a></li>
 </ul>
 
 
-<p>Mortgage rates just hit their <a href="https://fred.stlouisfed.org/series/MORTGAGE30US">lowest levels</a> in nearly a year. With the market predicting the Fed to cut rates in September, how much further can they drop? Although much depends on both the Fed's decision and the overall economic outlook, we can use Daggy to build a model of how interest rates impact mortgage rates, then consider various economic scenarios to understand where mortgage rates are likely to fall under several economic scenarios.</p>
-<p>I began by loading data from the Federal Reserve Economic Data (FRED) on the <a href="https://fred.stlouisfed.org/series/DGS2">2-year</a> and <a href="https://fred.stlouisfed.org/series/DGS10">10-year</a> treasury yields as well as the <a href="https://fred.stlouisfed.org/series/MORTGAGE30US">30-year-fixed rate mortgage average</a> into Daggy. The dataset included 812 weekly observations spanning from 2010 to the present. I then asked Daggy the following:</p>
-<p><picture><source type="image/avif" srcset="/img/LYNF-fytM5-1578.avif 1578w"><source type="image/webp" srcset="/img/LYNF-fytM5-1578.webp 1578w"><img alt="Asking Claude: Use Daggy to model the relationship between the 10 year yield and 30 year fixed mortgage rates. How about the 2 year yield? What if I used the 10 year 2 year spread? Build a few models to test the robustness of this relationship" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/LYNF-fytM5-1578.png" width="1578" height="784"></picture></p>
-<p>It ran several models and returned the following table:</p>
-<h4 id="model-performance-comparison" tabindex="-1">Model Performance Comparison <a class="header-anchor" href="#model-performance-comparison">#</a></h4>
+<p>When I play video poker, I search for &quot;corner&quot; machines since someone once told me those are the best. Despite following this advice, I rarely cash in big. Although some psychological factors may lead the casino to loosen up the corner machines, my assumption is that all the video poker machines have the same odds. But what if they didn't? If the casino really had a few machines that favored the gambler, could I cash in?</p>
+<p>Before analyzing some strategies, let's simplify our casino. Suppose that it costs $1 to play each machine, which pays $1 with some probability <em>p</em>. Since the casino can't be too tight if they want to attract gamblers, let's assume the optimal average payout across all machines is 0.48. Our toy casino only has two machines: one pays out 51 percent of the time and the other pays out 45 percent of the time, giving an average of 0.48.</p>
+<p>Our goal is to distinguish between the good and the bad machine as fast as possible in order to take advantage of the machine that pays out 51 percent of the time.</p>
+<p>We could try an A/B testing framework. As is standard, we would want 80 percent power, which means we need to have a large enough sample size to give us an 80 percent probability of rejecting the null hypothesis that the machines have the same underlying payoff. Then we could play the good machine until the casino kicked us out. To achieve 80 percent power given our machines' payoffs, we would need 2,174 total pulls, with half of them, or 1,087, coming from the bad machine. After this experiment, since our test has 80 percent power, we will identify and play the high paying machine 80 percent of the time, and in the other 20 percent, where we fail to detect a difference from the experiment, we will randomize between the machines.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> Taken together, running the experiment costs $86.96.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> But then we can take advantage of our knowledge. Our expected profit per pull is 0.8*($0.02) + 0.2*(-$0.04) = $0.008. For T - 2,174 exploitation steps, our total profit is: -$86.96 + (T-2,174)($0.008).</p>
+<p>Rather than having a fixed number of samples from each machine before determining which is best, <em>bandit algorithms</em>, which get their name from slot machines, dynamically adapt their choice of what machine to play next based on the previous outcomes. Several bandit algorithms exist, but one of the most effective, and common, is the Upper Confidence Bound 1 (UCB1), which assumes payoffs are bounded between zero and one. At each time step, for each machine, we calculate the average of past pulls plus an upper confidence bound, which is based on the number of previous draws from that specific machine and our current time step. We then select the machine with the highest upper confidence bound, receive a payout, and repeat. This simple algorithm has near-optimal performance and protects against playing a wildly worse machine too many times because we only play a machine if its upper confidence bound is large, but since the confidence bound shrinks with each play, we quickly abandon bad machines.</p>
+<p>However, unlike in the A/B testing case, we cannot easily calculate the expected profit, in part because the choices are made dynamically. Instead, we ran simulations to estimate expected profit. The figure below shows the cumulative profit after one thousand simulations, each containing 20,000 pulls. The chart shows the mean, 5th--95th percentiles of the UCB1 algorithm along with the expected profit from the A/B test.</p>
+<p><picture><source type="image/avif" srcset="/img/6sv2tysa5b-640.avif 640w"><source type="image/webp" srcset="/img/6sv2tysa5b-640.webp 640w"><img alt="Profit for UCB and A/B" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/6sv2tysa5b-640.png" width="640" height="480"></picture></p>
+<p>The figure above shows that the UCB1 algorithm typically experiences higher profit than the A/B test. Notice that the A/B test has two linear segments, one for the exploration phase, where it loses money, and one for exploitation, where it makes money. But the A/B test only chooses the correct machine with 80 percent probability, and never improves no matter how many draws it makes. The bandit algorithm, however, continuously improves. As it takes more samples, it plays the better machine more, leading its profits to diverge from the A/B testing strategy. The table below shows the cumulative profit at selected milestones, including breakeven points from the figure above.</p>
 <table>
 <thead>
 <tr>
-<th>Rank</th>
-<th>Model</th>
-<th>R²</th>
-<th>RMSE</th>
-<th>WAIC</th>
-<th>Key Insight</th>
+<th style="text-align:right">Step</th>
+<th style="text-align:right">UCB Mean Profit (5th–95th percentile)</th>
+<th style="text-align:right">A/B Expected Profit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>🥇</td>
-<td>10-Year + Yield Spread</td>
-<td>94.5%</td>
-<td>0.275pp</td>
-<td>-34.4</td>
-<td>Best overall performance</td>
+<td style="text-align:right">1,000</td>
+<td style="text-align:right">-$20.23 (-$37.01 to -$5.01)</td>
+<td style="text-align:right">-$40.00</td>
 </tr>
 <tr>
-<td>🥈</td>
-<td>10-Year Only</td>
-<td>89.0%</td>
-<td>0.404pp</td>
-<td>-276.4</td>
-<td>Missing the spread information hurts accuracy</td>
+<td style="text-align:right">3,000</td>
+<td style="text-align:right">-$32.09 (-$70.98 to $2.01)</td>
+<td style="text-align:right">-$80.35</td>
 </tr>
 <tr>
-<td>🥉</td>
-<td>2-Year Only</td>
-<td>79.8%</td>
-<td>0.546pp</td>
-<td>-512</td>
-<td>Short-term rates alone aren't enough</td>
+<td style="text-align:right">6,000</td>
+<td style="text-align:right">-$23.94 (-$83.98 to $26.42)</td>
+<td style="text-align:right">-$56.35</td>
+</tr>
+<tr>
+<td style="text-align:right">9,000</td>
+<td style="text-align:right">-$2.50 (-$78.73 to $61.82)</td>
+<td style="text-align:right">-$32.35</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>9,268</strong></td>
+<td style="text-align:right"><strong>$0.00 (-$77.73 to $65.01)</strong></td>
+<td style="text-align:right">-$30.21</td>
+</tr>
+<tr>
+<td style="text-align:right">12,000</td>
+<td style="text-align:right">$28.07 (-$59.26 to $104.33)</td>
+<td style="text-align:right">-$8.35</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>13,045</strong></td>
+<td style="text-align:right">$40.25 (-$50.06 to $119.17)</td>
+<td style="text-align:right"><strong>$0.01</strong></td>
+</tr>
+<tr>
+<td style="text-align:right">15,000</td>
+<td style="text-align:right">$63.94 (-$33.52 to $150.52)</td>
+<td style="text-align:right">$15.65</td>
+</tr>
+<tr>
+<td style="text-align:right">20,000</td>
+<td style="text-align:right">$129.57 ($17.82 to $227.83)</td>
+<td style="text-align:right">$55.65</td>
 </tr>
 </tbody>
 </table>
-<p>Notice the R-squared of 94.5 percent shows that with just two variables we can explain nearly 95 percent of the variation in 30-year mortgage rates. The WAIC is used to predict how well the model would perform out of sample. Although this is difficult to interpret, AI tools like Claude know that higher values (those closer to zero) are typically better, so it can intelligently choose which model to use.</p>
-<p>To further understand model performance, I then asked Daggy to provide me with the model's worst predictions, as follows:</p>
-<p><picture><source type="image/avif" srcset="/img/DC19noB67S-1698.avif 1698w"><source type="image/webp" srcset="/img/DC19noB67S-1698.webp 1698w"><img alt="Asking Claude: What were the worst predictions?" loading="lazy" decoding="async" class="responsive-image" style="max-width: 100%; height: auto;" src="/img/DC19noB67S-1698.png" width="1698" height="992"></picture></p>
-<p>It provided an artifact that included the table below, showing that the worst results were well within 1 percentage point of the true value and occurred at the onset of the COVID pandemic.</p>
-<hr>
-<h4 id="even-during-crisis-the-model-holds-strong" tabindex="-1">Even During Crisis, the Model Holds Strong <a class="header-anchor" href="#even-during-crisis-the-model-holds-strong">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>Date</th>
-<th>Actual Rate</th>
-<th>Predicted</th>
-<th>Error</th>
-<th>Context</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>April 23, 2020</td>
-<td>3.33%</td>
-<td>2.5%</td>
-<td>+0.83pp</td>
-<td>COVID peak volatility</td>
-</tr>
-<tr>
-<td>April 16, 2020</td>
-<td>3.65%</td>
-<td>2.49%</td>
-<td>+0.82pp</td>
-<td>COVID peak volatility</td>
-</tr>
-<tr>
-<td>April 2, 2020</td>
-<td>3.33%</td>
-<td>2.52%</td>
-<td>+0.81pp</td>
-<td>COVID peak volatility</td>
-</tr>
-</tbody>
-</table>
-<p>The table above shows that even during extreme market turbulence, our model stayed within 1 percentage point of the true values. Given this robust relationship, we can now consider forward-looking scenarios. To do this effectively, we need to understand how different economic conditions shape the yield curve, or the relationship between the bond's term and its yield.</p>
-<p>Outside of periods like quantitative easing (QE) the Fed sets overnight bank rates. Overnight rates then influence, but don't solely determine, longer-term rates like the 2 year and 10 year. Mortgage rates are closely tied to longer-term rates, which the Fed doesn't directly control. The yield curve's slope -- basically the difference between long-term and short-term rates -- is notoriously difficult to predict. Economic theory argues the slope depends on the market's expectations of future yields as well as a premium for holding longer-term bonds. Both of these factors are difficult to observe and can fluctuate based on many factors, such as expected inflation and unemployment. However, yield curve's rough shape can provide insight into the market's view on future economic conditions. Specifically, consider how the following expectations would shape the yield curve:</p>
-<p><strong>Inflation Fears</strong> Higher inflation means the Fed will likely need to raise rates in the future. Expectations of future rates result in a steep, positively sloped yield curve, where the ten year yield is much greater than the two year yield.</p>
-<p><strong>Recession Fears</strong> A slowing economy means the Fed may need to cut rates. Expectations of lower rates result in a negatively sloped yield curve, where the ten year's yield is less than the two year's. This is also known as an &quot;inverted yield curve&quot;. An example of this occurred in August 2019, which saw the ten year at 1.49% and the two year at 1.53%.</p>
-<p><strong>Soft Landing/Normalization</strong> Because of the premium for holding long-term bonds, yield curves typically slope upward. But if investors steady rates, the slope will be flatter than in the inflationary fears scenario.</p>
-<p><strong>Economic Boom</strong> Typically economic booms are associated with higher interest rates, both because booms feed inflation and a higher demand for investment consistent with rosy economic outlooks cause rates to rise. This scenario results in a steeply sloped yield curve with the 10 year rate higher than the 2 year rate.</p>
-<p>Now we can use our above trained model to determine a likely range of mortgage rates under these scenarios. I asked Claude the following:</p>
-<p><em>Use Daggy to run a few scenarios here. For context, the current 10 year yield is 4.29% and the two year is 3.74% Then put this into a table. Let's think about broad economic scenarios: if investors expect inflation, we will have a positive sloped yield curve. If they expect a recession we will have an inverted yield curve. During normal circumstances it will be positive sloped, but less extreme than when investors expect inflation. We can also think about a stagflation and a boom.</em></p>
-<p>and it returned the table below.</p>
-<h4 id="economic-scenarios-and-mortgage-rate-projections" tabindex="-1">Economic Scenarios and Mortgage Rate Projections <a class="header-anchor" href="#economic-scenarios-and-mortgage-rate-projections">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Economic Expectation</th>
-<th>10Y Yield</th>
-<th>2Y Yield</th>
-<th>Spread</th>
-<th>Predicted Mortgage Rate</th>
-<th>90% Confidence Interval</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>🔵 Current</td>
-<td>Normal Growth</td>
-<td>4.29%</td>
-<td>3.74%</td>
-<td>+0.55%</td>
-<td>6.52%</td>
-<td>6.33% - 6.71%</td>
-</tr>
-<tr>
-<td>🟢 Normal Growth</td>
-<td>Steady Economy</td>
-<td>4.00%</td>
-<td>3.25%</td>
-<td>+0.75%</td>
-<td>6.13%</td>
-<td>5.97% - 6.30%</td>
-</tr>
-<tr>
-<td>🔴 Recession</td>
-<td>Economic Downturn</td>
-<td>3.00%</td>
-<td>3.50%</td>
-<td>-0.50%</td>
-<td>5.43%</td>
-<td>5.26% - 5.60%</td>
-</tr>
-<tr>
-<td>🟠 Inflation</td>
-<td>Rising Prices</td>
-<td>5.50%</td>
-<td>4.00%</td>
-<td>+1.50%</td>
-<td>7.55%</td>
-<td>7.23% - 7.87%</td>
-</tr>
-<tr>
-<td>🟡 Stagflation</td>
-<td>Inflation + Slow Growth</td>
-<td>5.00%</td>
-<td>4.50%</td>
-<td>+0.50%</td>
-<td>7.32%</td>
-<td>7.06% - 7.58%</td>
-</tr>
-<tr>
-<td>🟣 Boom</td>
-<td>Strong Growth + Inflation</td>
-<td>6.00%</td>
-<td>4.00%</td>
-<td>+2.00%</td>
-<td>7.94%</td>
-<td>7.56% - 8.33%</td>
-</tr>
-</tbody>
-</table>
-<p>Without further prompting, it also provided a detailed analysis of the table. Two surprises it pointed out were the following (which I am quoting):</p>
-<ol>
-<li>
-<p><strong>Recession vs Boom Spread:</strong> Despite recession having the lowest 10Y yield (3.00%), mortgage rates only drop to 5.43% due to the inverted yield curve penalty</p>
+<p>The table illustrates that the bandit algorithm breaks even nearly 4,000 steps before the A/B test. Furthermore, as highlighted in the figure above, by continuously improving, the bandit algorithm makes nearly 2.5X more profit than the A/B testing strategy after 20,000 steps. In this casino, the bandit algorithm clearly dominates the A/B test.</p>
+<p>But no matter the strategy, notice the number of pulls I would need to make to break even. Let's say I can play one hand every 5 seconds, or 12 hands a minute. That is 9,268/12 or 772 minutes, which is 12.8 hours of playing video poker. Using the A/B testing strategy, I would need 1,087 minutes, or 18.1 hours of playing these two machines just to break even. This shows that although we could profit over the long term, as Keynes said, that much video poker would leave us dead before cashing in.</p>
+<h2 id="footnotes" tabindex="-1">Footnotes <a class="header-anchor" href="#footnotes">#</a></h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>I am assuming away type S errors here, where we falsely conclude the bad machine is the better one. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li>
-<p><strong>Curve Shape Power:</strong> The boom scenario (6.00% 10Y) has higher mortgage rates (7.94%) than pure yield levels would suggest, but the steep +2.00% curve actually helps - without it, rates could be even higher!</p>
+<li id="fn2" class="footnote-item"><p>Expected loss per pull during 50/50 exploration is 0.5(+$0.02) + 0.5(-$0.10) = -$0.04. Over 2,174 pulls: 2,174 × (-$0.04) = $86.96 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
-<p>It also provided more logic behind why we would see the relationships that we do. For example, it pointed out that during an economic boom high growth expectations typically drive up rates. But it also noted that the yield curve's slope also played an important role, noting that &quot;Every +0.25% of additional curve steepness reduces mortgage rates by ~0.15%.&quot;</p>
-<p>The model shows that should the market forecast a huge economic boom, or if inflation takes off, <em>mortgage rates are unlikely to fall much further</em>. But if it forecasts solid growth, or should we fall into a recession, then rates are likely to continue to fall.</p>
-<p>Although predicting the future may be impossible, we can still prepare for it through scenario analysis. Here we were able to get a sense of how mortgage rates may evolve given different macroeconomic environments. With just a few questions, Daggy built and evaluated several models. It found a model that was extremely predictive with just two variables, then used that model to consider various economic scenarios to understand likely mortgage rates.</p>
+</section>
 
 
 <script src="https://utteranc.es/client.js"
@@ -782,12 +684,12 @@ table tr[style*="font-weight: bold"] {
 </script>
 
 <script src="/bundle.js"></script>
-<ul class="links-nextprev"><li>Previous: <a href="/blog/geopolitical_shocks_stocks/">Geopolitical Shocks and Stocks</a></li><li>Next: <a href="/blog/casino_bandits/">Losing money at video poker, with data science!</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/mortgage_rates/">Mortgage rates under various economic scenarios</a></li>
 </ul>
 		</main>
 
 		<footer></footer>
 
-		<!-- Current page: /blog/mortgage_rates/ -->
+		<!-- Current page: /blog/casino_bandits/ -->
 	</body>
 </html>

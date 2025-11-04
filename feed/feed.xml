@@ -4,12 +4,96 @@
 	<subtitle>Just writing about stuff.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2025-08-18T00:00:00Z</updated>
+	<updated>2025-11-04T00:00:00Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
 		<email>tristinbeckman@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Losing money at video poker, with data science!</title>
+		<link href="https://tristinb.github.io/blog/casino_bandits/"/>
+		<updated>2025-11-04T00:00:00Z</updated>
+		<id>https://tristinb.github.io/blog/casino_bandits/</id>
+		<content type="html">&lt;p&gt;When I play video poker, I search for &amp;quot;corner&amp;quot; machines since someone once told me those are the best. Despite following this advice, I rarely cash in big. Although some psychological factors may lead the casino to loosen up the corner machines, my assumption is that all the video poker machines have the same odds. But what if they didn&#39;t? If the casino really had a few machines that favored the gambler, could I cash in?&lt;/p&gt;
+&lt;p&gt;Before analyzing some strategies, let&#39;s simplify our casino. Suppose that it costs $1 to play each machine, which pays $1 with some probability &lt;em&gt;p&lt;/em&gt;. Since the casino can&#39;t be too tight if they want to attract gamblers, let&#39;s assume the optimal average payout across all machines is 0.48. Our toy casino only has two machines: one pays out 51 percent of the time and the other pays out 45 percent of the time, giving an average of 0.48.&lt;/p&gt;
+&lt;p&gt;Our goal is to distinguish between the good and the bad machine as fast as possible in order to take advantage of the machine that pays out 51 percent of the time.&lt;/p&gt;
+&lt;p&gt;We could try an A/B testing framework. As is standard, we would want 80 percent power, which means we need to have a large enough sample size to give us an 80 percent probability of rejecting the null hypothesis that the machines have the same underlying payoff. Then we could play the good machine until the casino kicked us out. To achieve 80 percent power given our machines&#39; payoffs, we would need 2,174 total pulls, with half of them, or 1,087, coming from the bad machine. After this experiment, since our test has 80 percent power, we will identify and play the high paying machine 80 percent of the time, and in the other 20 percent, where we fail to detect a difference from the experiment, we will randomize between the machines.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://tristinb.github.io/blog/casino_bandits/&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; Taken together, running the experiment costs $86.96.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://tristinb.github.io/blog/casino_bandits/&quot; id=&quot;fnref2&quot;&gt;[2]&lt;/a&gt;&lt;/sup&gt; But then we can take advantage of our knowledge. Our expected profit per pull is 0.8*($0.02) + 0.2*(-$0.04) = $0.008. For T - 2,174 exploitation steps, our total profit is: -$86.96 + (T-2,174)($0.008).&lt;/p&gt;
+&lt;p&gt;Rather than having a fixed number of samples from each machine before determining which is best, &lt;em&gt;bandit algorithms&lt;/em&gt;, which get their name from slot machines, dynamically adapt their choice of what machine to play next based on the previous outcomes. Several bandit algorithms exist, but one of the most effective, and common, is the Upper Confidence Bound 1 (UCB1), which assumes payoffs are bounded between zero and one. At each time step, for each machine, we calculate the average of past pulls plus an upper confidence bound, which is based on the number of previous draws from that specific machine and our current time step. We then select the machine with the highest upper confidence bound, receive a payout, and repeat. This simple algorithm has near-optimal performance and protects against playing a wildly worse machine too many times because we only play a machine if its upper confidence bound is large, but since the confidence bound shrinks with each play, we quickly abandon bad machines.&lt;/p&gt;
+&lt;p&gt;However, unlike in the A/B testing case, we cannot easily calculate the expected profit, in part because the choices are made dynamically. Instead, we ran simulations to estimate expected profit. The figure below shows the cumulative profit after one thousand simulations, each containing 20,000 pulls. The chart shows the mean, 5th--95th percentiles of the UCB1 algorithm along with the expected profit from the A/B test.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tristinb.github.io/img/6sv2tysa5b-640.avif 640w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tristinb.github.io/img/6sv2tysa5b-640.webp 640w&quot;&gt;&lt;img alt=&quot;Profit for UCB and A/B&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;responsive-image&quot; style=&quot;max-width: 100%; height: auto;&quot; src=&quot;https://tristinb.github.io/img/6sv2tysa5b-640.png&quot; width=&quot;640&quot; height=&quot;480&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;The figure above shows that the UCB1 algorithm typically experiences higher profit than the A/B test. Notice that the A/B test has two linear segments, one for the exploration phase, where it loses money, and one for exploitation, where it makes money. But the A/B test only chooses the correct machine with 80 percent probability, and never improves no matter how many draws it makes. The bandit algorithm, however, continuously improves. As it takes more samples, it plays the better machine more, leading its profits to diverge from the A/B testing strategy. The table below shows the cumulative profit at selected milestones, including breakeven points from the figure above.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;Step&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;UCB Mean Profit (5th–95th percentile)&lt;/th&gt;
+&lt;th style=&quot;text-align:right&quot;&gt;A/B Expected Profit&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;1,000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$20.23 (-$37.01 to -$5.01)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$40.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;3,000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$32.09 (-$70.98 to $2.01)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$80.35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;6,000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$23.94 (-$83.98 to $26.42)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$56.35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;9,000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$2.50 (-$78.73 to $61.82)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$32.35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;strong&gt;9,268&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;strong&gt;$0.00 (-$77.73 to $65.01)&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$30.21&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;12,000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$28.07 (-$59.26 to $104.33)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;-$8.35&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;strong&gt;13,045&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$40.25 (-$50.06 to $119.17)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;&lt;strong&gt;$0.01&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;15,000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$63.94 (-$33.52 to $150.52)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$15.65&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;20,000&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$129.57 ($17.82 to $227.83)&lt;/td&gt;
+&lt;td style=&quot;text-align:right&quot;&gt;$55.65&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The table illustrates that the bandit algorithm breaks even nearly 4,000 steps before the A/B test. Furthermore, as highlighted in the figure above, by continuously improving, the bandit algorithm makes nearly 2.5X more profit than the A/B testing strategy after 20,000 steps. In this casino, the bandit algorithm clearly dominates the A/B test.&lt;/p&gt;
+&lt;p&gt;But no matter the strategy, notice the number of pulls I would need to make to break even. Let&#39;s say I can play one hand every 5 seconds, or 12 hands a minute. That is 9,268/12 or 772 minutes, which is 12.8 hours of playing video poker. Using the A/B testing strategy, I would need 1,087 minutes, or 18.1 hours of playing these two machines just to break even. This shows that although we could profit over the long term, as Keynes said, that much video poker would leave us dead before cashing in.&lt;/p&gt;
+&lt;h2 id=&quot;footnotes&quot; tabindex=&quot;-1&quot;&gt;Footnotes &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/casino_bandits/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;hr class=&quot;footnotes-sep&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;I am assuming away type S errors here, where we falsely conclude the bad machine is the better one. &lt;a href=&quot;https://tristinb.github.io/blog/casino_bandits/&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&quot;fn2&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;Expected loss per pull during 50/50 exploration is 0.5(+$0.02) + 0.5(-$0.10) = -$0.04. Over 2,174 pulls: 2,174 × (-$0.04) = $86.96 &lt;a href=&quot;https://tristinb.github.io/blog/casino_bandits/&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Mortgage rates under various economic scenarios</title>

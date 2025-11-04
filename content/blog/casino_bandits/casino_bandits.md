@@ -36,7 +36,7 @@ The figure above shows that the UCB1 algorithm typically experiences higher prof
 
 The table illustrates that the bandit algorithm breaks even nearly 4,000 steps before the A/B test. Furthermore, as highlighted in the figure above, by continuously improving, the bandit algorithm makes nearly 2.5X more profit than the A/B testing strategy after 20,000 steps. In this casino, the bandit algorithm clearly dominates the A/B test.
 
-But no matter the strategy, notice the number of pulls I would need to make to break even. Let's say I can play one hand every 5 seconds, or 12 hands a minute. That is 9,268/12 or 772 minutes, which is 12.8 hours of playing video poker. Using the A/B testing strategy, I would need 1,087 minutes, or 18.1 hours of playing these two machines just to break even. This shows that although we could profit over the long term, as Keynes said, that much video poker would leave us dead before cashing in.
+But no matter the strategy, notice the number of pulls I would need to break even. Let's say I can play one hand every 5 seconds, or 12 hands a minute. That is 9,268/12 or 772 minutes, which is 12.8 hours of playing video poker. Using the A/B testing strategy, I would need 1,087 minutes, or 18.1 hours of playing these two machines just to break even. This shows that although we could profit over the long term, as Keynes said, that much video poker would leave us dead before cashing in.
 
 ## Footnotes
 [^types]: I am assuming away type S errors here, where we falsely conclude the bad machine is the better one.

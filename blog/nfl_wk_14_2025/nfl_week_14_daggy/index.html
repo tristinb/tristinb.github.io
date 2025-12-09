@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Processing Beliefs</title>
+		<title>Week 14 NFL Predictions, Daggy vs Kalshi</title>
 		<meta name="description" content="Just writing about stuff.">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Processing Beliefs">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Processing Beliefs">
@@ -18,7 +18,215 @@
 		gtag('config', 'G-YSZ8X5QRT0');
 		</script>
 		
-		<style>* { box-sizing: border-box; }
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+.post-metadata {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.post-metadata li {
+    margin: 0;
+}
+
+.post-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    background: #e5e5e5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.post-tag:hover {
+    background: #d5d5d5;
+    text-decoration: none;
+}
+
+/* Table Improvements */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+* { box-sizing: border-box; }
 /* Defaults */
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
@@ -377,74 +585,164 @@ table tr[style*="font-weight: bold"] {
 		</header>
 
 		<main id="skip">
-			<h1>Tags</h1>
+			
 
-<ul>
+<h1>Week 14 NFL Predictions, Daggy vs Kalshi</h1>
 
-	
-	<li><a href="/tags/polls/" class="post-tag">polls</a></li>
-
-	
-	<li><a href="/tags/international-relations/" class="post-tag">international relations</a></li>
-
-	
-	<li><a href="/tags/game-theory/" class="post-tag">game theory</a></li>
-
-	
-	<li><a href="/tags/machine-learning/" class="post-tag">machine learning</a></li>
-
-	
-	<li><a href="/tags/nlp/" class="post-tag">NLP</a></li>
-
-	
-	<li><a href="/tags/causal-inference/" class="post-tag">causal inference</a></li>
-
-	
-	<li><a href="/tags/bayes/" class="post-tag">bayes</a></li>
-
-	
-	<li><a href="/tags/probability/" class="post-tag">probability</a></li>
-
-	
-	<li><a href="/tags/decision-science/" class="post-tag">decision science</a></li>
-
-	
-	<li><a href="/tags/llms/" class="post-tag">LLMs</a></li>
-
-	
-	<li><a href="/tags/seo/" class="post-tag">SEO</a></li>
-
-	
-	<li><a href="/tags/marketing/" class="post-tag">Marketing</a></li>
-
-	
-	<li><a href="/tags/innovation/" class="post-tag">innovation</a></li>
-
-	
-	<li><a href="/tags/complexity/" class="post-tag">complexity</a></li>
-
-	
-	<li><a href="/tags/daggy/" class="post-tag">daggy</a></li>
-
-	
+<ul class="post-metadata">
+	<li><time datetime="2025-12-09">09 December 2025</time></li>
 	<li><a href="/tags/statistics/" class="post-tag">statistics</a></li>
-
-	
-	<li><a href="/tags/finance/" class="post-tag">finance</a></li>
-
-	
 	<li><a href="/tags/nfl/" class="post-tag">nfl</a></li>
-
-	
 	<li><a href="/tags/kalshi/" class="post-tag">kalshi</a></li>
-
 </ul>
 
 
+<p>Last Thursday, I asked Daggy to run a handful of models on basic NFL data, choose the best one, and predict Week 14 games. For a baseline, I compared the predictions with <a href="https://kalshi.com/">Kalshi</a>, an $11 billion prediction market that allows people in all 50 states to put money on NFL games.</p>
+<p>Daggy not only got one more game correct than Kalshi, but also achieved a better Brier score (lower is better). The table below shows the predictions and result for each game.</p>
+<table>
+<thead>
+<tr>
+<th>Matchup</th>
+<th>Winner</th>
+<th>Daggy Prob</th>
+<th>Kalshi Prob</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARI vs LA</td>
+<td>LA</td>
+<td>68.3%</td>
+<td>82%</td>
+<td>Both ✓</td>
+</tr>
+<tr>
+<td>ATL vs SEA</td>
+<td>SEA</td>
+<td>59.4%</td>
+<td>74%</td>
+<td>Both ✓</td>
+</tr>
+<tr>
+<td>BAL vs PIT</td>
+<td>PIT</td>
+<td>46.9%</td>
+<td>29%</td>
+<td>Both ✗</td>
+</tr>
+<tr>
+<td>BUF vs CIN</td>
+<td>BUF</td>
+<td>69.5%</td>
+<td>72%</td>
+<td>Both ✓</td>
+</tr>
+<tr>
+<td>CLE vs TEN</td>
+<td>TEN</td>
+<td>36.6%</td>
+<td>36%</td>
+<td>Both ✗</td>
+</tr>
+<tr>
+<td>DET vs DAL</td>
+<td>DET</td>
+<td>65.3%</td>
+<td>62%</td>
+<td>Both ✓</td>
+</tr>
+<tr>
+<td>GB vs CHI</td>
+<td>GB</td>
+<td>62.5%</td>
+<td>73%</td>
+<td>Both ✓</td>
+</tr>
+<tr>
+<td>JAX vs IND</td>
+<td>JAX</td>
+<td>50.3%</td>
+<td>47%</td>
+<td>Daggy ✓</td>
+</tr>
+<tr>
+<td>KC vs HOU</td>
+<td>HOU</td>
+<td>51.3%</td>
+<td>36%</td>
+<td>Daggy ✓</td>
+</tr>
+<tr>
+<td>LAC vs PHI</td>
+<td>LAC</td>
+<td>48.7%</td>
+<td>45%</td>
+<td>Both ✗</td>
+</tr>
+<tr>
+<td>LV vs DEN</td>
+<td>DEN</td>
+<td>72.5%</td>
+<td>80%</td>
+<td>Both ✓</td>
+</tr>
+<tr>
+<td>MIN vs WAS</td>
+<td>MIN</td>
+<td>40.5%</td>
+<td>48%</td>
+<td>Both ✗</td>
+</tr>
+<tr>
+<td>NYJ vs MIA</td>
+<td>MIA</td>
+<td>46.4%</td>
+<td>57%</td>
+<td>Kalshi ✓</td>
+</tr>
+<tr>
+<td>TB vs NO</td>
+<td>NO</td>
+<td>41.7%</td>
+<td>21%</td>
+<td>Both ✗</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td></td>
+<td><strong>Daggy: 8/16</strong></td>
+<td><strong>Kalshi: 7/16</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Brier Score</strong></td>
+<td></td>
+<td><strong>0.22</strong></td>
+<td><strong>0.24</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>I was skeptical of these predictions when I posted them to LinkedIn last Thursday. Not only was the data simple, with nothing on injuries or weather conditions, but Claude, which interfaces with Daggy, also asked Daggy to drop data before 2024 despite having data going back to 2000. The best model of the three Daggy trained only had seven features. Overall, the whole modeling process took about ten minutes and Daggy made better week 14 predictions than a prediction market that harnessed the wisdom of the crowds. We will see if this holds in week 15.</p>
+
+
+<script src="https://utteranc.es/client.js"
+		repo="tristinb/tristinb.github.io"
+		issue-term="title"
+		label="💬"
+		theme="preferred-color-scheme"
+		crossorigin="anonymous"
+		async>
+</script>
+
+<script src="/bundle.js"></script>
+<ul class="links-nextprev"><li>Previous: <a href="/blog/casino_bandits/">Losing money at video poker, with data science!</a></li>
+</ul>
 		</main>
 
 		<footer></footer>
 
-		<!-- Current page: /tags/ -->
+		<!-- Current page: /blog/nfl_wk_14_2025/nfl_week_14_daggy/ -->
 	</body>
 </html>

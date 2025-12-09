@@ -4,12 +4,148 @@
 	<subtitle>Just writing about stuff.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2025-11-04T00:00:00Z</updated>
+	<updated>2025-12-09T00:00:00Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
 		<email>tristinbeckman@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Week 14 NFL Predictions, Daggy vs Kalshi</title>
+		<link href="https://tristinb.github.io/blog/nfl_wk_14_2025/nfl_week_14_daggy/"/>
+		<updated>2025-12-09T00:00:00Z</updated>
+		<id>https://tristinb.github.io/blog/nfl_wk_14_2025/nfl_week_14_daggy/</id>
+		<content type="html">&lt;p&gt;Last Thursday, I asked Daggy to run a handful of models on basic NFL data, choose the best one, and predict Week 14 games. For a baseline, I compared the predictions with &lt;a href=&quot;https://kalshi.com/&quot;&gt;Kalshi&lt;/a&gt;, an $11 billion prediction market that allows people in all 50 states to put money on NFL games.&lt;/p&gt;
+&lt;p&gt;Daggy not only got one more game correct than Kalshi, but also achieved a better Brier score (lower is better). The table below shows the predictions and result for each game.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Matchup&lt;/th&gt;
+&lt;th&gt;Winner&lt;/th&gt;
+&lt;th&gt;Daggy Prob&lt;/th&gt;
+&lt;th&gt;Kalshi Prob&lt;/th&gt;
+&lt;th&gt;Result&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ARI vs LA&lt;/td&gt;
+&lt;td&gt;LA&lt;/td&gt;
+&lt;td&gt;68.3%&lt;/td&gt;
+&lt;td&gt;82%&lt;/td&gt;
+&lt;td&gt;Both ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ATL vs SEA&lt;/td&gt;
+&lt;td&gt;SEA&lt;/td&gt;
+&lt;td&gt;59.4%&lt;/td&gt;
+&lt;td&gt;74%&lt;/td&gt;
+&lt;td&gt;Both ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BAL vs PIT&lt;/td&gt;
+&lt;td&gt;PIT&lt;/td&gt;
+&lt;td&gt;46.9%&lt;/td&gt;
+&lt;td&gt;29%&lt;/td&gt;
+&lt;td&gt;Both ✗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;BUF vs CIN&lt;/td&gt;
+&lt;td&gt;BUF&lt;/td&gt;
+&lt;td&gt;69.5%&lt;/td&gt;
+&lt;td&gt;72%&lt;/td&gt;
+&lt;td&gt;Both ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CLE vs TEN&lt;/td&gt;
+&lt;td&gt;TEN&lt;/td&gt;
+&lt;td&gt;36.6%&lt;/td&gt;
+&lt;td&gt;36%&lt;/td&gt;
+&lt;td&gt;Both ✗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DET vs DAL&lt;/td&gt;
+&lt;td&gt;DET&lt;/td&gt;
+&lt;td&gt;65.3%&lt;/td&gt;
+&lt;td&gt;62%&lt;/td&gt;
+&lt;td&gt;Both ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GB vs CHI&lt;/td&gt;
+&lt;td&gt;GB&lt;/td&gt;
+&lt;td&gt;62.5%&lt;/td&gt;
+&lt;td&gt;73%&lt;/td&gt;
+&lt;td&gt;Both ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;JAX vs IND&lt;/td&gt;
+&lt;td&gt;JAX&lt;/td&gt;
+&lt;td&gt;50.3%&lt;/td&gt;
+&lt;td&gt;47%&lt;/td&gt;
+&lt;td&gt;Daggy ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KC vs HOU&lt;/td&gt;
+&lt;td&gt;HOU&lt;/td&gt;
+&lt;td&gt;51.3%&lt;/td&gt;
+&lt;td&gt;36%&lt;/td&gt;
+&lt;td&gt;Daggy ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LAC vs PHI&lt;/td&gt;
+&lt;td&gt;LAC&lt;/td&gt;
+&lt;td&gt;48.7%&lt;/td&gt;
+&lt;td&gt;45%&lt;/td&gt;
+&lt;td&gt;Both ✗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LV vs DEN&lt;/td&gt;
+&lt;td&gt;DEN&lt;/td&gt;
+&lt;td&gt;72.5%&lt;/td&gt;
+&lt;td&gt;80%&lt;/td&gt;
+&lt;td&gt;Both ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MIN vs WAS&lt;/td&gt;
+&lt;td&gt;MIN&lt;/td&gt;
+&lt;td&gt;40.5%&lt;/td&gt;
+&lt;td&gt;48%&lt;/td&gt;
+&lt;td&gt;Both ✗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NYJ vs MIA&lt;/td&gt;
+&lt;td&gt;MIA&lt;/td&gt;
+&lt;td&gt;46.4%&lt;/td&gt;
+&lt;td&gt;57%&lt;/td&gt;
+&lt;td&gt;Kalshi ✓&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TB vs NO&lt;/td&gt;
+&lt;td&gt;NO&lt;/td&gt;
+&lt;td&gt;41.7%&lt;/td&gt;
+&lt;td&gt;21%&lt;/td&gt;
+&lt;td&gt;Both ✗&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;TOTAL&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Daggy: 8/16&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Kalshi: 7/16&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Brier Score&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;0.22&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;0.24&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;I was skeptical of these predictions when I posted them to LinkedIn last Thursday. Not only was the data simple, with nothing on injuries or weather conditions, but Claude, which interfaces with Daggy, also asked Daggy to drop data before 2024 despite having data going back to 2000. The best model of the three Daggy trained only had seven features. Overall, the whole modeling process took about ten minutes and Daggy made better week 14 predictions than a prediction market that harnessed the wisdom of the crowds. We will see if this holds in week 15.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Losing money at video poker, with data science!</title>

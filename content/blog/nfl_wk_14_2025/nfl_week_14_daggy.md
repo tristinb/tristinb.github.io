@@ -25,7 +25,7 @@ Daggy not only got one more game correct than Kalshi, but also achieved a better
 | MIN vs WAS | MIN | 40.5% | 48% | Both ✗ |
 | NYJ vs MIA | MIA | 46.4% | 57% | Kalshi ✓ |
 | TB vs NO | NO | 41.7% | 21% | Both ✗ |
-| **TOTAL** | | **Daggy: 8/16** | **Kalshi: 7/16** | |
+| **TOTAL** | | **Daggy: 8/14** | **Kalshi: 7/14** | |
 | **Brier Score** | | **0.22** | **0.24** | |
 
 I was skeptical of these predictions when I posted them to LinkedIn last Thursday. Not only was the data simple, with nothing on injuries or weather conditions, but Claude, which interfaces with Daggy, also asked Daggy to drop data before 2024 despite having data going back to 2000. The best model of the three Daggy trained only had seven features. Overall, the whole modeling process took about ten minutes and Daggy made better week 14 predictions than a prediction market that harnessed the wisdom of the crowds. We will see if this holds in week 15.

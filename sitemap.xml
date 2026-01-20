@@ -4,190 +4,266 @@
 	<url>
 		<loc>https://tristinb.github.io/blog/polls/</loc>
 		<lastmod>2023-11-08</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/rafah_gaza_war/</loc>
 		<lastmod>2024-05-09</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/shap_values/</loc>
 		<lastmod>2024-12-09</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/text_as_confounder/</loc>
 		<lastmod>2025-03-04</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/absence_of_evidence/</loc>
 		<lastmod>2025-03-24</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/ai_seo_political_science/</loc>
 		<lastmod>2025-04-01</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/innovation_collective_intelligence/</loc>
 		<lastmod>2025-05-09</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/llm_utility_functions/</loc>
 		<lastmod>2025-06-05</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/july_sp500/july_stock_returns/</loc>
 		<lastmod>2025-07-25</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/geopolitical_shocks_stocks/</loc>
 		<lastmod>2025-08-13</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/mortgage_rates/</loc>
 		<lastmod>2025-08-18</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/casino_bandits/</loc>
 		<lastmod>2025-11-04</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/nfl_wk_14_2025/nfl_week_14_daggy/</loc>
 		<lastmod>2025-12-09</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/external_validity/</loc>
 		<lastmod>2026-01-14</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/about/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/blog/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.9</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1.0</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/llms/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/nlp/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/seo/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/marketing/</loc>
-		<lastmod>2026-01-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/probability/</loc>
-		<lastmod>2026-01-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/decision-science/</loc>
-		<lastmod>2026-01-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
-		<lastmod>2026-01-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/statistics/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/bayes/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/probability/</loc>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/decision-science/</loc>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/finance/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/international-relations/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/statistics/</loc>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/innovation/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/complexity/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/daggy/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/nfl/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/kalshi/</loc>
-		<lastmod>2026-01-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/polls/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/game-theory/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/polls/</loc>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/beliefs/</loc>
-		<lastmod>2026-01-16</lastmod>
+		<lastmod>2026-01-20</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
 	</url>
 </urlset>

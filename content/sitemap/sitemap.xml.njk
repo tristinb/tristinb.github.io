@@ -6,9 +6,34 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {%- for page in collections.all %}
 	{% set absoluteUrl %}{{ page.url | htmlBaseUrl(metadata.url) }}{% endset %}
+	{%- if page.url == "/" %}
 	<url>
 		<loc>{{ absoluteUrl }}</loc>
 		<lastmod>{{ page.date | htmlDateString }}</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1.0</priority>
 	</url>
+	{%- elif page.url == "/blog/" %}
+	<url>
+		<loc>{{ absoluteUrl }}</loc>
+		<lastmod>{{ page.date | htmlDateString }}</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.9</priority>
+	</url>
+	{%- elif page.url.startsWith('/blog/') %}
+	<url>
+		<loc>{{ absoluteUrl }}</loc>
+		<lastmod>{{ page.date | htmlDateString }}</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
+	</url>
+	{%- else %}
+	<url>
+		<loc>{{ absoluteUrl }}</loc>
+		<lastmod>{{ page.date | htmlDateString }}</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	{%- endif %}
 {%- endfor %}
 </urlset>

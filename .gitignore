@@ -7,3 +7,10 @@ notes.md
 **.ipynb
 journal.md 
 ideas.md
+
+# Python/uv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/

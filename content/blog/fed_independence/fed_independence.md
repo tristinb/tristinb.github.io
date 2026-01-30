@@ -3,6 +3,7 @@ title: Does the Fed manipulate rates in election years?
 description: Using implied forward rates to back out expected interest rates in election years shows the bond market does not expect Fed manipulation.
 date: 2026-01-30
 draft: False
+tags: [finance, statistics, daggy]
 ---
 
 If the Fed manipulated the economy to get the incumbent reelected, they would follow a predictable pattern. During election years they would drop rates to spur the economy, only to raise them later to avoid inflation. This manipulation should leave a trace in the bond market. But gathering data and running an analysis with Daggy disconfirms this manipulation theory, suggesting instead that the market doesn't believe the Fed keeps rates low in election years, but rather responds to changes in GDP and inflation.

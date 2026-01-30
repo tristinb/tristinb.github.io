@@ -135,27 +135,6 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/bayes/</loc>
-		<lastmod>2026-01-30</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/probability/</loc>
-		<lastmod>2026-01-30</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/decision-science/</loc>
-		<lastmod>2026-01-30</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
 		<loc>https://tristinb.github.io/tags/llms/</loc>
 		<lastmod>2026-01-30</lastmod>
 		<changefreq>monthly</changefreq>
@@ -192,6 +171,27 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/statistics/</loc>
+		<lastmod>2026-01-30</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/bayes/</loc>
+		<lastmod>2026-01-30</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/probability/</loc>
+		<lastmod>2026-01-30</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/decision-science/</loc>
 		<lastmod>2026-01-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -247,13 +247,6 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/game-theory/</loc>
-		<lastmod>2026-01-30</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
 		<loc>https://tristinb.github.io/tags/polls/</loc>
 		<lastmod>2026-01-30</lastmod>
 		<changefreq>monthly</changefreq>
@@ -261,7 +254,7 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
+		<loc>https://tristinb.github.io/tags/game-theory/</loc>
 		<lastmod>2026-01-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -269,6 +262,13 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/beliefs/</loc>
+		<lastmod>2026-01-30</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
 		<lastmod>2026-01-30</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>

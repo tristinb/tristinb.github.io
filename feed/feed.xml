@@ -4,12 +4,82 @@
 	<subtitle>Just writing about stuff.</subtitle>
 	<link href="https://tristinb.github.io/feed/feed.xml" rel="self"/>
 	<link href="https://tristinb.github.io/"/>
-	<updated>2026-01-14T00:00:00Z</updated>
+	<updated>2026-01-30T00:00:00Z</updated>
 	<id>https://tristinb.github.io/</id>
 	<author>
 		<name>Tristin Beckman</name>
 		<email>tristinbeckman@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Does the Fed manipulate rates in election years?</title>
+		<link href="https://tristinb.github.io/blog/fed_independence/"/>
+		<updated>2026-01-30T00:00:00Z</updated>
+		<id>https://tristinb.github.io/blog/fed_independence/</id>
+		<content type="html">&lt;p&gt;If the Fed manipulated the economy to get the incumbent reelected, they would follow a predictable pattern. During election years they would drop rates to spur the economy, only to raise them later to avoid inflation. This manipulation should leave a trace in the bond market. But gathering data and running an analysis with Daggy disconfirms this manipulation theory, suggesting instead that the market doesn&#39;t believe the Fed keeps rates low in election years, but rather responds to changes in GDP and inflation.&lt;/p&gt;
+&lt;p&gt;Modern finance theory states that yields on government debt are made up of two components: &lt;a href=&quot;https://www.newyorkfed.org/research/data_indicators/term-premia-tabs#/overview&quot;&gt;expected return and term premium&lt;/a&gt;. The expected return tells us what traders believe will happen in the future before accounting for unpredictable events that may also drive yields. This measure keeps predictable factors, like the US election, but strips out unpredictable ones.&lt;/p&gt;
+&lt;p&gt;To calculate expected return, consider a trader who wants to invest for two years. They could buy a two-year bond or buy a one-year bond and then, one year later, buy another one-year bond. Arbitrage should ensure both strategies yield the same return. The implied price of the one-year bond purchased in one year, called the one-year one-year forward, which serves as a proxy for its expected return.&lt;/p&gt;
+&lt;p&gt;In reality, a two-year bond typically provides a slightly higher return than sequential one-year bonds because the two-year includes a term premium to compensate investors for holding the longer maturing asset. To account for the term premium, &lt;a href=&quot;https://fred.stlouisfed.org/series/THREEFYTP1&quot;&gt;the Fed provides estimates&lt;/a&gt; for the one and two year going back to 1990. These estimates are tiny. The 2-year bond yield from 1980 through 2025 averaged 4.85%, while its term premium averaged just 0.3%. In the ultra-low interest rate environment of the 2010s, the two-year bond averaged 0.91% while the term premium was -0.02%.&lt;/p&gt;
+&lt;p&gt;With negligible risk premiums on two-year bonds, we can use the implied forward to estimate the market&#39;s expected return of a one-year bond in one year. If the Fed manipulates, then we would expect a year covering the election cycle to have lower expected rates than other years.&lt;/p&gt;
+&lt;p&gt;We calculated the implied one-year rate for every year since 1980 with bond price data for the first Monday of November of the prior year. This captures traders&#39; predictions for rates one year in the future. Monday simplifies the analysis because markets were closed on election day until 1984 and also strips out any noise around contested elections that may have impacted rates in the short term.&lt;/p&gt;
+&lt;p&gt;The table below shows summary statistics for the implied one-year bonds. It shows that the market typically expects rates to be high in election years and the lower the year following the election. Before adjusting for the risk-premium, election years saw the &lt;em&gt;highest&lt;/em&gt; rates, contradicting a Fed manipulation theory.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;years_after_election&lt;/th&gt;
+&lt;th&gt;predicted rate&lt;/th&gt;
+&lt;th&gt;std dev&lt;/th&gt;
+&lt;th&gt;predicted adjusted rate&lt;/th&gt;
+&lt;th&gt;std dev&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;5.26&lt;/td&gt;
+&lt;td&gt;3.73&lt;/td&gt;
+&lt;td&gt;3.16&lt;/td&gt;
+&lt;td&gt;1.83&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;5.01&lt;/td&gt;
+&lt;td&gt;4.17&lt;/td&gt;
+&lt;td&gt;2.73&lt;/td&gt;
+&lt;td&gt;1.94&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;4.99&lt;/td&gt;
+&lt;td&gt;4.35&lt;/td&gt;
+&lt;td&gt;2.49&lt;/td&gt;
+&lt;td&gt;1.68&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;4.79&lt;/td&gt;
+&lt;td&gt;3.11&lt;/td&gt;
+&lt;td&gt;3.48&lt;/td&gt;
+&lt;td&gt;2.15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Plotting expected rates over time shows a similar story. Although expected rates consistently fell from the 1980s to 2010s, the figure below shows that election-years don&#39;t appear to deviate from the overall trend.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tristinb.github.io/img/gAyvYN1fms-4768.avif 4768w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tristinb.github.io/img/gAyvYN1fms-4768.webp 4768w&quot;&gt;&lt;img alt=&quot;Implied 1 year rates 1980-2026&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;responsive-image&quot; style=&quot;max-width: 100%; height: auto;&quot; src=&quot;https://tristinb.github.io/img/gAyvYN1fms-4768.png&quot; width=&quot;4768&quot; height=&quot;3268&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;Statistical models let us adjust for changes in GDP and CPI, which should drive the Fed&#39;s policy choice, and trends to see whether these variables masked an election year effect.&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://tristinb.github.io/blog/fed_independence/&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; I asked Daggy to build two models using the variables above. One model estimated the &lt;em&gt;level&lt;/em&gt; of the predicted rate with a trend feature; the other used a &lt;em&gt;change&lt;/em&gt; in the predicted rate to account for the trend. The image below shows the results.&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tristinb.github.io/img/Kovesxcw8B-1490.avif 1490w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tristinb.github.io/img/Kovesxcw8B-1490.webp 1490w&quot;&gt;&lt;img alt=&quot;Model output&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;responsive-image&quot; style=&quot;max-width: 100%; height: auto;&quot; src=&quot;https://tristinb.github.io/img/Kovesxcw8B-1490.png&quot; width=&quot;1490&quot; height=&quot;1324&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;p&gt;The output shows presidential elections had little impact on the predicted forward. The coefficient is positive, which suggests higher rather than lower expected rates in election years, but near zero. The stronger coefficients for change in GDP and CPI suggest that the market believes these fundamentals drive rates. The trend term drives much of the strong R-squared in the levels model, but the change model&#39;s R-squared shows that these three variables explain about 20 percent of the variation in the implied future rate. This is a solid effect, given how many factors drive one-year bond prices. Adjusting for the term premium left the results nearly identical.&lt;/p&gt;
+&lt;p&gt;This analysis found no evidence that the market believes the Fed manipulates the economy for the president. Expectations moved strongly with changes in inflation and GDP growth, which is unsurprising if the Fed independently follows its dual mandate of price stability and low unemployment.&lt;/p&gt;
+&lt;h2 id=&quot;footnotes&quot; tabindex=&quot;-1&quot;&gt;Footnotes &lt;a class=&quot;header-anchor&quot; href=&quot;https://tristinb.github.io/blog/fed_independence/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;hr class=&quot;footnotes-sep&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;We also lagged these variables one period to coincide with when traders made their predictions. &lt;a href=&quot;https://tristinb.github.io/blog/fed_independence/&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>External Validity</title>

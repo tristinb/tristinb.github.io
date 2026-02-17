@@ -16,3 +16,11 @@ __pycache__/
 .ipynb_checkpoints/
 
 **/research/
+
+.env
+*.env
+
+# Substack prep outputs
+*_substack.md
+*_substack.html
+*_datawrapper.json

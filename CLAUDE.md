@@ -73,6 +73,16 @@ tags: [tag1, tag2]
 
 Image shortcode: `{% image "./figures/name.png", "Alt text" %}`
 
+## Substack Cross-Posting
+
+To prepare a post for Substack:
+1. Build the site first: `npm run build` (needed for image URL resolution)
+2. Run: `uv run substack_prep.py content/blog/{post}/{post}.md`
+3. Rich HTML is copied to clipboard — user pastes directly into Substack's editor
+4. Footnotes: replace superscript markers with Substack's native footnotes (Cmd+Shift+8)
+
+Requires `DATAWRAPPER_TOKEN` in `.env` for table uploads. Tables are cached in `{post}_datawrapper.json` — re-runs won't create duplicates. Use `--dry-run` to preview without API calls, `--open` to preview HTML in browser.
+
 ## Deployment
 
 Push to `main` → GitHub Actions builds → deploys `_site/` to `gh-pages` branch.

@@ -9,4 +9,4 @@ notes.md
 **/notes/
 **.ipynb
 **/research/
-.env
+*.env

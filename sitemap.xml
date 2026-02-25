@@ -107,6 +107,13 @@
 	</url>
 	
 	<url>
+		<loc>https://tristinb.github.io/blog/stablecoin_interest/</loc>
+		<lastmod>2026-02-25</lastmod>
+		<changefreq>never</changefreq>
+		<priority>0.7</priority>
+	</url>
+	
+	<url>
 		<loc>https://tristinb.github.io/about/</loc>
 		<lastmod>2026-02-25</lastmod>
 		<changefreq>monthly</changefreq>
@@ -205,14 +212,14 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/international-relations/</loc>
+		<loc>https://tristinb.github.io/tags/daggy/</loc>
 		<lastmod>2026-02-25</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/daggy/</loc>
+		<loc>https://tristinb.github.io/tags/international-relations/</loc>
 		<lastmod>2026-02-25</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -247,14 +254,14 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/polls/</loc>
+		<loc>https://tristinb.github.io/tags/game-theory/</loc>
 		<lastmod>2026-02-25</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/game-theory/</loc>
+		<loc>https://tristinb.github.io/tags/polls/</loc>
 		<lastmod>2026-02-25</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -275,14 +282,14 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/beliefs/</loc>
+		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
 		<lastmod>2026-02-25</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
+		<loc>https://tristinb.github.io/tags/beliefs/</loc>
 		<lastmod>2026-02-25</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>

@@ -34,6 +34,7 @@ content/              # All source content (Eleventy input dir)
     {post}/
       {post}.md       # Post content
       figures/         # Post-specific images
+      research/        # Research notes (gitignored)
   drafts/             # Draft posts (dev only, excluded from prod)
 _includes/layouts/    # Nunjucks layouts: base.njk, home.njk, post.njk
 _data/metadata.js     # Site metadata (title, URL, author info)
@@ -54,9 +55,10 @@ _site/                # Build output (gitignored)
 
 ## Content Workflow
 
-1. **Drafting**: Create a folder in `content/drafts/{post-name}/` with `{post-name}.md` inside.
-2. **Research**: When doing research for a post, save findings to `{post-folder}/research/` (e.g., `content/drafts/stablecoin_interest/research/`). This folder is gitignored.
-3. **Publishing**: Move the folder from `content/drafts/` to `content/blog/` when ready.
+1. **Ideas/Scratch**: Loose ideas and exploration live in `content/drafts/{post-name}/`. These may or may not be committed.
+2. **Research**: Save findings to `{post-folder}/research/` (e.g., `content/blog/stablecoin_interest/research/`). This folder is gitignored.
+3. **In Progress**: Once committed to a post, move it to `content/blog/{post-name}/` with `draft: True`. It's version controlled but excluded from production builds.
+4. **Publishing**: Set `draft: False` in frontmatter to publish.
 
 ## Blog Post Conventions
 

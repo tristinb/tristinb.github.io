@@ -2,7 +2,7 @@
 title: Private credit took the loans, stablecoins threaten the funding
 description: Banks are already facing competition for loans. Yield-bearing stablecoins will make funding these loans more expensive.
 date: 2026-02-25
-draft: True
+draft: False
 tags: [stablecoins, monetary policy]
 ---
 

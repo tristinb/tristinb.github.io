@@ -3,7 +3,7 @@ title: Private credit took the loans, stablecoins threaten the funding
 description: Banks are already facing competition for loans. Yield-bearing stablecoins will make funding these loans more expensive.
 date: 2026-02-25
 draft: False
-tags: [stablecoins, monetary policy]
+tags: [stablecoins, banking, private credit]
 ---
 
 Last year's GENIUS Act prohibited stablecoin issuers from paying interest to holders. But the law left a loophole that allows third parties, like Coinbase, to offer "rewards" for users that hold these tokens. Banks are pushing for the CLARITY Act, now in Congress, to close this loophole, arguing that paying yield on stablecoins could [drive $6.6 trillion](https://www.aba.com/advocacy/policy-analysis/letter-to-the-senate-on-the-stablecoin-market) away from bank deposits. Banks risk losing a cheap source of funding while facing rising competition from non-bank institutions. Barring any collapse in the private credit market, yield-bearing stablecoins are more likely to accelerate the shift in how credit is funded rather than reduce its overall supply.

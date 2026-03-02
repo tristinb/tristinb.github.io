@@ -3,7 +3,7 @@ title: Why making it easier to short a currency can weaken it
 description: To slow the RMB's appreciation, the PBoC is making it easier to short the currency. Looking at the role of dealers hedging inventory risk shows how this rule change may work.
 date: 2026-03-02
 tags: [TIL, monetary policy, finance]
-draft: True
+draft: False
 ---
 
 In an effort to slow the RMB's appreciation against the dollar, the People's Bank of China (PBoC) eliminated a [20 percent reserve requirement on forward contracts](https://www.ft.com/content/074bdcb1-32d2-4401-a035-6aba368c866b) that sold RMB, making the RMB easier to short. But how can simply making it easier to short a currency actually cause it to depreciate?

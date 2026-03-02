@@ -2,7 +2,7 @@
 title: Why making it easier to short a currency can weaken it
 description: To slow the RMB's appreciation, the PBoC is making it easier to short the currency. Looking at the role of dealers hedging inventory risk shows how this rule change may work.
 date: 2026-03-02
-tags: [TIL, monetary policy]
+tags: [TIL, monetary policy, finance]
 draft: True
 ---
 

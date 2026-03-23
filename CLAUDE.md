@@ -75,6 +75,25 @@ tags: [tag1, tag2]
 
 Image shortcode: `{% image "./figures/name.png", "Alt text" %}`
 
+### Title Guidelines (policy/econ/data posts)
+
+When reviewing titles, evaluate against these principles and suggest improvements — do not replace the title outright.
+
+**Core principles:**
+1. **Take a position** — titles make an argument, not describe a topic. "The dollar's rally is about oil" not "An analysis of dollar movements."
+2. **Establish stakes immediately** — "why now?" should be answerable from the title alone.
+3. **Be concrete** — proper nouns, numbers, named mechanisms. Avoid vague nouns (geopolitics, reform, stability).
+4. **Use active verbs** — "collapses," "reshapes," "exposes" over "examines" or "considers."
+5. **Earn the surprise** — counterintuitive or contrarian framing pulls readers in.
+
+**Reliable formats:**
+- **Bold Claim**: "Dollar Dominance Is Over."
+- **Corrective**: "NATO Isn't as Strong as You Think."
+- **Paradox**: "The Austerity That Grows Debt."
+- **Data Hook**: "The Chart That Explains the Trade War."
+
+**Avoid:** hedging qualifiers ("Some Possible Considerations"), passive constructions, "may/might" titles, questions with obvious answers, academic caution in the title.
+
 ## Deployment
 
 Push to `main` → GitHub Actions builds → deploys `_site/` to `gh-pages` branch.

@@ -343,6 +343,19 @@ class DatawrapperClient:
         )
         resp.raise_for_status()
 
+    def set_columns_as_text(self, chart_id: str, df: pd.DataFrame) -> None:
+        """Force columns containing '%' values to be treated as text."""
+        overrides: dict[str, dict] = {}
+        for col in df.columns:
+            if df[col].astype(str).str.contains("%").any():
+                overrides[col] = {"type": "text"}
+        if overrides:
+            resp = self.client.patch(
+                f"/charts/{chart_id}",
+                json={"metadata": {"data": {"column-format": overrides}}},
+            )
+            resp.raise_for_status()
+
     def publish(self, chart_id: str) -> str:
         """Publish the chart and return the embed URL."""
         resp = self.client.post(f"/charts/{chart_id}/publish")
@@ -433,12 +446,13 @@ def process_tables(
             else:
                 chart_id = dw_client.create_chart(chart_title)
                 dw_client.upload_data(chart_id, csv_data)
+                dw_client.set_columns_as_text(chart_id, df)
                 embed_url = dw_client.publish(chart_id)
                 cache[cache_key] = chart_id
                 print(f"  Table {table_num}: Created chart {chart_id}")
 
             embed_url = f"https://datawrapper.dwcdn.net/{cache[cache_key]}/1/"
-            replacements.append((start, end, embed_url))
+            replacements.append((start, end, f"\n{embed_url}\n"))
 
     # --- Markdown tables ---
     for table_text, start, end in find_markdown_tables(text):
@@ -465,12 +479,13 @@ def process_tables(
             else:
                 chart_id = dw_client.create_chart(chart_title)
                 dw_client.upload_data(chart_id, csv_data)
+                dw_client.set_columns_as_text(chart_id, df)
                 embed_url = dw_client.publish(chart_id)
                 cache[cache_key] = chart_id
                 print(f"  Table {table_num}: Created chart {chart_id}")
 
             embed_url = f"https://datawrapper.dwcdn.net/{cache[cache_key]}/1/"
-            replacements.append((start, end, embed_url))
+            replacements.append((start, end, f"\n{embed_url}\n"))
 
     # Apply replacements in reverse order to preserve positions
     replacements.sort(key=lambda r: r[0], reverse=True)

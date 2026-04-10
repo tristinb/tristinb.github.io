@@ -212,7 +212,7 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/finance/</loc>
+		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
 		<lastmod>2026-04-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -220,6 +220,13 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/statistics/</loc>
+		<lastmod>2026-04-10</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/finance/</loc>
 		<lastmod>2026-04-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -234,20 +241,6 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/international-relations/</loc>
-		<lastmod>2026-04-10</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
-		<lastmod>2026-04-10</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/innovation/</loc>
 		<lastmod>2026-04-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -275,27 +268,6 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/polls/</loc>
-		<lastmod>2026-04-10</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/til/</loc>
-		<lastmod>2026-04-10</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/monetary-policy/</loc>
-		<lastmod>2026-04-10</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
 		<loc>https://tristinb.github.io/tags/oil/</loc>
 		<lastmod>2026-04-10</lastmod>
 		<changefreq>monthly</changefreq>
@@ -317,6 +289,20 @@
 	</url>
 	
 	<url>
+		<loc>https://tristinb.github.io/tags/innovation/</loc>
+		<lastmod>2026-04-10</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/polls/</loc>
+		<lastmod>2026-04-10</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
 		<loc>https://tristinb.github.io/tags/game-theory/</loc>
 		<lastmod>2026-04-10</lastmod>
 		<changefreq>monthly</changefreq>
@@ -324,7 +310,14 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/beliefs/</loc>
+		<loc>https://tristinb.github.io/tags/til/</loc>
+		<lastmod>2026-04-10</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/monetary-policy/</loc>
 		<lastmod>2026-04-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -346,6 +339,13 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/private-credit/</loc>
+		<lastmod>2026-04-10</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/beliefs/</loc>
 		<lastmod>2026-04-10</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>

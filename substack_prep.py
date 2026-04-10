@@ -278,6 +278,26 @@ def markdown_table_to_df(table_text: str) -> pd.DataFrame:
     return pd.DataFrame(rows, columns=header)
 
 
+def extract_table_title(text: str, table_start: int) -> str | None:
+    """Extract a bold title from the line(s) immediately above a table.
+
+    Looks for a pattern like **Some Title** on the non-empty line preceding
+    the table and returns the text without the ``**`` markers.
+    """
+    before = text[:table_start].rstrip("\n")
+    lines = before.splitlines()
+    # Walk backwards past blank lines
+    for line in reversed(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        m = re.match(r"^\*\*(.+?)\*\*$", stripped)
+        if m:
+            return m.group(1)
+        break
+    return None
+
+
 def find_markdown_tables(text: str) -> list[tuple[str, int, int]]:
     """Find markdown pipe tables. Returns list of (table_text, start, end)."""
     pattern = re.compile(
@@ -430,15 +450,19 @@ def process_tables(
             print(f"  ⚠ Table {table_num}: Failed to parse HTML table — {e}")
             continue
 
+        # Strip bold markers from column headers
+        df.columns = [re.sub(r"\*\*(.+?)\*\*", r"\1", c) for c in df.columns]
+
         csv_data = df.to_csv(index=False)
         cache_key = csv_data.strip()
-        chart_title = f"{post_title} — Table {table_num}"
+        extracted_title = extract_table_title(text, start)
+        chart_title = extracted_title or post_title
 
         if dry_run:
             print(f"  Table {table_num} (HTML, {len(df)} rows): would upload to Datawrapper as \"{chart_title}\"")
             preview = df.to_string(index=False, max_rows=4)
             print(f"    Preview:\n    {preview.replace(chr(10), chr(10) + '    ')}")
-            replacements.append((start, end, f"[DATAWRAPPER EMBED — Table {table_num}: \"{chart_title}\"]"))
+            replacements.append((start, end, f"[DATAWRAPPER EMBED: \"{chart_title}\"]"))
         else:
             if cache_key in cache:
                 chart_id = cache[cache_key]
@@ -463,15 +487,19 @@ def process_tables(
             print(f"  ⚠ Table {table_num}: Failed to parse markdown table — {e}")
             continue
 
+        # Strip bold markers from column headers
+        df.columns = [re.sub(r"\*\*(.+?)\*\*", r"\1", c) for c in df.columns]
+
         csv_data = df.to_csv(index=False)
         cache_key = csv_data.strip()
-        chart_title = f"{post_title} — Table {table_num}"
+        extracted_title = extract_table_title(text, start)
+        chart_title = extracted_title or post_title
 
         if dry_run:
             print(f"  Table {table_num} (Markdown, {len(df)} rows): would upload to Datawrapper as \"{chart_title}\"")
             preview = df.to_string(index=False, max_rows=4)
             print(f"    Preview:\n    {preview.replace(chr(10), chr(10) + '    ')}")
-            replacements.append((start, end, f"[DATAWRAPPER EMBED — Table {table_num}: \"{chart_title}\"]"))
+            replacements.append((start, end, f"[DATAWRAPPER EMBED: \"{chart_title}\"]"))
         else:
             if cache_key in cache:
                 chart_id = cache[cache_key]

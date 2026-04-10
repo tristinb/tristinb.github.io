@@ -3,6 +3,7 @@ title: Why India's unconventional foreign exchange policies won't work
 description: Understanding India's unconventional monetary policy through T-accounts
 draft: False
 date: 2026-04-10
+tags: [monetary policy, exchange rates]
 ---
 
 India's currency fell sharply after the Iran war began, leading the Reserve Bank of India (RBI) to enact two major unconventional policies to strengthen the rupee (INR). First, the RBI [limited banks' net open positions on onshore deliverables](https://www.ft.com/content/afe09b9e-b951-42e2-a8fc-c7863c3338df?syn-25a6b1a6=1) to $100M per day. When that didn't work, they [banned domestic banks from offering non-deliverable forward contracts](https://www.ft.com/content/9fd5635f-26d4-488b-906e-5568338f512d?syn-25a6b1a6=1).

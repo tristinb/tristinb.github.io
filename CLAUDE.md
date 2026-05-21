@@ -46,7 +46,8 @@ _site/                # Build output (gitignored)
 
 ## Key Files for Styling
 
-- `public/css/index.css` — Main stylesheet, CSS variables, dark mode, responsive design (max-width: 40em)
+- `STYLE.md` — **Primary design reference.** Read this before making any visual or layout change. It defines design philosophy, typography, color tokens, component rules, and what to avoid.
+- `public/css/index.css` — Main stylesheet, CSS variables, dark mode, responsive design
 - `_includes/layouts/base.njk` — HTML shell, header, footer, nav
 - `_includes/layouts/post.njk` — Blog post layout (prev/next nav, comments)
 - `_includes/layouts/home.njk` — Homepage layout

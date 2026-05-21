@@ -10,3 +10,6 @@ notes.md
 **.ipynb
 **/research/
 *.env
+**/*_substack.html
+**/*_substack.md
+**/*_datawrapper.json

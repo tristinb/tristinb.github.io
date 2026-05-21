@@ -1,14 +1,15 @@
 {%- css %}
-.tags-list { display: inline-flex; gap: 0.5rem; list-style: none; padding: 0; margin: 0 0 0 1rem; }
-.tag-item { font-size: 0.875rem; background: #e5e5e5; padding: 0.25rem 0.5rem; border-radius: 0.25rem; }
-.tag-item a { text-decoration: none; color: inherit; }
-.tag-item:hover { background: #d5d5d5; }
+.tags-list { display: inline-flex; gap: 0.75rem; list-style: none; padding: 0; margin: 0.25rem 0 0; }
+.tag-item { font-family: var(--font-sans); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+.tag-item a { text-decoration: none; color: inherit; transition: opacity 150ms ease; }
+.tag-item a:hover { opacity: 0.6; }
 {% endcss %}
 
 <ul class="postlist">
 {% for post in postslist | reverse %}
 	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
 		<a href="{{ post.url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+		{% if post.data.description %}<p class="postlist-description">{{ post.data.description }}</p>{% endif %}
 		<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
 		{% if post.data.tags %}
 			<ul class="tags-list">

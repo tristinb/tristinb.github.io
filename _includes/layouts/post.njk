@@ -4,49 +4,6 @@ layout: layouts/base.njk
 {# Only include the syntax highlighter CSS on blog posts #}
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
-{%- css %}
-.post-metadata {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.post-metadata li {
-    margin: 0;
-}
-
-.post-tag {
-    display: inline-block;
-    font-size: 0.875rem;
-    background: #e5e5e5;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    color: inherit;
-    transition: background-color 0.2s ease;
-}
-
-.post-tag:hover {
-    background: #d5d5d5;
-    text-decoration: none;
-}
-
-/* Table Improvements */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-    font-size: 0.95em;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-{% endcss %}
 
 <h1>{{ title }}</h1>
 

@@ -1,0 +1,35 @@
+---
+title: How a Law becomes a Rule
+description: Agencies, not the president or Congress, set most of the rules, but citizens have a say.
+date: 2026-06-08
+tags: [political economy]
+draft: False
+---
+
+Agencies, not the president or Congress, set most laws in the United States. Rather than defining explicit rules in their thousand-plus pages, executive orders and congressional statutes typically empower agencies like the Securities and Exchange Commission (SEC) and the Food and Drug Administration (FDA) to define the specifics. For example, the Affordable Care Act's *contraceptive mandate* says nothing about birth control, only requiring insurance companies to offer *preventive care*. The Health Resources and Services Administration (HRSA), empowered under the ACA to define *preventive care*, determined this included contraception. This determination led to a decade of legal fights and multiple Supreme Court cases. Unlike statutes and executive orders, agency rules have open comment windows, and agencies are legally required to respond. 
+
+## Writing the Rules
+
+Agencies write thousands of rules per year. As of this writing, 1,118 rules have open comment windows on the *[Federal Register](https://www.federalregister.gov/)*. Several triggers may drive agencies to create new rules. A common trigger is when the president signs a congressional bill into law. Congressional statutes largely cover funding, broad definitional and legal matters along with agency responsibilities, with agencies left to define specifics and create enforceable rules. Many of these agencies, such as the FDA and Housing and Urban Development (HUD), fall under the Executive Branch, where the president is free to hire and fire the heads. Other agencies, such as the Securities and Exchange Commission (SEC) and the Federal Reserve, are independent. The president may play a role in appointing the head but can't as easily hire or fire them (pending the *Trump v. Cook* ruling).
+
+Other mechanisms can also drive agencies to create new rules. The president, via executive order or through the Office of Management and Budget (OMB), can direct agencies to write new rules. Agencies may also write new rules in response to a lawsuit or court ruling. Finally, agencies have authority to write new rules without prodding by Congress or the president. For example, the FCC wrote net neutrality rules without clear presidential, congressional or judicial initiative.
+
+After deciding to write a rule, agencies typically consult outside stakeholders and ~~lobbyists~~ lawyers.[^lawyer_lobbyists] These outside interests seek this consultative role, with one estimate finding they [spend at least 2.5 to 20 times more money](https://www.cambridge.org/core/journals/perspectives-on-politics/article/lawyers-as-lobbyists-regulatory-advocacy-in-american-finance/D6C046236F1F997C0C6E75FC608954D4) lobbying agencies to draft favorable rules than lobbying Congress. Agencies, however, argue businesses and outside interests can help them better understand the rule's feasibility.
+
+Once the rule is written, the Administrative Procedure Act (APA) requires agencies to both post their initial draft with an open comment period and to respond to all *substantive* comments.[^ifr] Comment windows typically last around 60 days, though no statute fixes the length.
+
+## Challenging the Rules
+
+Once the rule is drafted, it goes through the Office of Information and Regulatory Affairs (OIRA), which the president controls. OIRA can pressure the agency to change the rule, or perpetually return it to the agency for reconsideration, giving the Executive Branch an effective veto. Historically, OIRA could only veto rules by agencies that fell under the Executive Branch. However, the Supreme Court heard arguments in December 2025 (*Trump v. Slaughter*) and January 2026 (*Trump v. Cook*) that could extend this veto power to all agencies, with a potential carve-out for the Federal Reserve.
+
+Congress has less control than the president over agency rules. Although the Congressional Review Act (CRA) allows Congress to veto a rule, the president can veto Congress' veto. More typically, a congressional majority can attach a regulatory limitation rider to other appropriations bills, which halts the funding an agency needs to implement a rule. Although the president can veto a limitation rider, the veto would apply to the entire appropriations bill, complicating the president's calculus. Since limitation riders typically conflict with the president's agenda, they [are more common under divided government](https://jasonmacdonald.faculty.wvu.edu/files/d/17a2ef07-588a-4c91-9b25-3ef34bf7c630/macdonald-2013.pdf).
+
+Parties can legally challenge an agency that doesn't adequately respond to public comments. Initially the Supreme Court held that not responding to comments meant agency rules could be deemed as "arbitrary and capricious" against potentially harmed parties. The court went further in the 2015 *Perez v. Mortgage Bankers Ass'n*, where it [determined that the APA bound agencies to respond to comments as a procedural duty](https://yalelawjournal.org/essay/the-duty-to-respond-to-rulemaking-comments). Agencies typically respond to these comments in the preamble section of the final rule; failing to adequately respond may lead the courts to force the agencies to respond or change the rule.
+
+Historically, legal challenges against agencies were more difficult because *Chevron deference* and similar deference doctrines held that judges should defer to agency discretion. The Supreme Court overturned these doctrines in the 2024 *Loper Bright Enterprises v. Raimondo* and *Relentless Inc. v. Department of Commerce* cases, which [may lead to more litigation for the agencies](https://www.law.uchicago.edu/news/chevron-deference-ended-what-happens-next). More litigation is no guarantee, however, as courts didn't automatically defer to agencies. [One 2019 study](https://press.uchicago.edu/ucp/books/book/chicago/B/bo37864103.html) found that agencies won just over half of their rulemaking lawsuits between 1999 and 2012. But it also noted that lawsuits against an agency rarely made it to court, perhaps because of the various deference doctrines. Because this filter no longer holds, we are likely to see more challenges against the agencies.
+
+Although we often pay more attention to fights in Congress and electoral politics, agencies write [around 90 percent of the](https://press.uchicago.edu/ucp/books/book/chicago/B/bo37864103.html) laws US citizens and businesses must follow. Sophisticated interests acknowledge this, as most of their lobbying budgets target regulators. But unlike congressional bills and executive orders, agency rules typically have open comment windows, and agencies must respond.
+
+[^lawyer_lobbyists]: Since these lawyers are simply consulting the agencies rather than trying to influence Congress, they don't need to register as lobbyists.
+
+[^ifr]: Agencies can avoid the review process if they can justify an *interim final rule* out of urgency.

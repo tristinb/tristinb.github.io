@@ -2,7 +2,7 @@
 title: How a Law Becomes a Rule
 description: Agencies, not the president or Congress, set most of the rules governing the US. But citizens have a say.
 date: 2026-06-08
-tags: [political economy]
+tags: [regulation, policy, political economy]
 draft: false
 ---
 

@@ -226,7 +226,7 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
+		<loc>https://tristinb.github.io/tags/finance/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -240,7 +240,7 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/finance/</loc>
+		<loc>https://tristinb.github.io/tags/daggy/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -248,20 +248,6 @@
 	
 	<url>
 		<loc>https://tristinb.github.io/tags/international-relations/</loc>
-		<lastmod>2026-06-11</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/monetary-policy/</loc>
-		<lastmod>2026-06-11</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
-	</url>
-	
-	<url>
-		<loc>https://tristinb.github.io/tags/exchange-rates/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -282,7 +268,21 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/daggy/</loc>
+		<loc>https://tristinb.github.io/tags/machine-learning/</loc>
+		<lastmod>2026-06-11</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/monetary-policy/</loc>
+		<lastmod>2026-06-11</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>https://tristinb.github.io/tags/exchange-rates/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -324,14 +324,14 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/game-theory/</loc>
+		<loc>https://tristinb.github.io/tags/til/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/til/</loc>
+		<loc>https://tristinb.github.io/tags/game-theory/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
@@ -359,14 +359,14 @@
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/beliefs/</loc>
+		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
 	</url>
 	
 	<url>
-		<loc>https://tristinb.github.io/tags/causal-inference/</loc>
+		<loc>https://tristinb.github.io/tags/beliefs/</loc>
 		<lastmod>2026-06-11</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.8</priority>
